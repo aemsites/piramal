@@ -2,11 +2,6 @@
   {
     "id": "page-metadata",
     "fields": [
-      {
-        "component": "boolean",
-        "name": "breadcrumbs",
-        "label": "Show Breadcrumbs"
-      }
     ]
   },
   {
@@ -117,6 +112,142 @@
             "value": "secondary"
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "hero-carousel",
+    "fields": [
+      {
+        "component": "boolean",
+        "name": "autoscroll",
+        "label": "Auto scroll"
+      }
+    ]
+  },
+  {
+    "id": "hero-slide",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Block Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 3,
+        "options": [
+          {
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "Green",
+                "value": "background-green"
+              },
+              {
+                "name": "Light Blue",
+                "value": "background-light-blue"
+              },
+              {
+                "name": "Light Purple",
+                "value": "background-light-purple"
+              },
+              {
+                "name": "Purple",
+                "value": "background-purple"
+              }
+            ]
+          },
+          {
+            "name": "Background Image",
+            "children": [
+              {
+                "name": "On",
+                "value": "with-background-image"
+              },
+              {
+                "name": "Off",
+                "value": "no-background-image"
+              }
+            ]
+          },
+          {
+            "name": "Image Alignment",
+            "children": [
+              {
+                "name": "Default",
+                "value": ""
+              },
+              {
+                "name": "Centered",
+                "value": "justify-image-center"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "foreground",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foregroundAlt",
+        "value": "",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_eyebrow",
+        "value": "",
+        "label": "Eyebrow Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_title",
+        "value": "",
+        "label": "Title",
+        "description": "Use italics for text to use color"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1",
+        "value": "",
+        "label": "First CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1Text",
+        "value": "",
+        "label": "CTA Button Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2eyebrow",
+        "value": "",
+        "label": "Second CTA Eyebrow Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2",
+        "value": "",
+        "label": "Second CTA Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1Text",
+        "value": "",
+        "label": "Second CTA Text"
       }
     ]
   },

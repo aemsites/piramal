@@ -6,6 +6,22 @@
     ]
   },
   {
+    "id": "section",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "hero-carousel"
+    ]
+  },
+  {
+    "id": "hero-carousel",
+    "components": [
+      "hero-slide"
+    ]
+  },
+  {
     "id": "columns",
     "components": []
   },
@@ -16,19 +32,6 @@
       "image",
       "button",
       "title"
-    ]
-  },
-  {
-    "id": "section",
-    "components": [
-      "text",
-      "image",
-      "button",
-      "title",
-      "hero",
-      "cards",
-      "columns",
-      "accordion"
     ]
   },
   {

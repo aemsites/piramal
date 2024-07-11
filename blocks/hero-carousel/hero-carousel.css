@@ -1,0 +1,17 @@
+/* set background colors */
+.block.hero-carousel .hero-slide.background-green {
+  background-color: green;
+}
+
+.block.hero-carousel .hero-slide.background-purple {
+  background-color: purple;
+}
+
+/* set emphasis styles*/
+.block.hero-carousel .hero-slide.background-green em {
+  color: pink;
+}
+
+.block.hero-carousel .hero-slide.background-purple em {
+  color: green;
+}
