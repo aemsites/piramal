@@ -4,15 +4,13 @@
 export default function decorate(block) {
   // get the rows
   // first row contains the autoscroll flag
-  const [autoscroll, slides] = [...block.children]
+  const [autoscroll, ...slides] = [...block.children]
   // keep the flag as boolean
   const autoscrollflag = autoscroll.children[0].innerText  === 'true';
   autoscroll.remove();
-  console.log(autoscrollflag);
-  console.log(slides);
 
   // loop through the slides
-  [slides].forEach((slide,idx) => {
+  [...slides].forEach((slide,idx) => {
     const [classes,description,image] = [...slide.children];
 
     //extract the classes list
@@ -25,5 +23,5 @@ export default function decorate(block) {
     description.classList.add("description");
 
     image.classList.add("slide-image");
-  });
+  })
 }

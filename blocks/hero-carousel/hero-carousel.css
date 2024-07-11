@@ -4,7 +4,7 @@
   flex-direction: row;
 }
 
-.block.hero-carousel .hero-slide  .slide-image {
+.block.hero-carousel .hero-slide .slide-image {
   width:300px;
   height: auto;
 }
