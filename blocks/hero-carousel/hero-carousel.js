@@ -13,7 +13,7 @@ export default function decorate(block) {
 
   // loop through the slides
   [slides].forEach((slide,idx) => {
-    const [classes,image,description] = [...slide.children];
+    const [classes,description,image] = [...slide.children];
 
     //extract the classes list
     const classesText = classes.textContent.trim();
@@ -22,5 +22,8 @@ export default function decorate(block) {
     classes.remove();
 
     ///...
+    description.classList.add("description");
+
+    image.classList.add("slide-image");
   });
 }

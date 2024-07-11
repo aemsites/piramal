@@ -92,7 +92,7 @@
                     "model": "hero-slide",
                     "classes": ["background-green","with-background-image"],
                     "descr_eyebrow": "Eyebrow placeholder text",
-                    "descr_title": "<p>Title <em>Placeholder</em></p>"
+                    "descr_title": "<p>Title <em>Placeholder</em></p>",
                   }
                 }
               }

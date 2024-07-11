@@ -1,4 +1,15 @@
 /* set background colors */
+.block.hero-carousel .hero-slide {
+  display: flex;
+  flex-direction: row;
+}
+
+.block.hero-carousel .hero-slide  .slide-image {
+  width:300px;
+  height: auto;
+}
+
+/* set background colors */
 .block.hero-carousel .hero-slide.background-green {
   background-color: green;
 }

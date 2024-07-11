@@ -186,20 +186,6 @@
         ]
       },
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "foreground",
-        "label": "Image",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "foregroundAlt",
-        "value": "",
-        "label": "Image Alt Text"
-      },
-      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
@@ -248,6 +234,20 @@
         "name": "descr_cta1Text",
         "value": "",
         "label": "Second CTA Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "foreground",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "foregroundAlt",
+        "value": "",
+        "label": "Image Alt Text"
       }
     ]
   },
