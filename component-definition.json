@@ -118,21 +118,6 @@
           }
         },
         {
-          "title": "Columns",
-          "id": "columns",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/columns/v1/columns",
-                "template": {
-                  "columns": "2",
-                  "rows": "1"
-                }
-              }
-            }
-          }
-        },
-        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -157,6 +142,21 @@
                 "template": {
                   "name": "Card",
                   "model": "card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Columns",
+          "id": "columns",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/columns/v1/columns",
+                "template": {
+                  "columns": "2",
+                  "rows": "1"
                 }
               }
             }

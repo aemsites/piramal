@@ -230,6 +230,6 @@ main .section {
 
 /* section metadata */
 main .section.light,
-main .section.highlight {
+main .section.light-gray {
   background-color: var(--light-color);
 }

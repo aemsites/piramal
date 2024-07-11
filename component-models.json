@@ -231,7 +231,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_cta1Text",
+        "name": "descr_cta2Text",
         "value": "",
         "label": "Second CTA Text"
       },
@@ -281,11 +281,25 @@
         "multi": false
       },
       {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
         "component": "richtext",
-        "name": "text",
+        "name": "descr_text",
         "value": "",
         "label": "Text",
         "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_link",
+        "value": "",
+        "label": "link",
+        "required": true
       }
     ]
   },
@@ -293,11 +307,21 @@
     "id": "section",
     "fields": [
       {
-        "component": "text",
+        "component": "select",
         "name": "style",
         "value": "",
-        "label": "Style",
-        "valueType": "string"
+        "label": "Background",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "default",
+            "value": ""
+          },
+          {
+            "name": "Light Gray",
+            "value": "light-gray"
+          }
+        ]
       }
     ]
   },
