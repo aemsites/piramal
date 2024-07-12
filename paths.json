@@ -1,6 +1,6 @@
 {
   "mappings": [
-    "/index:/",
+    "/index/:/",
     "/content/aem-block-collection/metadata:/metadata.json",
     "/content/aem-block-collection/configuration:/.helix/config.json"
   ]
