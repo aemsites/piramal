@@ -1,5 +1,8 @@
 {
   "mappings": [
-    "/content/priamalfinance-eds2/index:/"
+    "/content/priamalfinance-eds2/:/"
+  ],
+  "includes": [
+    "/content/priamalfinance-eds2"
   ]
 }
