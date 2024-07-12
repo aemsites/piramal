@@ -1,7 +1,5 @@
 {
   "mappings": [
-    "/content/priamalfinance-eds2/:/",
-    "/content/aem-block-collection/metadata:/metadata.json",
-    "/content/aem-block-collection/configuration:/.helix/config.json"
+    "/content/priamalfinance-eds2/index:/"
   ]
 }
