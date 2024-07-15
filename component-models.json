@@ -186,11 +186,6 @@
         ]
       },
       {
-        "name": "descTab",
-        "label": "Content",
-        "component": "tab"
-      },
-      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
@@ -246,11 +241,6 @@
         "name": "descr_cta2Text",
         "value": "",
         "label": "Second CTA Text"
-      },
-      {
-        "name": "imgTab",
-        "label": "Image",
-        "component": "tab"
       },
       {
         "component": "reference",
@@ -327,11 +317,6 @@
             ]
           }
         ]
-      },
-      {
-        "name": "descTab",
-        "label": "Content",
-        "component": "tab"
       },
       {
         "component": "text",
@@ -466,11 +451,6 @@
         "name": "descr_cta2Text",
         "value": "",
         "label": "Second CTA Text"
-      },
-      {
-        "name": "imgTab",
-        "label": "Image",
-        "component": "tab"
       },
       {
         "component": "reference",
