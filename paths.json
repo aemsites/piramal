@@ -1,8 +1,8 @@
 {
   "mappings": [
-    "/content/priamalfinance-eds2/:/"
+    "/content/piramalfinance-eds2/:/"
   ],
   "includes": [
-    "/content/priamalfinance-eds2"
+    "/content/piramalfinance-eds2"
   ]
 }
