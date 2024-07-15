@@ -1,5 +1,5 @@
 mountpoints:
   /:
-    url: "https://author-p130360-e1272151.adobeaemcloud.com/bin/franklin.delivery/aemsites/piramal/main"
+    url: "https://author-p133703-e1305981.adobeaemcloud.com/bin/franklin.delivery/aemsites/piramal/main"
     type: "markup"
     suffix: ".html"
