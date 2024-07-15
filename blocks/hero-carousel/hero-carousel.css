@@ -1,4 +1,4 @@
-/* set background colors */
+/* set background colors 
 .block.hero-carousel .hero-slide {
   display: flex;
   flex-direction: row;
@@ -9,7 +9,7 @@
   height: auto;
 }
 
-/* set background colors */
+/* set background colors 
 .block.hero-carousel .hero-slide.background-green {
   background-color: green;
 }
@@ -18,7 +18,7 @@
   background-color: purple;
 }
 
-/* set emphasis styles */
+/* set emphasis styles 
 .block.hero-carousel .hero-slide.background-green em {
   color: pink;
 }
@@ -26,3 +26,4 @@
 .block.hero-carousel .hero-slide.background-purple em {
   color: green;
 }
+  */

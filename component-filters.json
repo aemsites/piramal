@@ -21,7 +21,14 @@
   {
     "id": "hero-carousel",
     "components": [
-      "hero-slide"
+      "content-slide",
+      "features-slide"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
     ]
   },
   {
@@ -35,12 +42,6 @@
       "image",
       "button",
       "title"
-    ]
-  },
-  {
-    "id": "cards",
-    "components": [
-      "card"
     ]
   },
   {

@@ -126,7 +126,7 @@
     ]
   },
   {
-    "id": "hero-slide",
+    "id": "content-slide",
     "fields": [
       {
         "component": "multiselect",
@@ -186,6 +186,11 @@
         ]
       },
       {
+        "name": "descTab",
+        "label": "Content",
+        "component": "tab"
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
@@ -198,10 +203,17 @@
         "name": "descr_title",
         "value": "",
         "label": "Title",
-        "description": "Use italics for text to use color"
+        "description": "Use italics for colored text"
       },
       {
-        "component": "text",
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_text",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta1",
         "value": "",
@@ -222,7 +234,7 @@
         "label": "Second CTA Eyebrow Text"
       },
       {
-        "component": "text",
+        "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta2",
         "value": "",
@@ -236,37 +248,265 @@
         "label": "Second CTA Text"
       },
       {
+        "name": "imgTab",
+        "label": "Image",
+        "component": "tab"
+      },
+      {
         "component": "reference",
         "valueType": "string",
-        "name": "foreground",
+        "name": "media_image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "foregroundAlt",
+        "name": "media_imageAlt",
         "value": "",
         "label": "Image Alt Text"
       }
     ]
   },
   {
-    "id": "columns",
+    "id": "features-slide",
     "fields": [
       {
-        "component": "text",
-        "valueType": "number",
-        "name": "columns",
-        "value": "",
-        "label": "Columns"
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Block Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 3,
+        "options": [
+          {
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "Green",
+                "value": "background-green"
+              },
+              {
+                "name": "Light Blue",
+                "value": "background-light-blue"
+              },
+              {
+                "name": "Light Purple",
+                "value": "background-light-purple"
+              },
+              {
+                "name": "Purple",
+                "value": "background-purple"
+              }
+            ]
+          },
+          {
+            "name": "Background Image",
+            "children": [
+              {
+                "name": "On",
+                "value": "with-background-image"
+              },
+              {
+                "name": "Off",
+                "value": "no-background-image"
+              }
+            ]
+          },
+          {
+            "name": "Image Alignment",
+            "children": [
+              {
+                "name": "Default",
+                "value": ""
+              },
+              {
+                "name": "Centered",
+                "value": "justify-image-center"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "descTab",
+        "label": "Content",
+        "component": "tab"
       },
       {
         "component": "text",
-        "valueType": "number",
-        "name": "rows",
+        "valueType": "string",
+        "name": "descr_eyebrow",
         "value": "",
-        "label": "Rows"
+        "label": "Eyebrow Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_title",
+        "value": "",
+        "label": "Title",
+        "description": "Use italics for colored text"
+      },
+      {
+        "component": "select",
+        "name": "descr_icon1",
+        "value": "",
+        "label": "Feature Icon 1",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Safe & Secure",
+            "value": ":safe-secure:"
+          },
+          {
+            "name": "Available 24 / 7",
+            "value": ":available-24-7:"
+          },
+          {
+            "name": "All Account Details",
+            "value": ":all-account-details:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_icon1text",
+        "value": "",
+        "label": "Icon 1 Description"
+      },
+      {
+        "component": "select",
+        "name": "descr_icon2",
+        "value": "",
+        "label": "Feature Icon 2",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Safe & Secure",
+            "value": ":safe-secure:"
+          },
+          {
+            "name": "Available 24 / 7",
+            "value": ":available-24-7:"
+          },
+          {
+            "name": "All Account Details",
+            "value": ":all-account-details:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_icon2text",
+        "value": "",
+        "label": "Icon 2 Description"
+      },
+      {
+        "component": "select",
+        "name": "descr_icon3",
+        "value": "",
+        "label": "Feature Icon 3",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "Safe & Secure",
+            "value": ":safe-secure:"
+          },
+          {
+            "name": "Available 24 / 7",
+            "value": ":available-24-7:"
+          },
+          {
+            "name": "All Account Details",
+            "value": ":all-account-details:"
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_icon3text",
+        "value": "",
+        "label": "Icon 3 Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta1",
+        "value": "",
+        "label": "First CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1Text",
+        "value": "",
+        "label": "CTA Button Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2eyebrow",
+        "value": "",
+        "label": "Second CTA Eyebrow Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta2",
+        "value": "",
+        "label": "Second CTA Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2Text",
+        "value": "",
+        "label": "Second CTA Text"
+      },
+      {
+        "name": "imgTab",
+        "label": "Image",
+        "component": "tab"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "value": "",
+        "label": "Image Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Card Style",
+        "options": [
+          {
+            "name": "Icon Cards",
+            "value": "icon-cards"
+          },
+          {
+            "name": "Image Cards",
+            "value": "image-cards"
+          }
+        ]
       }
     ]
   },
@@ -298,8 +538,35 @@
         "valueType": "string",
         "name": "descr_link",
         "value": "",
-        "label": "link",
+        "label": "Link",
         "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_linkText",
+        "value": "",
+        "label": "Link Text",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "columns",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "columns",
+        "value": "",
+        "label": "Columns"
+      },
+      {
+        "component": "text",
+        "valueType": "number",
+        "name": "rows",
+        "value": "",
+        "label": "Rows"
       }
     ]
   },

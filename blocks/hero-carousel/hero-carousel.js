@@ -1,7 +1,7 @@
 /**
  * Block entry point.
  */
-export default function decorate(block) {
+/*export default function decorate(block) {
   // get the rows
   // first row contains the autoscroll flag
   const [autoscroll, ...slides] = [...block.children];
@@ -24,4 +24,4 @@ export default function decorate(block) {
 
     image.classList.add('slide-image');
   });
-}
+}*/
