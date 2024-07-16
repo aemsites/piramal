@@ -73,6 +73,29 @@ function autolinkModals(element) {
   });
 }
 
+function decorateImageIcons(element, prefix = '') {
+  const anchors = element.querySelectorAll('a');
+
+  anchors.forEach((anchor) => {
+    const { href } = anchor;
+    let imageName = '';
+
+    if (href.includes('play.google.com')) {
+      imageName = 'playstore';
+    } else if (href.includes('apps.apple.com')) {
+      imageName = 'appstore';
+    }
+
+    if (imageName) {
+      anchor.textContent = '';
+      const img = document.createElement('img');
+      img.src = `${window.hlx.codeBasePath}${prefix}/images/${imageName}.webp`;
+      img.alt = anchor.title;
+      anchor.appendChild(img);
+    }
+  });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -98,6 +121,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  decorateImageIcons(main);
 }
 
 /**
