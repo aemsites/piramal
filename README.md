@@ -1,10 +1,9 @@
-# Block Collection
-
-This project contains code that is featured in the [AEM Block Collection](https://www.aem.live/developer/block-collection#block-collection-1) documentation.
+# Piramal Finance
+Piramal Finance site on Edge Delivery Services
 
 ## Environments
-- Preview: https://main--aem-block-collection--adobe.hlx.page/
-- Live: https://main--aem-block-collection--adobe.hlx.live/
+- Preview: https://main--piramal--aemsites.hlx.page/
+- Live: https://main--piramal--aemsites.hlx.live/
 
 ## Installation
 
