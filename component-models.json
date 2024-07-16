@@ -591,7 +591,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "desc_title",
+        "name": "descr_title",
         "value": "",
         "label": "Heading"
       },
