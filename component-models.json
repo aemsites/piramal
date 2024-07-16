@@ -629,6 +629,13 @@
         ]
       },
       {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_text",
+        "value": "",
+        "label": "Text"
+      },
+      {
         "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta1",
