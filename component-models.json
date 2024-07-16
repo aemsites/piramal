@@ -566,11 +566,11 @@
             "children": [
               {
                 "name": "White",
-                "value": ""
+                "value": "background-white"
               },
               {
                 "name": "Light Gray",
-                "value": "light-gray"
+                "value": "background-light-gray"
               }
             ]
           },
