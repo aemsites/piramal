@@ -12,11 +12,11 @@
       "image",
       "button",
       "title",
-      "hero-carousel",
       "cards",
       "columns",
+      "image-list",
+      "hero-carousel",
       "teaser"
-
     ]
   },
   {
@@ -46,9 +46,9 @@
     ]
   },
   {
-    "id": "accordion",
+    "id": "image-list",
     "components": [
-      "accordion-item"
+      "image"
     ]
   }
 ]
