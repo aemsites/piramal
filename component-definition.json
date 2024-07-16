@@ -89,7 +89,23 @@
                   "filter": "hero-carousel",
                   "item1": {
                     "name": "Content Slide",
-                    "model": "content-slide"
+                    "model": "content-slide",
+                    "classes": [
+                      "background-green",
+                      "with-background-image"
+                    ],
+                    "descr_eyebrow": "Placeholder Eyebrow Text",
+                    "descr_title": "<p>Placeholder <em>title</em></p>",
+                    "descr_text": "Placeholder Text",
+                    "descr_cta1": "http://www.adobe.com",
+                    "descr_cta1Text": "CTA 1 Button",
+                    "descr_cta2eyebrow": "CTA 2 Eyebrow Text",
+                    "descr_cta2": "http://www.adobe.com",
+                    "descr_cta2Text": "CTA 2 Link"
+                  },
+                  "item2": {
+                    "name": "Features Slide",
+                    "model": "features-slide"
                   }
                 }
               }
