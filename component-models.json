@@ -375,25 +375,11 @@
         "description": "Use italics for colored text"
       },
       {
-        "component": "select",
+        "component": "reference",
         "name": "descr_icon1",
         "value": "",
         "label": "Feature Icon 1",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Safe & Secure",
-            "value": ":safe-secure:"
-          },
-          {
-            "name": "Available 24 / 7",
-            "value": ":available-24-7:"
-          },
-          {
-            "name": "All Account Details",
-            "value": ":all-account-details:"
-          }
-        ]
+        "valueType": "string"
       },
       {
         "component": "text",
@@ -403,25 +389,11 @@
         "label": "Icon 1 Description"
       },
       {
-        "component": "select",
+        "component": "reference",
         "name": "descr_icon2",
         "value": "",
         "label": "Feature Icon 2",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Safe & Secure",
-            "value": ":safe-secure:"
-          },
-          {
-            "name": "Available 24 / 7",
-            "value": ":available-24-7:"
-          },
-          {
-            "name": "All Account Details",
-            "value": ":all-account-details:"
-          }
-        ]
+        "valueType": "string"
       },
       {
         "component": "text",
@@ -431,25 +403,11 @@
         "label": "Icon 2 Description"
       },
       {
-        "component": "select",
+        "component": "reference",
         "name": "descr_icon3",
         "value": "",
         "label": "Feature Icon 3",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "Safe & Secure",
-            "value": ":safe-secure:"
-          },
-          {
-            "name": "Available 24 / 7",
-            "value": ":available-24-7:"
-          },
-          {
-            "name": "All Account Details",
-            "value": ":all-account-details:"
-          }
-        ]
+        "valueType": "string"
       },
       {
         "component": "text",
