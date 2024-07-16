@@ -554,19 +554,38 @@
     "id": "section",
     "fields": [
       {
-        "component": "select",
+        "component": "multiselect",
         "name": "style",
         "value": "",
-        "label": "Background",
+        "label": "Section Style",
         "valueType": "string",
+        "maxSize": 2,
         "options": [
           {
-            "name": "default",
-            "value": ""
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "Default",
+                "value": ""
+              },
+              {
+                "name": "Light Gray",
+                "value": "light-gray"
+              }
+            ]
           },
           {
-            "name": "Light Gray",
-            "value": "light-gray"
+            "name": "Text / Title Alignment",
+            "children": [
+              {
+                "name": "Left",
+                "value": ""
+              },
+              {
+                "name": "Off",
+                "value": "text-centered"
+              }
+            ]
           }
         ]
       }
