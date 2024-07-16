@@ -565,7 +565,7 @@
             "name": "Background Color",
             "children": [
               {
-                "name": "Default",
+                "name": "White",
                 "value": ""
               },
               {
@@ -582,7 +582,7 @@
                 "value": ""
               },
               {
-                "name": "Off",
+                "name": "Centered",
                 "value": "text-centered"
               }
             ]
