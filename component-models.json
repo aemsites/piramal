@@ -5,6 +5,47 @@
     ]
   },
   {
+    "id": "section",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "style",
+        "value": "",
+        "label": "Section Style",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "background-white"
+              },
+              {
+                "name": "Light Gray",
+                "value": "background-light-gray"
+              }
+            ]
+          },
+          {
+            "name": "Text / Title Alignment",
+            "children": [
+              {
+                "name": "Left",
+                "value": ""
+              },
+              {
+                "name": "Centered",
+                "value": "text-centered"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "title",
     "fields": [
       {
@@ -532,6 +573,106 @@
     ]
   },
   {
+    "id": "teaser",
+    "fields": [ 
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "desc_title",
+        "value": "",
+        "label": "Heading"
+      },
+      {
+        "component": "select",
+        "name": "descr_titleType",
+        "value": "h1",
+        "label": "Heading Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta1",
+        "value": "",
+        "label": "First CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1Text",
+        "value": "",
+        "label": "CTA Button Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta2",
+        "value": "",
+        "label": "Second CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2Text",
+        "value": "",
+        "label": "Second CTA Button Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_mobile",
+        "value": "",
+        "label": "Mobile Download Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_mobileText",
+        "value": "",
+        "label": "Mobile Download Text"
+      }
+    ]
+  },
+  {
     "id": "columns",
     "fields": [
       {
@@ -547,47 +688,6 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
-      }
-    ]
-  },
-  {
-    "id": "section",
-    "fields": [
-      {
-        "component": "multiselect",
-        "name": "style",
-        "value": "",
-        "label": "Section Style",
-        "valueType": "string",
-        "maxSize": 2,
-        "options": [
-          {
-            "name": "Background Color",
-            "children": [
-              {
-                "name": "White",
-                "value": "background-white"
-              },
-              {
-                "name": "Light Gray",
-                "value": "background-light-gray"
-              }
-            ]
-          },
-          {
-            "name": "Text / Title Alignment",
-            "children": [
-              {
-                "name": "Left",
-                "value": ""
-              },
-              {
-                "name": "Centered",
-                "value": "text-centered"
-              }
-            ]
-          }
-        ]
       }
     ]
   },
