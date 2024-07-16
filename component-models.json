@@ -698,12 +698,12 @@
     ]
   },
   {
-    "id": "testemonies",
+    "id": "testimonies",
     "fields": [
     ]
   },
   {
-    "id": "testemony",
+    "id": "testimony",
     "fields": [
       {
         "component": "reference",
