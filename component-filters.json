@@ -16,7 +16,8 @@
       "columns",
       "image-list",
       "hero-carousel",
-      "teaser"
+      "teaser",
+      "testemonies"
     ]
   },
   {
@@ -49,6 +50,12 @@
     "id": "image-list",
     "components": [
       "image"
+    ]
+  },
+  {
+    "id": "testemonies",
+    "components": [
+      "testemony"
     ]
   }
 ]
