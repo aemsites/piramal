@@ -326,20 +326,32 @@
             "name": "Background Color",
             "children": [
               {
-                "name": "Green",
-                "value": "background-green"
+                "name": "Light Green",
+                "value": "background-light-green"
+              },
+              {
+                "name": "Light Pink",
+                "value": "background-light-pink"
+              },
+              {
+                "name": "Light Yellow",
+                "value": "background-light-yellow"
               },
               {
                 "name": "Light Blue",
                 "value": "background-light-blue"
               },
               {
-                "name": "Light Purple",
-                "value": "background-light-purple"
+              "name": "Blue",
+              "value": "background-blue"
               },
               {
-                "name": "Purple",
-                "value": "background-purple"
+                "name": "Violet",
+                "value": "background-violet"
+              },
+              {
+                "name": "Gradient",
+                "value": "background-gradient"
               }
             ]
           },
