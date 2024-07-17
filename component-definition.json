@@ -209,7 +209,7 @@
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
-                  "name": "Image List Entry",
+                  "name": "Image",
                   "model": "image-list-entry"
                 }
               }
