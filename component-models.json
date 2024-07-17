@@ -648,14 +648,14 @@
       {
         "component": "aem-content",
         "valueType": "string",
-        "name": "descr_mobile",
+        "name": "mobile_link",
         "value": "",
         "label": "Mobile Download Link"
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_mobileText",
+        "name": "mobile_linkText",
         "value": "",
         "label": "Mobile Download Text"
       }
