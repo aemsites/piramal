@@ -12,16 +12,25 @@
       "image",
       "button",
       "title",
-      "hero-carousel",
       "cards",
-      "columns"
-
+      "columns",
+      "image-list",
+      "hero-carousel",
+      "teaser",
+      "testimonies"
     ]
   },
   {
     "id": "hero-carousel",
     "components": [
-      "hero-slide"
+      "content-slide",
+      "features-slide"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
     ]
   },
   {
@@ -38,15 +47,15 @@
     ]
   },
   {
-    "id": "cards",
+    "id": "image-list",
     "components": [
-      "card"
+      "image-list-entry"
     ]
   },
   {
-    "id": "accordion",
+    "id": "testimonies",
     "components": [
-      "accordion-item"
+      "testimony"
     ]
   }
 ]

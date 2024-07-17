@@ -5,6 +5,47 @@
     ]
   },
   {
+    "id": "section",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "style",
+        "value": "",
+        "label": "Section Style",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "background-white"
+              },
+              {
+                "name": "Light Gray",
+                "value": "background-light-gray"
+              }
+            ]
+          },
+          {
+            "name": "Text / Title Alignment",
+            "children": [
+              {
+                "name": "Left",
+                "value": ""
+              },
+              {
+                "name": "Centered",
+                "value": "text-centered"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "title",
     "fields": [
       {
@@ -126,7 +167,7 @@
     ]
   },
   {
-    "id": "hero-slide",
+    "id": "content-slide",
     "fields": [
       {
         "component": "multiselect",
@@ -140,20 +181,32 @@
             "name": "Background Color",
             "children": [
               {
-                "name": "Green",
-                "value": "background-green"
+                "name": "Light Green",
+                "value": "background-light-green"
+              },
+              {
+                "name": "Light Pink",
+                "value": "background-light-pink"
+              },
+              {
+                "name": "Light Yellow",
+                "value": "background-light-yellow"
               },
               {
                 "name": "Light Blue",
                 "value": "background-light-blue"
               },
               {
-                "name": "Light Purple",
-                "value": "background-light-purple"
+              "name": "Blue",
+              "value": "background-blue"
               },
               {
-                "name": "Purple",
-                "value": "background-purple"
+                "name": "Violet",
+                "value": "background-violet"
+              },
+              {
+                "name": "Gradient",
+                "value": "background-gradient"
               }
             ]
           },
@@ -198,10 +251,17 @@
         "name": "descr_title",
         "value": "",
         "label": "Title",
-        "description": "Use italics for text to use color"
+        "description": "Use italics for colored text"
       },
       {
-        "component": "text",
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_text",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta1",
         "value": "",
@@ -222,7 +282,7 @@
         "label": "Second CTA Eyebrow Text"
       },
       {
-        "component": "text",
+        "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta2",
         "value": "",
@@ -238,16 +298,366 @@
       {
         "component": "reference",
         "valueType": "string",
-        "name": "foreground",
+        "name": "media_image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "foregroundAlt",
+        "name": "media_imageAlt",
         "value": "",
         "label": "Image Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "features-slide",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "label": "Block Style",
+        "valueType": "string",
+        "required": true,
+        "maxSize": 3,
+        "options": [
+          {
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "Light Green",
+                "value": "background-light-green"
+              },
+              {
+                "name": "Light Pink",
+                "value": "background-light-pink"
+              },
+              {
+                "name": "Light Yellow",
+                "value": "background-light-yellow"
+              },
+              {
+                "name": "Light Blue",
+                "value": "background-light-blue"
+              },
+              {
+              "name": "Blue",
+              "value": "background-blue"
+              },
+              {
+                "name": "Violet",
+                "value": "background-violet"
+              },
+              {
+                "name": "Gradient",
+                "value": "background-gradient"
+              }
+            ]
+          },
+          {
+            "name": "Background Image",
+            "children": [
+              {
+                "name": "On",
+                "value": "with-background-image"
+              },
+              {
+                "name": "Off",
+                "value": "no-background-image"
+              }
+            ]
+          },
+          {
+            "name": "Image Alignment",
+            "children": [
+              {
+                "name": "Default",
+                "value": ""
+              },
+              {
+                "name": "Centered",
+                "value": "justify-image-center"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_eyebrow",
+        "value": "",
+        "label": "Eyebrow Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_title",
+        "value": "",
+        "label": "Title",
+        "description": "Use italics for colored text"
+      },
+      {
+        "component": "reference",
+        "name": "descr_icon1",
+        "value": "",
+        "label": "Feature Icon 1",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_icon1text",
+        "value": "",
+        "label": "Icon 1 Description"
+      },
+      {
+        "component": "reference",
+        "name": "descr_icon2",
+        "value": "",
+        "label": "Feature Icon 2",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_icon2text",
+        "value": "",
+        "label": "Icon 2 Description"
+      },
+      {
+        "component": "reference",
+        "name": "descr_icon3",
+        "value": "",
+        "label": "Feature Icon 3",
+        "valueType": "string"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_icon3text",
+        "value": "",
+        "label": "Icon 3 Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta1",
+        "value": "",
+        "label": "First CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1Text",
+        "value": "",
+        "label": "CTA Button Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2eyebrow",
+        "value": "",
+        "label": "Second CTA Eyebrow Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta2",
+        "value": "",
+        "label": "Second CTA Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2Text",
+        "value": "",
+        "label": "Second CTA Text"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "value": "",
+        "label": "Image Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "cards",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Card Style",
+        "options": [
+          {
+            "name": "Icon Cards",
+            "value": "icon-cards"
+          },
+          {
+            "name": "Image Cards",
+            "value": "image-cards"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "card",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "descr_text",
+        "value": "",
+        "label": "Text",
+        "valueType": "string"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_link",
+        "value": "",
+        "label": "Link",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_linkText",
+        "value": "",
+        "label": "Link Text",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "teaser",
+    "fields": [ 
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_title",
+        "value": "",
+        "label": "Heading"
+      },
+      {
+        "component": "select",
+        "name": "descr_titleType",
+        "value": "h1",
+        "label": "Heading Type",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "h1",
+            "value": "h1"
+          },
+          {
+            "name": "h2",
+            "value": "h2"
+          },
+          {
+            "name": "h3",
+            "value": "h3"
+          },
+          {
+            "name": "h4",
+            "value": "h4"
+          },
+          {
+            "name": "h5",
+            "value": "h5"
+          },
+          {
+            "name": "h6",
+            "value": "h6"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "descr_text",
+        "value": "",
+        "label": "Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta1",
+        "value": "",
+        "label": "First CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta1Text",
+        "value": "",
+        "label": "CTA Button Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "descr_cta2",
+        "value": "",
+        "label": "Second CTA Button Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_cta2Text",
+        "value": "",
+        "label": "Second CTA Button Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "mobile_link",
+        "value": "",
+        "label": "Mobile Download Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "mobile_linkText",
+        "value": "",
+        "label": "Mobile Download Text"
       }
     ]
   },
@@ -267,23 +677,45 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Columns Style",
+        "options": [
+          {
+            "name": "Content centered",
+            "value": "content-center"
+          },
+          {
+            "name": "Content left aligned",
+            "value": "content-left"
+          }
+        ]
       }
     ]
   },
   {
-    "id": "card",
+    "id": "testimonies",
+    "fields": [
+    ]
+  },
+  {
+    "id": "testimony",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
-        "name": "image",
+        "name": "media_image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageAlt",
+        "name": "media_imageAlt",
         "label": "Image Alt Text"
       },
       {
@@ -292,81 +724,24 @@
         "value": "",
         "label": "Text",
         "valueType": "string"
-      },
-      {
-        "component": "aem-content",
-        "valueType": "string",
-        "name": "descr_link",
-        "value": "",
-        "label": "link",
-        "required": true
       }
     ]
   },
   {
-    "id": "section",
-    "fields": [
-      {
-        "component": "select",
-        "name": "style",
-        "value": "",
-        "label": "Background",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "default",
-            "value": ""
-          },
-          {
-            "name": "Light Gray",
-            "value": "light-gray"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "hero",
+    "id": "image-list-entry",
     "fields": [
       {
         "component": "reference",
         "valueType": "string",
-        "name": "image",
+        "name": "media_image",
         "label": "Image",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "imageAlt",
-        "label": "Alt",
-        "value": ""
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
-      }
-    ]
-  },
-  {
-    "id": "accordion-item",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "summary",
-        "value": "",
-        "label": "Summary"
-      },
-      {
-        "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
-        "valueType": "string"
+        "name": "media_imageAlt",
+        "label": "Image Alt Text"
       }
     ]
   }
