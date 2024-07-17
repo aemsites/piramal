@@ -20,7 +20,7 @@
   --text-color: black;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
+  --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
 
@@ -44,10 +44,10 @@
   --breadcrumbs-font-size: 14px;
 }
 
+/* fallback font for Nunito (normal - 400) */
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
+  font-family: "nunito-normal-400-fallback";
+  size-adjust: 100.741%;
   src: local("Arial");
 }
 
@@ -230,6 +230,6 @@ main .section {
 
 /* section metadata */
 main .section.light,
-main .section.background-light-gray {
+main .section.light-gray {
   background-color: var(--light-color);
 }
