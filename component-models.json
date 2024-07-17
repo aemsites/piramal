@@ -567,7 +567,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "media_image",
+        "name": "media_imageAlt",
         "label": "Image Alt Text"
       },
       {

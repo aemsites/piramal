@@ -1,7 +1,7 @@
 /**
  * Block entry point.
  */
-/*export default function decorate(block) {
+/* export default function decorate(block) {
   // get the rows
   // first row contains the autoscroll flag
   const [autoscroll, ...slides] = [...block.children];
@@ -15,7 +15,8 @@
 
     // extract the classes list
     const classesText = classes.textContent.trim();
-    const slideClasses = (classesText ? classesText.split(',') : []).map((c) => c && c.trim()).filter((c) => !!c);
+    const slideClasses = (classesText ? classesText.split(',') : []).map((c) => c && c.trim())
+    .filter((c) => !!c);
     slideClasses.forEach((c) => slide.classList.add(c.trim()));
     classes.remove();
 
@@ -24,4 +25,4 @@
 
     image.classList.add('slide-image');
   });
-}*/
+} */
