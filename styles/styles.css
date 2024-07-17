@@ -11,7 +11,7 @@
  */
 
 :root {
-  /* colors */
+  /* boilerplate colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
   --background-color: white;
@@ -19,13 +19,32 @@
   --dark-color: #ccc;
   --text-color: black;
 
+/* piramal site colors */
+  --piramal-white-100: #fff;
+  --piramal-blue-20: #e4eafa;
+  --piramal-blue-80: #5e7387;
+  --piramal-blue-100: #365069;
+  --piramal-blue-120: #1e2e58;
+  --piramal-neutral-60: #666;
+  --piramal-neutral-80: #333;
+  --piramal-neutral-140: #332512;
+  --piramal-green-140: #1a4f2c;
+  --gradient-red-light: #d67d7d;
+  --gradient-red-dark: #cc4341;
+  --gradient-green-light: #e1ffeb;
+  --gradient-green-dark: #acf6c5;
+  --gradient-yellow-light: #ffe2be;
+  --gradient-yellow-dark: #ffd49d;
+  --gradient-blue-light: #dbe3f8;
+  --gradient-blue-dark: #b7c7f1;
+
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
 
   /* body sizes */
-  --body-font-size-m: 22px;
+  --body-font-size-m: 20px;
   --body-font-size-s: 18px;
   --body-font-size-xs: 16px;
 
@@ -38,10 +57,9 @@
   --heading-font-size-xs: 18px;
 
   /* header */
-  --nav-height: 64px;
-  --breadcrumbs-height: 35px;
+  --nav-height: 72px;
   --header-height: var(--nav-height);
-  --breadcrumbs-font-size: 14px;
+  --max-width: 1536px;
 }
 
 /* fallback font for Nunito (normal - 400) */
@@ -212,24 +230,29 @@ main img {
 
 /* sections */
 main .section {
-  padding: 64px 16px;
+  /* section padding/margin for mobile */
+  padding: 0 16px;
+  margin-bottom: 40px;
 }
 
 @media (width >= 600px) {
+  /* section padding/margin for >= tablet */
   main .section {
-    padding: 64px 32px;
+    padding: 0 16px;
+    margin-bottom: 72px;
   }
 }
 
 @media (width >= 900px) {
+  /* max width for all wrapper divs */
   .section > div {
-    max-width: 1200px;
+    max-width: var(--max-width);
     margin: auto;
   }
 }
 
 /* section metadata */
 main .section.light,
-main .section.light-gray {
+main .section.background-light-gray {
   background-color: var(--light-color);
 }
