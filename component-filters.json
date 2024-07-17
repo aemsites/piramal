@@ -49,7 +49,7 @@
   {
     "id": "image-list",
     "components": [
-      "image"
+      "image-list-entry"
     ]
   },
   {

@@ -202,6 +202,21 @@
           }
         },
         {
+          "title": "Image",
+          "id": "image-list-entry",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Image List Entry",
+                  "model": "image-list-entry"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Testimonies",
           "id": "testimonies",
           "plugins": {
