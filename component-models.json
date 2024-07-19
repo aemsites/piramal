@@ -679,19 +679,37 @@
         "label": "Rows"
       },
       {
-        "component": "select",
+        "component": "multiselect",
         "valueType": "string",
         "name": "classes",
         "value": "",
         "label": "Columns Style",
         "options": [
           {
-            "name": "Content centered",
-            "value": "content-center"
+            "name": "Content alignment",
+            "children": [
+              {
+                "name": "Content centered",
+                "value": "content-center"
+              },
+              {
+                "name": "Content left aligned",
+                "value": "content-left"
+              }
+            ]
           },
           {
-            "name": "Content left aligned",
-            "value": "content-left"
+            "name": "Clickable Images",
+            "children": [
+              {
+                "name": "Yes",
+                "value": "clickable-images"
+              },
+              {
+                "name": "No",
+                "value": ""
+              }
+            ]
           }
         ]
       }
