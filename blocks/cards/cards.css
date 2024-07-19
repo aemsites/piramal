@@ -53,11 +53,12 @@
   height: 42px;
 }
 
-@media (width > 767px) {
+@media (width > 900px) {
   .block.cards .card {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    text-align: left;
     gap: 10px;
     padding: 1.5rem;
   }
