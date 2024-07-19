@@ -5,7 +5,9 @@
 export default function decorate(block) {
   const children = [...block.children];
   children.forEach((card) => {
-    let img, title, url;
+    let img;
+    let title;
+    let url;
     if (block.classList.contains('image-cards')) {
       console.log(img, title, url);
       const [bg, content] = [...card.children];
