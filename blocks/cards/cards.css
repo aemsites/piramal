@@ -33,6 +33,7 @@
   padding: 0.75rem;
   font-size: 1rem;
   border-radius: 16px;
+  justify-content: center;
 }
 
 .block.cards .card:hover {
@@ -54,6 +55,9 @@
 }
 
 @media (width > 900px) {
+  .block.cards.image-cards .card {
+    max-width: 45%;
+  }
   .block.cards .card {
     flex-direction: row;
     align-items: center;
@@ -71,6 +75,9 @@
   .block.cards .card .title {
     align-self: center;
   }
+  .block.cards.image-cards {
+    flex-wrap: nowrap !important;
+  }
 
   .block.cards .card > div:has(.title) {
     display: flex;
@@ -78,4 +85,71 @@
     align-items: center;
     gap: 10px;
   }
+}
+
+.block.cards.image-cards {
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block.cards.image-cards .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.block.cards.image-cards .card-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.block.cards.image-cards .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+  border-radius: 16px;
+  z-index: -1;
+}
+.block.cards.image-cards .title {
+  z-index: 1;
+  color: white;
+  margin: 0;
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+
+.block.cards.image-cards .card > div:has(.title) {
+  display: flex;
+}
+
+.block.cards.image-cards .url {
+  opacity: 1;
+  height: unset;
+  width: unset;
+  position: initial;
+  font-size: 0.75rem;
+  z-index: 1;
+}
+.block.cards.image-cards .url a {
+  background-color: #f26841;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.block.cards.image-cards .card .content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  align-self: stretch;
+  justify-content: space-between;
+  min-height: 120px;
 }
