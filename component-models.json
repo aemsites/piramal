@@ -665,6 +665,41 @@
     "id": "columns",
     "fields": [
       {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Columns Style",
+        "options": [
+          {
+            "name": "Content alignment",
+            "children": [
+              {
+                "name": "Content centered",
+                "value": "content-center"
+              },
+              {
+                "name": "Content left aligned",
+                "value": "content-left"
+              }
+            ]
+          },
+          {
+            "name": "Clickable Images",
+            "children": [
+              {
+                "name": "Yes",
+                "value": "clickable-images"
+              },
+              {
+                "name": "No",
+                "value": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "number",
         "name": "columns",
@@ -677,23 +712,6 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Columns Style",
-        "options": [
-          {
-            "name": "Content centered",
-            "value": "content-center"
-          },
-          {
-            "name": "Content left aligned",
-            "value": "content-left"
-          }
-        ]
       }
     ]
   },
