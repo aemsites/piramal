@@ -718,6 +718,23 @@
   {
     "id": "testimonies",
     "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "options": [
+          {
+            "name": "With floating Heads",
+            "value": ""
+          },
+          {
+            "name": "Without floating Heads",
+            "value": "no-float"
+          }
+        ]
+      }
     ]
   },
   {
