@@ -5,9 +5,11 @@
 .block.testimonies {
   position: relative;
 }
+
 .block.testimonies .testimony.selected em {
   font-style: normal;
 }
+
 .block.testimonies .testimony.selected {
   display: flex;
   flex-direction: column;
