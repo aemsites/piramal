@@ -9,7 +9,6 @@ export default function decorate(block) {
     let title;
     let url;
     if (block.classList.contains('image-cards')) {
-      console.log(img, title, url);
       const [bg, content] = [...card.children];
       content.classList.add('content');
       [title, url] = [...content.children];
