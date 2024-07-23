@@ -27,6 +27,17 @@ export default function decorate(block) {
     name.classList.add('testimony-name');
     title.classList.add('testimony-title');
 
+    const confetti = [
+      document.createElement('img'),
+      document.createElement('img'),
+      document.createElement('img'),
+      document.createElement('img'),
+    ].map((confetti, i) => {
+      confetti.classList.add(`confetti-${i + 1}`, 'confetti');
+      confetti.src = `/icons/confetti-${i + 1}.svg`;
+      return confetti;
+    });
+
     const animationCircles = [
       document.createElement('div'),
       document.createElement('div'),
@@ -37,7 +48,7 @@ export default function decorate(block) {
       return circle;
     });
 
-    img.append(...animationCircles);
+    img.append(...animationCircles, ...confetti);
   });
   setupPositions(children, selectedIndex);
   setInterval(() => {

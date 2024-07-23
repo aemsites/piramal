@@ -17,6 +17,11 @@
   justify-content: center;
 }
 
+.block.testimonies .testimony.selected .confetti {
+  width: unset;
+  height: unset;
+}
+
 .block.testimonies .testimony.selected .testimony-content {
   display: flex;
   flex-direction: column;
@@ -69,7 +74,7 @@
   font-size: 1rem;
 }
 
-.block.testimonies .testimony.selected .testimony-img img {
+.block.testimonies .testimony.selected .testimony-img picture img {
   width: 205px;
   height: 205px;
   border-radius: 50%;
@@ -128,6 +133,26 @@
   animation-delay: 3s;
 }
 
+.block.testimonies .testimony.selected .confetti-1 {
+  top: -10px;
+  right: -70%;
+}
+
+.block.testimonies .testimony.selected .confetti-2 {
+  bottom: 0px;
+  right: -70%;
+}
+
+.block.testimonies .testimony.selected .confetti-3 {
+  bottom: 40px;
+  left: -70%;
+}
+
+.block.testimonies .testimony.selected .confetti-4 {
+  top: 0;
+  left: -70%;
+}
+
 @keyframes scale-in {
   from {
     transform: scale(1, 1);
@@ -138,6 +163,14 @@
     transform: scale(2, 2);
     opacity: 0;
   }
+}
+
+.confetti {
+  position: absolute;
+}
+
+.block.testimonies .testimony.unselected .confetti {
+  display: none;
 }
 
 @media (width >= 900px) {
@@ -186,6 +219,10 @@
     right: 5%;
     top: 100px;
   }
+  .block.testimonies .testimony.selected .confetti-4 {
+    top: 0;
+    left: 0;
+  }
 
   .block.testimonies .testimony.unselected.pos-0,
   .pos-2 {
@@ -205,6 +242,21 @@
   .block.testimonies .testimony.unselected.pos-3 .testimony-img img {
     width: 60px;
     height: 60px;
+  }
+
+  .block.testimonies .testimony.selected .confetti-1 {
+    top: -10px;
+    right: -40px;
+  }
+
+  .block.testimonies .testimony.selected .confetti-2 {
+    bottom: 0px;
+    right: -40px;
+  }
+
+  .block.testimonies .testimony.selected .confetti-3 {
+    bottom: 40px;
+    left: -30px;
   }
 }
 
