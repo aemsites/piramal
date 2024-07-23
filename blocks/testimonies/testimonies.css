@@ -143,6 +143,7 @@
 @media (width >= 900px) {
   .block.testimonies .testimony.selected .testimony-content {
     width: 50%;
+
     /* padding-inline: 0; */
   }
 
