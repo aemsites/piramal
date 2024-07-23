@@ -239,6 +239,11 @@
         ]
       },
       {
+        "component": "tab",
+        "label": "Content",
+        "name": "contenttab"
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
@@ -259,6 +264,11 @@
         "name": "descr_text",
         "value": "",
         "label": "Text"
+      },
+      {
+        "component": "tab",
+        "label": "CTA",
+        "name": "ctatab"
       },
       {
         "component": "aem-content",
@@ -294,6 +304,11 @@
         "name": "descr_cta2Text",
         "value": "",
         "label": "Second CTA Text"
+      },
+      {
+        "component": "tab",
+        "label": "Image",
+        "name": "imagetab"
       },
       {
         "component": "reference",
@@ -384,6 +399,11 @@
         ]
       },
       {
+        "component": "tab",
+        "label": "Title",
+        "name": "tiletab"
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
@@ -397,6 +417,11 @@
         "value": "",
         "label": "Title",
         "description": "Use italics for colored text"
+      },
+      {
+        "component": "tab",
+        "label": "Features",
+        "name": "featurestab"
       },
       {
         "component": "reference",
@@ -441,6 +466,11 @@
         "label": "Icon 3 Description"
       },
       {
+        "component": "tab",
+        "label": "CTA",
+        "name": "ctastab"
+      },
+      {
         "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta1",
@@ -474,6 +504,11 @@
         "name": "descr_cta2Text",
         "value": "",
         "label": "Second CTA Text"
+      },
+      {
+        "component": "tab",
+        "label": "Image",
+        "name": "imagetab"
       },
       {
         "component": "reference",
@@ -558,6 +593,11 @@
     "id": "teaser",
     "fields": [ 
       {
+        "component": "tab",
+        "label": "Image",
+        "name": "imagetab"
+      },
+      {
         "component": "reference",
         "valueType": "string",
         "name": "media_image",
@@ -569,6 +609,11 @@
         "valueType": "string",
         "name": "media_imageAlt",
         "label": "Image Alt Text"
+      },
+      {
+        "component": "tab",
+        "label": "Text",
+        "name": "texttab"
       },
       {
         "component": "text",
@@ -618,6 +663,11 @@
         "label": "Text"
       },
       {
+        "component": "tab",
+        "label": "CTA",
+        "name": "ctatab"
+      },
+      {
         "component": "aem-content",
         "valueType": "string",
         "name": "descr_cta1",
@@ -644,6 +694,11 @@
         "name": "descr_cta2Text",
         "value": "",
         "label": "Second CTA Button Text"
+      },
+      {
+        "component": "tab",
+        "label": "Mobile",
+        "name": "mobiletab"
       },
       {
         "component": "aem-content",
