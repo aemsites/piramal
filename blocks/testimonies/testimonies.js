@@ -1,3 +1,15 @@
+const setupPositions = (children, selectedIndex) => {
+  let counter = 0;
+  children.forEach((child, index) => {
+    child.className = child.className.replace(/pos-\d+/, '');
+    if (index != selectedIndex) {
+      child.classList.add(`pos-${counter}`);
+      console.log(`pos-${counter}`);
+      counter++;
+    }
+  });
+};
+
 /**
  *
  * @param {Element} block
@@ -29,18 +41,16 @@ export default function decorate(block) {
 
     img.append(...animationCircles);
   });
-
+  setupPositions(children, selectedIndex);
   setInterval(() => {
     children[selectedIndex].classList.remove('selected');
     children[selectedIndex].classList.add('unselected');
-    // children[selectedIndex]
-    //   .getAnimations({ subtree: true })
-    //   .forEach((anim) => anim.cancel());
+
     selectedIndex = (selectedIndex + 1) % children.length;
+
+    setupPositions(children, selectedIndex);
+
     children[selectedIndex].classList.remove('unselected');
     children[selectedIndex].classList.add('selected');
-    // children[selectedIndex]
-    //   .getAnimations({ subtree: true })
-    //   .forEach((anim) => anim.play());
   }, 12000);
 }

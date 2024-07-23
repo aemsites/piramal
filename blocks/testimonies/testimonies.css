@@ -2,6 +2,10 @@
   display: none;
 }
 
+.block.testimonies {
+  position: relative;
+}
+
 .block.testimonies .testimony.selected {
   display: flex;
   flex-direction: column;
@@ -21,6 +25,7 @@
   border-radius: 16px;
   z-index: 3;
   margin-top: 10px;
+  box-shadow: 0 0 31px -8px rgb(10 10 10 / 30%);
 }
 
 /*make a triangle that points upwards in the center of the div*/
@@ -78,7 +83,7 @@
   display: block;
 }
 
-.block.testimonies .animation-circle {
+.block.testimonies .testimony.selected .animation-circle {
   position: absolute;
   top: 0;
   left: 0;
@@ -89,24 +94,24 @@
   animation: scaleIn 6s infinite cubic-bezier(0.1, 0.21, 0.89, 0.32);
 }
 
-.block.testimonies .animation-circle-0 {
+.block.testimonies .testimony.selected .animation-circle-0 {
   /* outline: 20px solid #ed8c90; */
   /* opacity: 0.125; */
   animation-delay: 0s;
 }
 
-.block.testimonies .animation-circle-1 {
+.block.testimonies .testimony.selected .animation-circle-1 {
   /* background-color: #ed8c90; */
   animation-delay: 1s;
 }
 
-.block.testimonies .animation-circle-2 {
+.block.testimonies .testimony.selected .animation-circle-2 {
   /* outline: 0px solid #ed8c90; */
   /* opacity: 0.075; */
   animation-delay: 2s;
 }
 
-.block.testimonies .animation-circle-3 {
+.block.testimonies .testimony.selected .animation-circle-3 {
   /* outline: 0px solid #ed8c90; */
   /* opacity: 0.075; */
   animation-delay: 3s;
@@ -127,5 +132,85 @@
     -o-transform: scale(2, 2);
     transform: scale(2, 2);
     opacity: 0;
+  }
+}
+
+@media (width >= 900px) {
+  .block.testimonies .testimony.selected .testimony-content {
+    width: 60%;
+    padding-inline: 3em;
+  }
+  .block.testimonies .testimony.unselected {
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+  .block.testimonies {
+    padding-top: 40px;
+  }
+  .block.testimonies .testimony.unselected .testimony-content {
+    display: none;
+  }
+  .block.testimonies .testimony.unselected .testimony-img img {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+  }
+  .block.testimonies .testimony.pos-0 {
+    left: 5%;
+    top: 100px;
+  }
+  .block.testimonies .testimony.pos-1 {
+    left: 20%;
+    top: 0px;
+  }
+  .block.testimonies .testimony.pos-2 {
+    right: 20%;
+    top: 0px;
+  }
+  .block.testimonies .testimony.pos-3 {
+    right: 5%;
+    top: 100px;
+  }
+
+  .block.testimonies .testimony.unselected.pos-0,
+  .pos-2 {
+    animation: moveUp 12s infinite;
+  }
+  .block.testimonies .testimony.unselected.pos-1,
+  .pos-3 {
+    animation: moveDown 12s infinite;
+  }
+  .block.testimonies .testimony.unselected.pos-1 .testimony-img img {
+    width: 60px;
+    height: 60px;
+  }
+  .block.testimonies .testimony.unselected.pos-3 .testimony-img img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
