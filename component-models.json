@@ -727,11 +727,11 @@
         "options": [
           {
             "name": "With floating Heads",
-            "value": "floating-heads"
+            "value": "float"
           },
           {
             "name": "Without floating Heads",
-            "value": "no-floating-heads"
+            "value": "no-float"
           }
         ]
       }
