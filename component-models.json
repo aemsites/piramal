@@ -1,8 +1,7 @@
 [
   {
     "id": "page-metadata",
-    "fields": [
-    ]
+    "fields": []
   },
   {
     "id": "section",
@@ -197,8 +196,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -357,8 +356,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -433,7 +432,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_icon1text",
+        "name": "descr_icon1Text",
         "value": "",
         "label": "Icon 1 Description"
       },
@@ -447,7 +446,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_icon2text",
+        "name": "descr_icon2Text",
         "value": "",
         "label": "Icon 2 Description"
       },
@@ -461,7 +460,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_icon3text",
+        "name": "descr_icon3Text",
         "value": "",
         "label": "Icon 3 Description"
       },
@@ -591,7 +590,7 @@
   },
   {
     "id": "teaser",
-    "fields": [ 
+    "fields": [
       {
         "component": "tab",
         "label": "Image",
