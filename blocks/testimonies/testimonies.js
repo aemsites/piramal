@@ -2,10 +2,9 @@ const setupPositions = (children, selectedIndex) => {
   let counter = 0;
   children.forEach((child, index) => {
     child.className = child.className.replace(/pos-\d+/, '');
-    if (index != selectedIndex) {
+    if (index !== selectedIndex) {
       child.classList.add(`pos-${counter}`);
-      console.log(`pos-${counter}`);
-      counter++;
+      counter += 1;
     }
   });
 };
@@ -19,7 +18,6 @@ export default function decorate(block) {
   let selectedIndex = 0;
   children.forEach((child, index) => {
     const [img, content] = child.querySelectorAll(':scope > div');
-    console.log(img, content);
     child.classList.add('testimony', index === 0 ? 'selected' : 'unselected');
     img.classList.add('testimony-img');
     content.classList.add('testimony-content');
@@ -35,7 +33,7 @@ export default function decorate(block) {
       document.createElement('div'),
       document.createElement('div'),
     ].map((circle, i) => {
-      circle.classList.add(`animation-circle-${i}`, `animation-circle`);
+      circle.classList.add(`animation-circle-${i}`, 'animation-circle');
       return circle;
     });
 
