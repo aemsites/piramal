@@ -49,11 +49,13 @@
   text-align: center;
   margin: 0;
   font-size: 1.125rem;
+  font-weight: 400;
 }
 
 .block.testimonies .testimony.selected .testimony-content .testimony-desc {
   margin-bottom: 1em;
   color: var(--text-color-dark-gray);
+  line-height: 1.75rem;
 }
 
 .block.testimonies .testimony.selected .testimony-content .testimony-name {
@@ -140,8 +142,8 @@
 
 @media (width >= 900px) {
   .block.testimonies .testimony.selected .testimony-content {
-    width: 60%;
-    padding-inline: 3em;
+    width: 50%;
+    /* padding-inline: 0; */
   }
 
   .block.testimonies .testimony.unselected {
