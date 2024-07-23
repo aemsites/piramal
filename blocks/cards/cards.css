@@ -54,6 +54,13 @@
   height: 42px;
 }
 
+.block.cards.image-cards {
+  padding: 0;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media (width > 900px) {
   .block.cards .card {
     flex-direction: row;
@@ -78,7 +85,7 @@
   }
 
   .block.cards.image-cards {
-    flex-wrap: nowrap !important;
+    flex-wrap: nowrap;
   }
 
   .block.cards .card > div:has(.title) {
@@ -87,13 +94,6 @@
     align-items: center;
     gap: 10px;
   }
-}
-
-.block.cards.image-cards {
-  padding: 0;
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .block.cards.image-cards .card {
