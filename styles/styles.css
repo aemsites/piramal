@@ -18,8 +18,10 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --text-color-dark-gray: rgb(51, 51, 51);
+  --text-color-light-gray: rgb(128, 128, 128);
 
-/* piramal site colors */
+  /* piramal site colors */
   --piramal-white-100: #fff;
   --piramal-blue-20: #e4eafa;
   --piramal-blue-80: #5e7387;
@@ -45,56 +47,56 @@
   --darkcharcoal: #333;
   --darkgrey: #666;
   --white: #fff;
-  --orange: #F26841;
+  --orange: #f26841;
   --black: #000;
   --grey: #808080;
   --darkblack: #030303;
-  --green: #41C66E;
+  --green: #41c66e;
   --greyishblue: #365069;
-  --floralwhite: #FFF9F2;
-  --lilen: #FFF4E7;
+  --floralwhite: #fff9f2;
+  --lilen: #fff4e7;
   --dustygrey: #999;
   --matterhorn: #4d4d4d;
-  --chinesesilver: #CCC;
+  --chinesesilver: #ccc;
   --midnight: #20303f;
   --pattensblue: #d7dce1;
-  --rosewhite: #FEF0EC;
+  --rosewhite: #fef0ec;
   --solitude: #e5e7eb;
-  --swansdown: #E3F6E9;
+  --swansdown: #e3f6e9;
   --camarone: #277742;
   --zinc: #afb9c3;
-  --cloud: #EBEEF0;
-  --silver: #C4C4C4;
+  --cloud: #ebeef0;
+  --silver: #c4c4c4;
   --arsenic: #364754;
-  --whisper: #EBEBEB;
+  --whisper: #ebebeb;
   --fossil: #a9a9a9;
   --blackpearl: #010812;
   --lightgrey: #ebeaea;
   --blue: #007bff;
   --whitesmoke: #f8f8f8;
-  --coral: #FAC3B3;
-  --salmon: #F58667;
+  --coral: #fac3b3;
+  --salmon: #f58667;
   --seashell: #fff7f4;
-  --pale: #EEF3FF;
+  --pale: #eef3ff;
   --cinnabar: #da4d34;
-  --coralred: #EF4444;
+  --coralred: #ef4444;
   --flamingo: #eb5752;
   --mischka: #9ca3af;
   --midorange: #f26741;
-  --pearl: #F0F0F0;
+  --pearl: #f0f0f0;
   --submidorange: #fce6e5;
-  --skyblue: #DEF3FD;
-  --light-gray: #F8FAFF;
+  --skyblue: #def3fd;
+  --light-gray: #f8faff;
 
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
+    monospace;
 
   /* body sizes mobile */
   --body-font-size-m: 14px;
   --body-font-size-s: 12px;
-
 
   /* heading sizes mobile */
   --heading-font-size-xxl: 24px; /* h1 */
@@ -112,16 +114,16 @@
 
 /* fallback font for Nunito (normal - 400) */
 @font-face {
-  font-family: "nunito-normal-400-fallback";
+  font-family: 'nunito-normal-400-fallback';
   size-adjust: 100.741%;
-  src: local("Arial");
+  src: local('Arial');
 }
 
 @media (width >= 900px) {
   :root {
-    /* desktop heading sizes */   
-    --heading-font-size-xxl: 48px; /* h1 */   
-    --heading-font-size-xl: 32px; /* h2 */    
+    /* desktop heading sizes */
+    --heading-font-size-xxl: 48px; /* h1 */
+    --heading-font-size-xl: 32px; /* h2 */
     --heading-font-size-l: 20px; /* h3 */
     --heading-font-size-m: 20px;
     --heading-font-size-s: 20px;
@@ -165,12 +167,24 @@ h6 {
   scroll-margin: calc(var(--header-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
 p,
 dl,
