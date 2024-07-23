@@ -32,10 +32,10 @@ export default function decorate(block) {
       document.createElement('img'),
       document.createElement('img'),
       document.createElement('img'),
-    ].map((confetti, i) => {
-      confetti.classList.add(`confetti-${i + 1}`, 'confetti');
-      confetti.src = `/icons/confetti-${i + 1}.svg`;
-      return confetti;
+    ].map((conf, i) => {
+      conf.classList.add(`confetti-${i + 1}`, 'confetti');
+      conf.src = `/icons/confetti-${i + 1}.svg`;
+      return conf;
     });
 
     const animationCircles = [
