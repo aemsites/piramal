@@ -727,7 +727,7 @@
         "options": [
           {
             "name": "With floating Heads",
-            "value": "float"
+            "value": ""
           },
           {
             "name": "Without floating Heads",
