@@ -441,7 +441,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_icon1Text",
+        "name": "descr_icon1text",
         "value": "",
         "label": "Icon 1 Description"
       },
@@ -455,7 +455,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_icon2Text",
+        "name": "descr_icon2text",
         "value": "",
         "label": "Icon 2 Description"
       },
@@ -469,7 +469,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "descr_icon3Text",
+        "name": "descr_icon3text",
         "value": "",
         "label": "Icon 3 Description"
       },
