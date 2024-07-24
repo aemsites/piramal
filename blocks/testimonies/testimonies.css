@@ -53,7 +53,7 @@
   border-bottom: 30px solid white;
 }
 
-.block.testimonies .testimony.selected .testimony-content > p {
+.block.testimonies .testimony.selected .testimony-content p {
   text-align: center;
   margin: 0;
   font-size: 1.125rem;
@@ -274,4 +274,8 @@
   100% {
     transform: translateY(0);
   }
+}
+
+.block.testimonies.no-float .testimony.unselected {
+  display: none;
 }

@@ -578,39 +578,6 @@
         "label": "Heading"
       },
       {
-        "component": "select",
-        "name": "descr_titleType",
-        "value": "h1",
-        "label": "Heading Type",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
-      },
-      {
         "component": "richtext",
         "valueType": "string",
         "name": "descr_text",
@@ -668,19 +635,23 @@
         "component": "multiselect",
         "valueType": "string",
         "name": "classes",
-        "value": "",
-        "label": "Columns Style",
+        "value": "badges",
+        "label": "Content Style",
         "options": [
           {
-            "name": "Content alignment",
+            "name": "Content Type",
             "children": [
               {
-                "name": "Content centered",
-                "value": "content-center"
+                "name": "Badges",
+                "value": "badges"
               },
               {
-                "name": "Content left aligned",
-                "value": "content-left"
+                "name": "Info Grid",
+                "value": "info-grid"
+              },
+              {
+                "name": "Social Media Icons",
+                "value": "social-media-icons"
               }
             ]
           },
