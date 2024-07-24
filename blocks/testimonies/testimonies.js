@@ -35,6 +35,7 @@ export default function decorate(block) {
     ].map((conf, i) => {
       conf.classList.add(`confetti-${i + 1}`, 'confetti');
       conf.src = `/icons/confetti-${i + 1}.svg`;
+      conf.alt = 'confetti icon';
       return conf;
     });
 
