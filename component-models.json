@@ -668,19 +668,23 @@
         "component": "multiselect",
         "valueType": "string",
         "name": "classes",
-        "value": "",
-        "label": "Columns Style",
+        "value": "badges",
+        "label": "Content Style",
         "options": [
           {
-            "name": "Content alignment",
+            "name": "Content Type",
             "children": [
               {
-                "name": "Content centered",
-                "value": "content-center"
+                "name": "Badges",
+                "value": "badges"
               },
               {
-                "name": "Content left aligned",
-                "value": "content-left"
+                "name": "Info Grid",
+                "value": "info-grid"
+              },
+              {
+                "name": "Social Media Icons",
+                "value": "social-media-icons"
               }
             ]
           },
