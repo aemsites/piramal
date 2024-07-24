@@ -25,7 +25,7 @@
   height: 100%;
   border-radius: 16px;
 
-  /* object-fit: contain; */
+  object-fit: cover;
 }
 
 .block.teaser .content .button-container {
@@ -46,6 +46,7 @@
 
 .block.teaser .content * {
   font-size: 1.25rem;
+  font-weight: 400;
 }
 
 .block.teaser .content > div * {
@@ -71,6 +72,7 @@
 
 .block.teaser .content *:first-child {
   font-size: 1.5rem;
+  font-weight: 800;
 }
 
 @media (width >= 900px) {
