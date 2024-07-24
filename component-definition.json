@@ -72,6 +72,22 @@
               }
             }
           }
+        },
+        {
+          "title": "Tabs Section",
+          "id": "tab-section",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "name": "Tab Section",
+                  "model": "tab-section",
+                  "filter" : "tab-section"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -247,7 +263,261 @@
               }
             }
           }
+        },
+        {
+          "title": "Key Features",
+          "id": "key-features",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Key Features",
+                  "model": "key-features",
+                  "id": "home"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Required Documents",
+          "id": "required-documents",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Required Documents",
+                  "model": "required-documents",
+                  "filter": "required-documents"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "KYC Documents",
+          "id": "kyc-documents",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "KYC Documents",
+                  "model": "kyc-documents",
+                  "kyc_title": "KYC Documents",
+                  "kyc_subtitle": "Proof of Identity & Address"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Document Group",
+          "id": "other-documents",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Other Documents",
+                  "model": "other-documents",
+                  "title_title": "",
+                  "title_subtitle": ""
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Fee & Charges Table",
+          "id": "fee-charges",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Fee & Charges",
+                  "model": "fee-charges",
+                  "filter": "fee-charges",
+                  "column1title": "Features & Fees",
+                  "column2title": "Details"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Row",
+          "id": "fee-row",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Row",
+                  "model": "fee-row",
+                  "column1text" : "Fee or Charge Name Placeholder",
+                  "column2text": "Fee or Charge Description"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Recommended Articles",
+          "id": "recommended-articles",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Recommended Articles",
+                  "model": "recommended-articles",
+                  "filter": "recommended-articles"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Recommended Article",
+          "id": "recommended-article",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Recommended Article",
+                  "model": "recommended-article"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Loan Products",
+          "id": "loan-products",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Loan Products",
+                  "model": "loan-products",
+                  "filter": "loan-products"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Loan Product Card",
+          "id": "loan-product-card",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Loan Product Card",
+                  "model": "loan-product-card"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Accordion",
+          "id": "accordion",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Accordion",
+                  "model": "accordion",
+                  "filter": "accordion"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Accordion Entry",
+          "id": "accordion-entry",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Accordion Entry",
+                  "model": "accordion-entry",
+                  "title": "Placeholder Title",
+                  "content": "Placeholder Content"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Metro Cities",
+          "id": "metro-cities",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Metro Cities",
+                  "model": "metro-cities"
+                }
+              }
+            }
+          }
         }
+      ]
+    },
+    {
+      "title": "Calculators",
+      "id": "calculators",
+      "components":[
+        {
+          "title": "Home Loan EMI",
+          "id": "home-emi-calculator",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Home EMI Calculator",
+                  "model": "home-emi-calculator",
+                  "interest-rate_steps": 0.1,
+                  "tenure_steps": 1,
+                  "amount_steps": 10000
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Home Loan Eligibility",
+          "id": "home-eligibility-calculator",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block",
+                "template": {
+                  "name": "Home Eligiblity Calculator",
+                  "model": "home-eligibility-calculator",
+                  "interest-rate_steps": 0.1,
+                  "tenure_steps": 1,
+                  "income_steps": 10000,
+                  "other-loan-emi_steps": 10000
+                }
+              }
+            }
+          }
+        }  
       ]
     }
   ]
