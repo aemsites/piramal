@@ -668,7 +668,7 @@
         "component": "multiselect",
         "valueType": "string",
         "name": "classes",
-        "value": "",
+        "value": "badges",
         "label": "Content Style",
         "options": [
           {
