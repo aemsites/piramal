@@ -672,7 +672,7 @@
         "label": "Content Style",
         "options": [
           {
-            "name": "Background Color",
+            "name": "Content Type",
             "children": [
               {
                 "name": "Badges",
@@ -685,7 +685,7 @@
               {
                 "name": "Social Media Icons",
                 "value": "social-media-icons"
-              },
+              }
             ]
           },
           {
