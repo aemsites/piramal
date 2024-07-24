@@ -174,7 +174,7 @@
         "label": "Block Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 3,
+        "maxSize": 4,
         "options": [
           {
             "name": "Background Color",
@@ -232,6 +232,15 @@
               {
                 "name": "Centered",
                 "value": "justify-image-center"
+              }
+            ]
+          },
+          {
+            "name": "Font Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "font-white"
               }
             ]
           }

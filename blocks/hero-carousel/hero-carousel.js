@@ -66,6 +66,9 @@ function createSlide(row, slideIndex, carouselId) {
   slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
 
+  const slideContent = document.createElement('div');
+  slideContent.classList.add('carousel-slide-content');
+
   row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
     switch (colIdx) {
       case 0:
@@ -76,15 +79,34 @@ function createSlide(row, slideIndex, carouselId) {
         column.classList.add('classes');
         break;
       case 1:
-        column.classList.add('carousel-slide-content');
+        column.classList.add('carousel-slide-description');
+        if (slide.classList.contains('features-slide')) {
+          const features = document.createElement('div');
+          features.classList.add('features');
+          const paras = column.querySelectorAll('p');
+          for (let i = 0; i <= 5; i += 2) {
+            const feature = document.createElement('div');
+            feature.classList.add('feature');
+            feature.append(paras[i]);
+            feature.append(paras[i + 1]);
+            features.append(feature);
+          }
+          column.append(features);
+        }
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.classList.add('buttons-container');
+        column.querySelectorAll('p').forEach((p) => {
+          if (p.classList.contains('button-container')) {
+            buttonsContainer.append(p);
+          }
+        });
+        column.append(buttonsContainer);
         break;
       case 2:
         column.classList.add('carousel-slide-image');
         break;
-
-      default:
     }
-    slide.append(column);
+    slideContent.append(column);
   });
 
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
@@ -92,6 +114,7 @@ function createSlide(row, slideIndex, carouselId) {
     slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
   }
 
+  slide.append(slideContent);
   return slide;
 }
 
