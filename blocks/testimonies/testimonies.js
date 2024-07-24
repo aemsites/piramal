@@ -22,10 +22,10 @@ export default function decorate(block) {
     img.classList.add('testimony-img');
     content.classList.add('testimony-content');
 
-    const [desc, name, title] = content.querySelectorAll(':scope > *');
-    desc.classList.add('testimony-desc');
-    name.classList.add('testimony-name');
-    title.classList.add('testimony-title');
+    const [desc, name, title] = content.querySelectorAll(':scope p');
+    desc?.classList?.add('testimony-desc');
+    name?.classList?.add('testimony-name');
+    title?.classList?.add('testimony-title');
 
     const confetti = [
       document.createElement('img'),
@@ -34,7 +34,7 @@ export default function decorate(block) {
       document.createElement('img'),
     ].map((conf, i) => {
       conf.classList.add(`confetti-${i + 1}`, 'confetti');
-      conf.src = `/icons/confetti-${i + 1}.svg`;
+      conf.src = `${window.hlx.codeBasePath}/icons/confetti-${i + 1}.svg`;
       conf.alt = 'confetti icon';
       return conf;
     });
