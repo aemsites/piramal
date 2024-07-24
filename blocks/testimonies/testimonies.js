@@ -22,10 +22,10 @@ export default function decorate(block) {
     img.classList.add('testimony-img');
     content.classList.add('testimony-content');
 
-    const [desc, name, title] = content.querySelectorAll(':scope > *');
-    desc.classList.add('testimony-desc');
-    name.classList.add('testimony-name');
-    title.classList.add('testimony-title');
+    const [desc, name, title] = content.querySelectorAll(':scope p');
+    desc?.classList?.add('testimony-desc');
+    name?.classList?.add('testimony-name');
+    title?.classList?.add('testimony-title');
 
     const confetti = [
       document.createElement('img'),
