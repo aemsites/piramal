@@ -911,8 +911,7 @@
         "component": "text",
         "valueType": "string",
         "name": "title_subtitle",
-        "label": "Type of Documents Subtitle",
-        "required": true
+        "label": "Type of Documents Subtitle"
       },
       {
         "component": "richtext",
