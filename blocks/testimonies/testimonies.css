@@ -42,7 +42,6 @@
 }
 
 /* make a triangle that points upwards in the center of the div */
-
 .block.testimonies .testimony.selected .testimony-img::after {
   content: '';
   position: absolute;
@@ -112,28 +111,18 @@
 }
 
 .block.testimonies .testimony.selected .animation-circle-0 {
-  /* outline: 20px solid #ed8c90; */
-
-  /* opacity: 0.125; */
   animation-delay: 0s;
 }
 
 .block.testimonies .testimony.selected .animation-circle-1 {
-  /* background-color: #ed8c90; */
   animation-delay: 1s;
 }
 
 .block.testimonies .testimony.selected .animation-circle-2 {
-  /* outline: 0px solid #ed8c90; */
-
-  /* opacity: 0.075; */
   animation-delay: 2s;
 }
 
 .block.testimonies .testimony.selected .animation-circle-3 {
-  /* outline: 0px solid #ed8c90; */
-
-  /* opacity: 0.075; */
   animation-delay: 3s;
 }
 
@@ -176,8 +165,6 @@
 @media (width >= 900px) {
   .block.testimonies .testimony.selected .testimony-content {
     width: 50%;
-
-    /* padding-inline: 0; */
   }
 
   .block.testimonies .testimony.unselected {
