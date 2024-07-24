@@ -91,8 +91,7 @@
   .block.teaser .content .button-container {
     display: flex;
     margin-top: auto;
-    width: 150px;
-    height: 60px;
+    width: unset;
     gap: 10px;
   }
 
@@ -104,7 +103,8 @@
   }
 
   .block.teaser .content .button-container img {
-    height: 100%;
-    width: 100%;
+    /* height: auto; */
+
+    height: 60px;
   }
 }
