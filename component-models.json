@@ -672,14 +672,35 @@
         "label": "Content Style",
         "options": [
           {
-            "name": "Info Grid, centered",
-            "value": "info-grid-centered"
+            "name": "Background Color",
+            "children": [
+              {
+                "name": "Badges",
+                "value": "badges"
+              },
+              {
+                "name": "Info Grid",
+                "value": "info-grid"
+              },
+              {
+                "name": "Social Media Icons",
+                "value": "social-media-icons"
+              },
+            ]
           },
           {
-            "name": "Info Grid, left aligned",
-            "value": "info-grid-left"
+            "name": "Clickable Images",
+            "children": [
+              {
+                "name": "Yes",
+                "value": "clickable-images"
+              },
+              {
+                "name": "No",
+                "value": ""
+              }
+            ]
           }
-  
         ]
       },
       {
