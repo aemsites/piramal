@@ -1,8 +1,7 @@
 [
   {
     "id": "page-metadata",
-    "fields": [
-    ]
+    "fields": []
   },
   {
     "id": "section",
@@ -201,7 +200,7 @@
         "label": "Block Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 3,
+        "maxSize": 4,
         "options": [
           {
             "name": "Background Color",
@@ -223,8 +222,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -259,6 +258,15 @@
               {
                 "name": "Centered",
                 "value": "justify-image-center"
+              }
+            ]
+          },
+          {
+            "name": "Font Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "font-white"
               }
             ]
           }
@@ -368,8 +376,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -582,7 +590,7 @@
   },
   {
     "id": "teaser",
-    "fields": [ 
+    "fields": [
       {
         "component": "reference",
         "valueType": "string",
@@ -602,39 +610,6 @@
         "name": "descr_title",
         "value": "",
         "label": "Heading"
-      },
-      {
-        "component": "select",
-        "name": "descr_titleType",
-        "value": "h1",
-        "label": "Heading Type",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
       },
       {
         "component": "richtext",

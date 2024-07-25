@@ -1,0 +1,108 @@
+.block.teaser {
+  position: relative;
+  display: grid;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.block.teaser .bg {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.block.teaser .bg > div {
+  width: 100%;
+  height: 100%;
+}
+
+.block.teaser .bg img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.block.teaser .content .button-container {
+  display: none;
+}
+
+.block.teaser .content {
+  padding-inline: 0.75em;
+  padding-top: 2em;
+}
+
+.block.teaser .content > div {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+  height: 100%;
+}
+
+.block.teaser .content * {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.block.teaser .content > div * {
+  margin: 0;
+  width: 100%;
+}
+
+.block.teaser .mobile-cta {
+  margin: 0;
+  margin-left: 0.75rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+}
+
+.block.teaser .mobile-cta a {
+  background-color: var(--main-cta-background);
+  border-radius: 8px;
+  padding: 12px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.block.teaser .content *:first-child {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+@media (width >= 900px) {
+  .block.teaser {
+    height: 17rem;
+  }
+
+  .block.teaser .content {
+    padding-bottom: 2em;
+    padding-inline: 4em;
+  }
+
+  .block.teaser .mobile-cta {
+    display: none;
+  }
+
+  .block.teaser .content .button-container {
+    display: flex;
+    margin-top: auto;
+    width: unset;
+    gap: 10px;
+  }
+
+  .block.teaser .content .button-container a {
+    border-radius: 0;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+  }
+
+  .block.teaser .content .button-container img {
+    height: 60px;
+  }
+}
