@@ -45,6 +45,32 @@
     ]
   },
   {
+    "id": "tab-section",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tabtitle",
+        "label": "Tab Title",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "Image Alt Text",
+        "label": "Alt Text"
+      }
+    ]
+  },
+  {
     "id": "title",
     "fields": [
       {
@@ -756,6 +782,413 @@
         "valueType": "string",
         "name": "media_imageAlt",
         "label": "Image Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "key-features",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "id",
+        "label": "Loan Type",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tc-link",
+        "label": "Terms & Conditions PDF Link",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "required-documents",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "kyc-documents",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "hidden": "true"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "kyc_image",
+        "label": "KYC Documents Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "kyc_imageAlt",
+        "label": "KYC Documents Icon Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "kyc_title",
+        "label": "KYC Documents Title",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "kyc_subtitle",
+        "label": "KYC Documents Subtitle",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "fragment",
+        "label": "KYC Documents Fragment Link"
+      }
+    ]
+  },
+  {
+    "id": "other-documents",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "hidden": "true"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "title_image",
+        "label": "Documents Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title_imageAlt",
+        "label": "Documents Icon Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title_title",
+        "label": "Type of Documents",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title_subtitle",
+        "label": "Type of Documents Subtitle"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Required Documents"
+      }
+    ]
+  },
+  {
+    "id": "calculators",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "calculator1",
+        "label": "First Calculator",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "calculator2",
+        "label": "Second Calculator"
+      }
+    ]
+  },
+  {
+    "id": "fee-charges",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "loan-type",
+        "label": "Loan Type",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "column1title",
+        "label": "Title First Column",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "column2title",
+        "label": "Title Second Column",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "fee-row",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Fee or Charges Name"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Description"
+      }
+    ]
+  },
+  {
+    "id": "recommended-articles",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_title",
+        "label": "Title",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_subtitle",
+        "label": "Description",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "recommended-article",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "article_image",
+        "label": "Article Image",
+        "required" : true,
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "article_imageAlt",
+        "label": "Documents Icon Alt Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "article_intro",
+        "label": "Article Intro Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "article_link",
+        "label": "Article Link",
+        "required" : true,
+        "multi": false
+      },
+      {
+        "component": "date-time",
+        "valueType": "date",
+        "name": "date",
+        "label": "Article Date"
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "reading-time",
+        "label": "Reading Time (Min)",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "loan-products",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Initialy Visible Rows",
+            "children": [
+              {
+                "name": "1",
+                "value": "max-initial-rows-1"
+              },
+              {
+                "name": "2",
+                "value": "max-initial-rows-2"
+              },
+              {
+                "name": "3",
+                "value": "max-initial-rows-3"
+              },
+              {
+                "name": "4",
+                "value": "max-initial-rows-4"
+              }
+            ]
+          },
+          {
+            "name": "Show Key Features",
+            "children": [
+              {
+                "name": "No",
+                "value": ""
+              },
+              {
+                "name": "Yes",
+                "value": "key-features"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loan-product-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "loan-type",
+        "label": "Loan Type",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "card_image",
+        "label": "Image",
+        "required" : true,
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card_imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card_title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "card_description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Product Page Link"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "key-feature_amount",
+        "label": "Amount Key Feature"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "key-feature_tenure",
+        "label": "Tenure Key Feature"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "key-feature_interest-rate",
+        "label": "Interest Rate Key Feature"
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "FAQ",
+            "value": "faq"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-entry",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Accordion Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Accordion Text"
+      }
+    ]
+  },
+  {
+    "id": "metro-cities",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "value": "",
+        "label": "List of Cities"
       }
     ]
   }

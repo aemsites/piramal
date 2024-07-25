@@ -2,7 +2,8 @@
   {
     "id": "main",
     "components": [
-      "section"
+      "section",
+      "tab-section"
     ]
   },
   {
@@ -17,7 +18,20 @@
       "image-list",
       "hero-carousel",
       "teaser",
-      "testimonies"
+      "testimonies",
+      "key-features",
+      "fee-charges",
+      "recommended-articles",
+      "loan-products",
+      "accordion",
+      "metro-cities"
+    ]
+  },
+  {
+    "id": "tab-section",
+    "components": [
+      "required-documents",
+      "calculators"
     ]
   },
   {
@@ -56,6 +70,37 @@
     "id": "testimonies",
     "components": [
       "testimony"
+    ]
+  },
+  {
+    "id": "required-documents",
+    "components": [
+      "kyc-documents",
+      "other-documents"
+    ]
+  },
+  {
+    "id": "fee-charges",
+    "components": [
+      "fee-row"
+    ]
+  },
+  {
+    "id": "recommended-articles",
+    "components": [
+      "recommended-article"
+    ]
+  },
+  {
+    "id": "loan-products",
+    "components": [
+      "loan-product-card"
+    ]
+  },
+  {
+    "id": "accordion",
+    "components": [
+      "accordion-entry"
     ]
   }
 ]
