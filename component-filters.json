@@ -35,6 +35,13 @@
     ]
   },
   {
+    "id": "calculator-section",
+    "components": [
+      "emi-calculator",
+      "eligibility-calculator"
+    ]
+  },
+  {
     "id": "hero-carousel",
     "components": [
       "content-slide",
