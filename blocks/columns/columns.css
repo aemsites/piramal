@@ -19,7 +19,36 @@
   display: block;
 }
 
+.block.columns.badges img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.block.columns.content-center {
+  text-align: center;
+}
+
+.block.columns.content-center > div > div {
+  text-align: center;
+  flex: unset;
+}
+
+.block.columns.badges.content-center > div {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.block.columns.badges.content-center > div > div {
+  width: 45%;
+}
+
 @media (width >= 900px) {
+  .block.columns.badges img {
+    width: 72px;
+    height: 72px;
+  }
   .columns > div {
     align-items: center;
     flex-direction: unset;
@@ -29,5 +58,14 @@
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .block.columns.badges.content-center > div {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .block.columns.badges.content-center > div > div {
+    width: unset;
+    flex: 1;
   }
 }
