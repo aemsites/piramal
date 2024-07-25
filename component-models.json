@@ -1,8 +1,7 @@
 [
   {
     "id": "page-metadata",
-    "fields": [
-    ]
+    "fields": []
   },
   {
     "id": "section",
@@ -175,7 +174,7 @@
         "label": "Block Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 3,
+        "maxSize": 4,
         "options": [
           {
             "name": "Background Color",
@@ -197,8 +196,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -233,6 +232,15 @@
               {
                 "name": "Centered",
                 "value": "justify-image-center"
+              }
+            ]
+          },
+          {
+            "name": "Font Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "font-white"
               }
             ]
           }
@@ -342,8 +350,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -556,7 +564,7 @@
   },
   {
     "id": "teaser",
-    "fields": [ 
+    "fields": [
       {
         "component": "reference",
         "valueType": "string",
