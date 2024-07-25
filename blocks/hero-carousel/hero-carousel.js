@@ -62,6 +62,49 @@ function bindEvents(block) {
   });
 }
 
+function decorateDescription(description, slide) {
+  description.classList.add('carousel-slide-description');
+  if (slide.classList.contains('features-slide')) {
+    const features = document.createElement('div');
+    features.classList.add('features');
+    const paras = description.querySelectorAll('p');
+    let index = 0;
+    while (index < paras.length) {
+      const feature = document.createElement('div');
+      feature.classList.add('feature');
+      if (paras[index].querySelector('picture')) {
+        feature.append(paras[index]);
+        index++;
+      }
+      if (!paras[index].querySelector('picture')) {
+        feature.append(paras[index]);
+        index++;
+      }
+      features.append(feature);
+    }
+    description.append(features);
+  }
+  const buttonsContainer = document.createElement('div');
+  buttonsContainer.classList.add('buttons-container');
+  const buttons = description.querySelectorAll('p.button-container');
+  buttonsContainer.append(buttons[0]);
+  const linkText = description.querySelector('p:not(:has(*))');
+  if (buttons.length > 1) {
+    if (linkText) {
+      const linkContainer = document.createElement('div');
+      linkContainer.classList.add('link-container');
+      linkContainer.append(linkText);
+      buttons[1].classList.remove('button-container');
+      linkContainer.append(buttons[1]);
+      buttonsContainer.append(linkContainer);
+    } else {
+      buttonsContainer.append(buttons[1]);
+    }
+  }
+  description.append(buttonsContainer);
+  return description;
+}
+
 function createSlide(row, slideIndex, carouselId) {
   const slide = document.createElement('li');
   moveInstrumentation(row, slide);
@@ -75,41 +118,22 @@ function createSlide(row, slideIndex, carouselId) {
   row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
     switch (colIdx) {
       case 0:
-        column.querySelector('p').innerHTML.split(',').forEach((text) => {
-          slide.classList.add(text.trim());
-        });
-        // column.remove();
-        column.classList.add('classes');
+        const classes = column.querySelector('p');
+        if (classes) {
+          classes.innerHTML.split(',').forEach((text) => {
+            slide.classList.add(text.trim());
+          });
+        }
         break;
       case 1:
-        column.classList.add('carousel-slide-description');
-        if (slide.classList.contains('features-slide')) {
-          const features = document.createElement('div');
-          features.classList.add('features');
-          const paras = column.querySelectorAll('p');
-          for (let i = 0; i <= 5; i += 2) {
-            const feature = document.createElement('div');
-            feature.classList.add('feature');
-            feature.append(paras[i]);
-            feature.append(paras[i + 1]);
-            features.append(feature);
-          }
-          column.append(features);
-        }
-        const buttonsContainer = document.createElement('div');
-        buttonsContainer.classList.add('buttons-container');
-        column.querySelectorAll('p').forEach((p) => {
-          if (p.classList.contains('button-container')) {
-            buttonsContainer.append(p);
-          }
-        });
-        column.append(buttonsContainer);
+        decorateDescription(column, slide);
+        slideContent.append(column);
         break;
       case 2:
         column.classList.add('carousel-slide-image');
+        slideContent.append(column);
         break;
     }
-    slideContent.append(column);
   });
 
   const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
@@ -145,12 +169,13 @@ export default function decorate(block) {
     slideIndicators = document.createElement('ol');
     slideIndicators.classList.add('carousel-slide-indicators');
     slideIndicatorsNav.append(slideIndicators);
-    block.append(slideIndicatorsNav);
+    container.append(slideIndicatorsNav);
   }
 
   rows.forEach((row, idx) => {
     if (idx === 0) {
-      row.classList.add('autoscroll');
+      // TODO - Set auto-scroll for Carousel
+      row.remove();
       return;
     }
 
@@ -161,7 +186,7 @@ export default function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx - 1;
-      indicator.innerHTML = `<button type="button"><span>'Show Slide' ${idx} 'of' ${rows.length}</span></button>`;
+      indicator.innerHTML = `<button type="button"><span>Show Slide ${idx - 1} of ${rows.length - 1}</span></button>`;
       slideIndicators.append(indicator);
     }
     row.remove();
