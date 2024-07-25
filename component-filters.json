@@ -31,8 +31,7 @@
     "id": "tab-section",
     "components": [
       "required-documents",
-      "home-emi-calculator",
-      "home-eligibility-calculator"
+      "calculators"
     ]
   },
   {
