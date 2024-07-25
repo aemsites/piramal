@@ -819,6 +819,13 @@
         "name": "id",
         "label": "Loan Type",
         "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tc-link",
+        "label": "Terms & Conditions PDF Link",
+        "multi": false
       }
     ]
   },
