@@ -1121,6 +1121,12 @@
         "label": "Description"
       },
       {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Product Page Link"
+      },
+      {
         "component": "richtext",
         "valueType": "string",
         "name": "key-feature_amount",
