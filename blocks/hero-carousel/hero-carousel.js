@@ -1,4 +1,4 @@
-import { moveInstrumentation } from "../../scripts/scripts.js";
+import { moveInstrumentation } from '../../scripts/scripts.js';
 
 function updateActiveSlide(slide) {
   const block = slide.closest('.carousel');
@@ -67,18 +67,18 @@ function decorateDescription(description, slide) {
   if (slide.classList.contains('features-slide')) {
     const features = document.createElement('div');
     features.classList.add('features');
-    const paras = description.querySelectorAll('p');
+    const paras = description.querySelectorAll('p:not(.button-container)');
     let index = 0;
     while (index < paras.length) {
       const feature = document.createElement('div');
       feature.classList.add('feature');
       if (paras[index].querySelector('picture')) {
         feature.append(paras[index]);
-        index++;
+        index += 1;
       }
       if (!paras[index].querySelector('picture')) {
         feature.append(paras[index]);
-        index++;
+        index += 1;
       }
       features.append(feature);
     }
@@ -118,9 +118,8 @@ function createSlide(row, slideIndex, carouselId) {
   row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
     switch (colIdx) {
       case 0:
-        const classes = column.querySelector('p');
-        if (classes) {
-          classes.innerHTML.split(',').forEach((text) => {
+        if (column.querySelector('p')) {
+          column.querySelector('p').innerHTML.split(',').forEach((text) => {
             slide.classList.add(text.trim());
           });
         }
@@ -133,6 +132,7 @@ function createSlide(row, slideIndex, carouselId) {
         column.classList.add('carousel-slide-image');
         slideContent.append(column);
         break;
+      default:
     }
   });
 
@@ -192,7 +192,7 @@ export default function decorate(block) {
     row.remove();
   });
 
-  container.append(slidesWrapper);
+  container.prepend(slidesWrapper);
   block.prepend(container);
 
   if (!isSingleSlide) {
