@@ -414,7 +414,7 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "descr_icon1text",
         "value": "",
@@ -428,7 +428,7 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "descr_icon2text",
         "value": "",
@@ -442,7 +442,7 @@
         "valueType": "string"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
         "name": "descr_icon3text",
         "value": "",
