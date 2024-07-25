@@ -44,6 +44,14 @@
   width: 45%;
 }
 
+.block.columns.badges.content-center p {
+  margin: 0;
+}
+
+.block.columns {
+  margin-bottom: 20px;
+}
+
 @media (width >= 900px) {
   .block.columns.badges img {
     width: 72px;
