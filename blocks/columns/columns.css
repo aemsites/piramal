@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.columns > div > div {
+  order: 1;
+}
+
 .columns.badges > div {
   gap: 10px;
   align-items: start;
@@ -10,10 +14,6 @@
 
 .columns img {
   width: 100%;
-}
-
-.columns > div > div {
-  order: 1;
 }
 
 .columns > div > .columns-img-col {
@@ -41,8 +41,7 @@
 }
 
 .block.columns.badges.content-center > div {
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
 }
 
 .block.columns.badges.content-center > div > div {
@@ -62,6 +61,7 @@
     width: 72px;
     height: 72px;
   }
+
   .columns > div {
     align-items: center;
     flex-direction: unset;
@@ -74,9 +74,9 @@
   }
 
   .block.columns.badges.content-center > div {
-    flex-direction: row;
-    flex-wrap: nowrap;
+    flex-flow: row nowrap;
   }
+
   .block.columns.badges.content-center > div > div {
     width: unset;
     flex: 1;
