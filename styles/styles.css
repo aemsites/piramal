@@ -40,6 +40,8 @@
   --gradient-yellow-dark: #ffd49d;
   --gradient-blue-light: #dbe3f8;
   --gradient-blue-dark: #b7c7f1;
+  --background-light-yellow: #FFFCF7;
+  --background-light-pink: #FFF7F4;
 
   /* colors form teknopoint implementation */
   --gradient-gray-light: #ebeef050;
@@ -329,4 +331,12 @@ main .section {
 main .section.light,
 main .section.background-light-gray {
   background-color: var(--light-color);
+}
+
+main .section.background-light-yellow {
+  background-color: var(--background-light-yellow);
+}
+
+main .section.background-light-pink {
+  background-color: var(--background-light-pink);
 }

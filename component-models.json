@@ -24,6 +24,14 @@
               {
                 "name": "Light Gray",
                 "value": "background-light-gray"
+              },
+              {
+                "name": "Light Yellow",
+                "value": "background-light-yellow"
+              },
+              {
+                "name": "Light Pink",
+                "value": "background-light-pink"
               }
             ]
           },
@@ -977,20 +985,6 @@
             ]
           }
         ]
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "titles_column1title",
-        "label": "First Column",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "titles_column2title",
-        "label": "Second Column",
-        "multi": false
       }
     ]
   },
