@@ -40,8 +40,8 @@
   --gradient-yellow-dark: #ffd49d;
   --gradient-blue-light: #dbe3f8;
   --gradient-blue-dark: #b7c7f1;
-  --background-light-yellow: rgba(255 244 231 0.3);
-  --background-light-pink: rgb(255 247 244/100%)
+  --background-light-yellow: #FFFCF7;
+  --background-light-pink: #FFF7F4;
 
   /* colors form teknopoint implementation */
   --gradient-gray-light: #ebeef050;
