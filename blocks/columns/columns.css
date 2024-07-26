@@ -10,7 +10,9 @@
 .columns.badges > div {
   align-items: start;
 }
-
+.columns.content-center > div {
+  justify-content: center;
+}
 .columns.badges.content-center > div {
   row-gap: 2.5rem;
 }
