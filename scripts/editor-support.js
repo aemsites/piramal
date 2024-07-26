@@ -190,7 +190,7 @@ function removeInstrumentation(editable) {
 
 function observePlaceholders(main) {
   new MutationObserver((mutations) => mutations.forEach(({ addedNodes }) => {
-    const placeholderSpan = [...addedNodes].find((node) => node.tagName === 'SPAN' && node.dataset.placeholder)
+    const placeholderSpan = [...addedNodes].find((node) => node.tagName === 'SPAN' && node.dataset.placeholder);
     if (placeholderSpan) {
       // remove instrumentation from the closes richtext or text
       const editable = placeholderSpan.closest('[data-aue-type="richtext"],[data-aue-type="text"]');
