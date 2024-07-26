@@ -24,9 +24,11 @@
 .columns.badges h3 strong {
   font-weight: 700;
 }
+
 .columns.badges h3 {
   font-size: var(--heading-font-size-l);
 }
+
 .columns > div > .columns-img-col {
   order: 0;
 }
@@ -92,9 +94,11 @@
     width: unset;
     flex: 1;
   }
+
   .block.columns.badges * {
     line-height: 1.75rem;
   }
+
   .block.columns.badges h3 strong {
     font-weight: 800;
   }
