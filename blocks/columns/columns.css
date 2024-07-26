@@ -8,9 +8,11 @@
 }
 
 .columns.badges > div {
-  row-gap: 2.5rem;
-  column-gap: 5rem;
   align-items: start;
+}
+
+.columns.badges.content-center > div {
+  row-gap: 2.5rem;
 }
 
 .columns img {
@@ -60,7 +62,7 @@
 }
 
 .block.columns.badges.content-center > div > div {
-  width: 45%;
+  width: calc(50% - 2.5rem);
 }
 
 .block.columns.badges.content-center p {
@@ -81,6 +83,8 @@
     align-items: center;
     flex-direction: unset;
     gap: 32px;
+    row-gap: 2.5rem;
+    column-gap: 5rem;
   }
 
   .columns > div > div {
