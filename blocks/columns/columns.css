@@ -3,12 +3,50 @@
   flex-direction: column;
 }
 
+.columns > div > div {
+  order: 1;
+}
+
+.columns.content-center > div {
+  justify-content: center;
+}
+
+.columns.badges > div,
+.block.columns.info-grid > div {
+  align-items: start;
+}
+
+.columns.badges.content-center > div {
+  row-gap: 2.5rem;
+}
+
 .columns img {
   width: 100%;
 }
 
-.columns > div > div {
-  order: 1;
+.columns.info-grid p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.columns.badges * {
+  font-size: 1rem;
+  color: #333;
+}
+
+.columns.info-grid h3 {
+  font-size: 1rem;
+  color: rgb(51 51 51);
+}
+
+.columns.badges h3 strong,
+.columns.info-grid h3 strong {
+  font-weight: 700;
+}
+
+.columns.badges h3 {
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .columns > div > .columns-img-col {
@@ -19,15 +57,94 @@
   display: block;
 }
 
+.block.columns.badges img,
+.block.columns.info-grid img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.block.columns.content-center {
+  text-align: center;
+}
+
+.block.columns.content-center > div > div {
+  text-align: center;
+  flex: unset;
+}
+
+.block.columns.badges.content-center > div {
+  flex-flow: row wrap;
+}
+
+.block.columns.badges.content-center > div > div {
+  width: calc(50% - 2.5rem);
+}
+
+.block.columns.info-grid p {
+  line-height: 1.25rem;
+}
+
+.block.columns.badges.content-center p {
+  margin: 0;
+}
+
+.block.columns {
+  margin-bottom: 20px;
+}
+
 @media (width >= 900px) {
+  .block.columns.badges img,
+  .block.columns.info-grid img {
+    width: 72px;
+    height: 72px;
+  }
+
   .columns > div {
     align-items: center;
     flex-direction: unset;
     gap: 32px;
+    gap: 2.5rem 2.5rem;
   }
 
   .columns > div > div {
     flex: 1;
     order: unset;
+  }
+
+  .columns.info-grid > div {
+    gap: 2.5rem 11rem;
+  }
+
+  .block.columns.badges.content-center > div {
+    flex-flow: row nowrap;
+  }
+
+  .block.columns.badges.content-center > div > div {
+    width: unset;
+    flex: 1;
+  }
+
+  .block.columns.info-grid p {
+    line-height: 1.5rem;
+  }
+
+  .block.columns.badges * {
+    line-height: 1.75rem;
+    font-size: 1.25rem;
+  }
+
+  .block.columns.badges h3,
+  .block.columns.info-grid h3 {
+    font-size: 1.25rem;
+  }
+
+  .block.columns.badges h3 strong {
+    font-weight: 800;
+  }
+
+  .block.columns.info-grid h3 strong {
+    font-weight: 800;
   }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import {
   decorateBlock,
   decorateBlocks,
@@ -141,4 +142,44 @@ function attachEventListners(main) {
   main?.addEventListener('aue:ui-select', handleSelection);
 }
 
+function findComponentDef(componentDefinitions, filter) {
+  for (const group of componentDefinitions.groups) {
+    for (const component of group.components) {
+      const template = component?.plugins?.xwalk?.page?.template;
+      if (template && filter(template)) {
+        return component;
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * For components that are implemented by the same block, the Content Tree and the labels would
+ * be the block name. This is not inuitive as the author did add a specific configuration of that
+ * block to the page. This function finds the used component definition for a given model and
+ * block name and updates the data-aue-label accordingly.
+ *
+ * @param {*} main
+ * @param {*} blocks
+ */
+async function rewriteBlockLabels(main, blocks = ['Table']) {
+  // fetch component definitions
+  const componentDefinitionsRes = await fetch(`${window.hlx.codeBasePath}/component-definition.json`);
+  if (componentDefinitionsRes.ok) {
+    const componentDefinitions = await componentDefinitionsRes.json();
+    blocks.forEach((blockName) => main.querySelectorAll(`[data-aue-label="${blockName}"]`).forEach((block) => {
+      const { aueModel } = block.dataset;
+      // eslint-disable-next-line arrow-body-style
+      const component = findComponentDef(componentDefinitions, ({ name, model }) => {
+        return name === blockName && model === aueModel;
+      });
+      if (component) {
+        block.dataset.aueLabel = component.title;
+      }
+    }));
+  }
+}
+
 attachEventListners(document.querySelector('main'));
+rewriteBlockLabels(document.querySelector('main'));

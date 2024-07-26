@@ -1,8 +1,7 @@
 [
   {
     "id": "page-metadata",
-    "fields": [
-    ]
+    "fields": []
   },
   {
     "id": "section",
@@ -25,6 +24,14 @@
               {
                 "name": "Light Gray",
                 "value": "background-light-gray"
+              },
+              {
+                "name": "Light Yellow",
+                "value": "background-light-yellow"
+              },
+              {
+                "name": "Light Pink",
+                "value": "background-light-pink"
               }
             ]
           },
@@ -42,6 +49,32 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    "id": "tab-section",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "tabtitle",
+        "label": "Tab Title",
+        "required": true
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "imageAlt",
+        "value": "Image Alt Text",
+        "label": "Alt Text"
       }
     ]
   },
@@ -175,7 +208,7 @@
         "label": "Block Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 3,
+        "maxSize": 4,
         "options": [
           {
             "name": "Background Color",
@@ -197,8 +230,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -233,6 +266,15 @@
               {
                 "name": "Centered",
                 "value": "justify-image-center"
+              }
+            ]
+          },
+          {
+            "name": "Font Color",
+            "children": [
+              {
+                "name": "White",
+                "value": "font-white"
               }
             ]
           }
@@ -342,8 +384,8 @@
                 "value": "background-light-blue"
               },
               {
-              "name": "Blue",
-              "value": "background-blue"
+                "name": "Blue",
+                "value": "background-blue"
               },
               {
                 "name": "Violet",
@@ -556,7 +598,7 @@
   },
   {
     "id": "teaser",
-    "fields": [ 
+    "fields": [
       {
         "component": "reference",
         "valueType": "string",
@@ -576,39 +618,6 @@
         "name": "descr_title",
         "value": "",
         "label": "Heading"
-      },
-      {
-        "component": "select",
-        "name": "descr_titleType",
-        "value": "h1",
-        "label": "Heading Type",
-        "valueType": "string",
-        "options": [
-          {
-            "name": "h1",
-            "value": "h1"
-          },
-          {
-            "name": "h2",
-            "value": "h2"
-          },
-          {
-            "name": "h3",
-            "value": "h3"
-          },
-          {
-            "name": "h4",
-            "value": "h4"
-          },
-          {
-            "name": "h5",
-            "value": "h5"
-          },
-          {
-            "name": "h6",
-            "value": "h6"
-          }
-        ]
       },
       {
         "component": "richtext",
@@ -665,6 +674,45 @@
     "id": "columns",
     "fields": [
       {
+        "component": "multiselect",
+        "valueType": "string",
+        "name": "classes",
+        "value": "badges",
+        "label": "Content Style",
+        "options": [
+          {
+            "name": "Content Type",
+            "children": [
+              {
+                "name": "Badges",
+                "value": "badges"
+              },
+              {
+                "name": "Info Grid",
+                "value": "info-grid"
+              },
+              {
+                "name": "Social Media Icons",
+                "value": "social-media-icons"
+              }
+            ]
+          },
+          {
+            "name": "Clickable Images",
+            "children": [
+              {
+                "name": "Yes",
+                "value": "clickable-images"
+              },
+              {
+                "name": "No",
+                "value": ""
+              }
+            ]
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "number",
         "name": "columns",
@@ -677,29 +725,29 @@
         "name": "rows",
         "value": "",
         "label": "Rows"
-      },
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Columns Style",
-        "options": [
-          {
-            "name": "Content centered",
-            "value": "content-center"
-          },
-          {
-            "name": "Content left aligned",
-            "value": "content-left"
-          }
-        ]
       }
     ]
   },
   {
     "id": "testimonies",
     "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "options": [
+          {
+            "name": "With floating Heads",
+            "value": ""
+          },
+          {
+            "name": "Without floating Heads",
+            "value": "no-float"
+          }
+        ]
+      }
     ]
   },
   {
@@ -742,6 +790,454 @@
         "valueType": "string",
         "name": "media_imageAlt",
         "label": "Image Alt Text"
+      }
+    ]
+  },
+  {
+    "id": "key-features",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "id",
+        "label": "Loan Type",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "tc-link",
+        "label": "Terms & Conditions PDF Link",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "required-documents",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "kyc-documents",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "hidden": "true"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "kyc_image",
+        "label": "KYC Documents Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "kyc_imageAlt",
+        "label": "KYC Documents Icon Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "kyc_title",
+        "label": "KYC Documents Title",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "kyc_subtitle",
+        "label": "KYC Documents Subtitle",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "fragment",
+        "label": "KYC Documents Fragment Link"
+      }
+    ]
+  },
+  {
+    "id": "other-documents",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "classes",
+        "hidden": "true"
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "title_image",
+        "label": "Documents Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title_imageAlt",
+        "label": "Documents Icon Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title_title",
+        "label": "Type of Documents",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title_subtitle",
+        "label": "Type of Documents Subtitle"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "description",
+        "label": "Required Documents"
+      }
+    ]
+  },
+  {
+    "id": "calculators",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "calculator1",
+        "label": "First Calculator",
+        "required": true
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "calculator2",
+        "label": "Second Calculator"
+      }
+    ]
+  },
+  {
+    "id": "fee-charges",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "titles_column1title",
+        "label": "First Column",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "titles_column2title",
+        "label": "Second Column",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "fee-row",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Fee or Charges Name"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Description"
+      }
+    ]
+  },
+  {
+    "id": "recommended-articles",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_title",
+        "label": "Title",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "descr_subtitle",
+        "label": "Description",
+        "multi": false
+      }
+    ]
+  },
+  {
+    "id": "recommended-article",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "article_image",
+        "label": "Article Image",
+        "required": true,
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "article_imageAlt",
+        "label": "Documents Icon Alt Text"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "article_intro",
+        "label": "Article Intro Text"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "article_link",
+        "label": "Article Link",
+        "required": true,
+        "multi": false
+      },
+      {
+        "component": "date-time",
+        "valueType": "date",
+        "name": "date",
+        "label": "Article Date"
+      },
+      {
+        "component": "number",
+        "valueType": "number",
+        "name": "reading-time",
+        "label": "Reading Time (Min)",
+        "required": true
+      }
+    ]
+  },
+  {
+    "id": "loan-products",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Initialy Visible Rows",
+            "children": [
+              {
+                "name": "1",
+                "value": "max-initial-rows-1"
+              },
+              {
+                "name": "2",
+                "value": "max-initial-rows-2"
+              },
+              {
+                "name": "3",
+                "value": "max-initial-rows-3"
+              },
+              {
+                "name": "4",
+                "value": "max-initial-rows-4"
+              }
+            ]
+          },
+          {
+            "name": "Show Key Features",
+            "children": [
+              {
+                "name": "No",
+                "value": ""
+              },
+              {
+                "name": "Yes",
+                "value": "key-features"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loan-product-card",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "loan-type",
+        "label": "Loan Type",
+        "multi": false
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "card_image",
+        "label": "Image",
+        "required": true,
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card_imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "card_title",
+        "label": "Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "card_description",
+        "label": "Description"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "link",
+        "label": "Product Page Link"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "key-feature_amount",
+        "label": "Amount Key Feature"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "key-feature_tenure",
+        "label": "Tenure Key Feature"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "key-feature_interest-rate",
+        "label": "Interest Rate Key Feature"
+      }
+    ]
+  },
+  {
+    "id": "accordion",
+    "fields": [
+      {
+        "component": "select",
+        "name": "classes",
+        "label": "Style",
+        "valueType": "string",
+        "options": [
+          {
+            "name": "FAQ",
+            "value": "faq"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "accordion-entry",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Accordion Title"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "content",
+        "label": "Accordion Text"
+      }
+    ]
+  },
+  {
+    "id": "metro-cities",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "text",
+        "value": "",
+        "label": "List of Cities"
       }
     ]
   }
