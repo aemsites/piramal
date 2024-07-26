@@ -31,7 +31,8 @@
     "id": "tab-section",
     "components": [
       "required-documents",
-      "calculators"
+      "calculators",
+      "text"
     ]
   },
   {
