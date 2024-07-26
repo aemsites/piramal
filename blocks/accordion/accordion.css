@@ -35,6 +35,11 @@
   background-color: var(--dark-color);
 }
 
+.accordion.faq details summary:focus,
+.accordion.faq details summary:hover {
+  background-color: transparent;
+}
+
 .accordion details summary::-webkit-details-marker {
   display: none;
 }
@@ -91,7 +96,7 @@
   padding-left: inherit;
 }
 
-@media (width >= 768px) {
+@media (width >= 900px) {
   .accordion.faq details[open] .accordion-item-body {
     font-size: 1.25rem;
   }
