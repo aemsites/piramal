@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 import {
   sampleRUM,
   loadHeader,
@@ -11,6 +13,8 @@ import {
   loadBlocks,
   loadCSS,
   getMetadata,
+  fetchPlaceholders,
+  toClassName,
 } from './aem.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -96,6 +100,138 @@ function decorateImageIcons(element, prefix = '') {
   });
 }
 
+async function fetchLoanData(prefix = 'default') {
+  window.loanData = window.loanData || {};
+  if (!window.loanData[prefix]) {
+    window.loanData[prefix] = new Promise((resolve) => {
+      fetch(`${prefix === 'default' ? '' : prefix}/loan-key-features.json`)
+        .then((resp) => (resp.ok ? resp.json() : {}))
+        .then((json) => {
+          const loanData = json.data
+            .filter(({ id }) => Boolean(id))
+            .reduce((acc, { id, ...rest }) => {
+              const newEntries = Object.keys(rest).map((key) => [toClassName(key), rest[key]]);
+              return { ...acc, [id]: Object.fromEntries(newEntries) };
+            }, {});
+          window.loanData[prefix] = loanData;
+          resolve(loanData);
+        })
+        .catch(() => {
+          // error loading loanData
+          window.loanData[prefix] = {};
+          resolve(window.loanData[prefix]);
+        });
+    });
+  }
+  return window.loanData[`${prefix}`];
+}
+
+export function formatPlaceholder(context, placeholderName, placeholderValue) {
+  const locale = document.querySelector('html')?.lang || 'en-IN';
+  const twoDigitOptions = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+  if (placeholderName.indexOf('rate') >= 0) {
+    // apply percentage formatting to number
+    const numericValue = parseFloat(placeholderValue);
+    if (!Number.isNaN(numericValue)) {
+      placeholderValue = `${numericValue.toLocaleString(locale, twoDigitOptions)}%`;
+    }
+  }
+  if (placeholderName.indexOf('amount') >= 0) {
+    // apply currency formatting to number
+    context = context.closest('[class*="currency-format-"]');
+    const numericValue = parseInt(placeholderValue, 10);
+    if (context && !Number.isNaN(numericValue)) {
+      const currencyFormat = [...context.classList].find((cls) => cls.startsWith('currency-format-')).substring(16);
+      if (currencyFormat === 'long') {
+        // add thousand separators
+        while (/(\d+)(\d{3})/.test(placeholderValue)) {
+          placeholderValue = placeholderValue.replace(/(\d+)(\d{3})/, '$1,$2');
+        }
+      }
+      if (currencyFormat === 'short' || currencyFormat === 'phonetic') {
+        const crores = numericValue / 10000000;
+        const lhakhs = numericValue / 100000;
+        if (crores >= 1) {
+          const suffix = currencyFormat === 'phonetic' ? 'Crore' : 'Cr';
+          placeholderValue = `${crores.toFixed(0)} ${suffix}`;
+        } else {
+          const suffix = currencyFormat === 'phonetic' ? 'Lakhs' : 'L';
+          if (lhakhs >= 1) {
+            placeholderValue = `${lhakhs.toFixed(0)} ${suffix}`;
+          } else {
+            placeholderValue = `${lhakhs.toLocaleString(locale, twoDigitOptions)} ${suffix}`;
+          }
+        }
+      }
+    }
+  }
+
+  return placeholderValue;
+}
+
+export async function replacePlaceholders(main) {
+  async function fetchAndReplace(context, placeholder) {
+    context = context.closest('[class*="loan-type-"]');
+
+    if (context) {
+      // give a loan-type-* context we try to find the placeholder in the loan data
+      const loanType = [...context.classList].find((cls) => cls.startsWith('loan-type-')).substring(10);
+      const allLoanData = await fetchLoanData();
+      const loadData = allLoanData?.[loanType];
+      if (loadData && loadData[placeholder]) {
+        return loadData[placeholder];
+      }
+    }
+
+    const placeholders = fetchPlaceholders();
+    return placeholders[placeholder] || '';
+  }
+
+  const now = new Date();
+  const filter = ({ nodeValue }) => (nodeValue.trim()
+    ? NodeFilter.FILTER_ACCEPT
+    : NodeFilter.FILTER_REJECT);
+  const treeWalker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, filter);
+  const replacements = [];
+  let currentNode;
+  // eslint-disable-next-line no-cond-assign
+  while ((currentNode = treeWalker.nextNode()) !== null) {
+    const { nodeValue: text } = currentNode;
+    const parent = currentNode.parentElement;
+    const matches = [...text.matchAll(/{{([^}]+)}}/g)];
+    const nodes = [];
+    for (let i = 0; i < matches.length; i += 1) {
+      const match = matches[i];
+      const { index } = match;
+      const [fullMatch, placeholder] = match;
+      if (i === 0 && index > 0) {
+        // prefix only for the first match
+        nodes.push(document.createTextNode(text.slice(0, index)));
+      }
+      const span = document.createElement('span');
+      span.dataset.placeholder = placeholder;
+      // eslint-disable-next-line no-await-in-loop
+      span.textContent = await fetchAndReplace(parent, placeholder);
+      span.textContent = formatPlaceholder(parent, placeholder, span.textContent);
+      nodes.push(span);
+      if (index + fullMatch.length < text.length) {
+        let nextNode;
+        if (i + 1 < matches.length) {
+          const nextMatch = matches[i + 1];
+          nextNode = document.createTextNode(text.slice(index + fullMatch.length, nextMatch.index));
+        } else {
+          nextNode = document.createTextNode(text.slice(index + fullMatch.length));
+        }
+        nodes.push(nextNode);
+      }
+    }
+    if (nodes.length) replacements.push({ currentNode, nodes });
+  }
+  // eslint-disable-next-line no-shadow
+  replacements.forEach(({ currentNode, nodes }) => currentNode.replaceWith(...nodes));
+  console.log(`Replaced ${replacements.length} placeholders in ${new Date() - now}ms`);
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -160,6 +296,7 @@ async function loadLazy(doc) {
   autolinkModals(doc);
 
   const main = doc.querySelector('main');
+  await replacePlaceholders(main);
   await loadBlocks(main);
 
   const { hash } = window.location;
