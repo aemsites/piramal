@@ -931,24 +931,65 @@
     "id": "fee-charges",
     "fields": [
       {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          }
+        ]
+      },
+      {
         "component": "text",
         "valueType": "string",
-        "name": "loan-type",
-        "label": "Loan Type",
+        "name": "titles_column1title",
+        "label": "First Column",
         "multi": false
       },
       {
         "component": "text",
         "valueType": "string",
-        "name": "column1title",
-        "label": "Title First Column",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "column2title",
-        "label": "Title Second Column",
+        "name": "titles_column2title",
+        "label": "Second Column",
         "multi": false
       }
     ]
@@ -997,7 +1038,7 @@
         "valueType": "string",
         "name": "article_image",
         "label": "Article Image",
-        "required" : true,
+        "required": true,
         "multi": false
       },
       {
@@ -1017,7 +1058,7 @@
         "valueType": "string",
         "name": "article_link",
         "label": "Article Link",
-        "required" : true,
+        "required": true,
         "multi": false
       },
       {
@@ -1099,7 +1140,7 @@
         "valueType": "string",
         "name": "card_image",
         "label": "Image",
-        "required" : true,
+        "required": true,
         "multi": false
       },
       {
