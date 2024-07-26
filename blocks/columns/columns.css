@@ -83,7 +83,7 @@
     align-items: center;
     flex-direction: unset;
     gap: 32px;
-    gap: 2.5rem 5rem;
+    gap: 2.5rem 2.5rem;
   }
 
   .columns > div > div {
