@@ -27,6 +27,7 @@
 
 .columns.badges h3 {
   font-size: 1rem;
+  font-weight: 700;
 }
 
 .columns > div > .columns-img-col {
