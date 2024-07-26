@@ -5,3 +5,7 @@
   flex-wrap: wrap;
   gap: 1.5rem;
 }
+
+.block.image-list {
+  margin-top: 2em;
+}
