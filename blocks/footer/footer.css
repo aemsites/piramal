@@ -65,7 +65,7 @@ footer .footer.block div .section:nth-child(2) .columns-wrapper .columns > div {
   gap: unset;
 }
 
-footer .footer.block .section:nth-child(2)   .columns-wrapper .columns.block div div{
+footer .footer.block .section:nth-child(2) .columns-wrapper .columns.block div div{
   margin-top: 2.5rem;
 }
 footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p strong{
@@ -190,6 +190,81 @@ footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-ch
   footer .footer.block div .section:nth-child(1) .default-content-wrapper > p:nth-child(2){
     margin-right: 3.5%;
   }
+  footer > .footer.block div .section:nth-child(3) > .default-content-wrapper{
+    display: grid;
+    grid-template-areas:
+        "app img img"
+        "que que mob";
+    grid-template-columns: 40% 15%;
+    row-gap: 15px;
+  }
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper > p:first-child{
+    text-align: right;
+    grid-area: app;
+    border-bottom: 1px solid #5e7387;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    padding-bottom: 32px;
+  }
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-child(3),
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-child(4){
+    border-bottom: unset;
+  }
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper ul{
+    grid-area: img;
+    width: 50%;
+    grid-area: img;
+    border-bottom: 1px solid #5e7387;
+    width: 100%;
+    padding-bottom: 32px;
+  }
+  footer > .footer.block div .section:nth-child(3) > .default-content-wrapper > p:nth-child(3){
+    grid-area: que;
+    
+  }
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper p{
+    grid-area: mob;
+    border-bottom: 1px solid #5e7387;
+  }
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper ul{
+    border-bottom: 1px solid #5e7387;
+    width: 100%;
+  }
+  footer > .footer.block div .section:nth-child(4) .columns-wrapper .columns div div p picture img{
+    width: 25px;
+    height: 40px;
+  }
+  footer > .footer.block > div > .section:nth-child(4) .columns-wrapper .columns div{
+    flex-direction: row;
+  }
+  footer > .footer.block > div > .section:nth-child(4) .columns-wrapper .columns div div p:nth-child(1){
+    width: unset;
+  }
+  footer > .footer.block div .section:nth-child(4) .columns-wrapper .columns div div:last-child p picture img{
+    width: 35px;
+    height: 40px;
+  }
+  footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p, footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p a{
+    border: unset;
+    white-space: unset;
+    overflow: unset;
+    text-overflow: unset;
+    border-radius: unset;
+    margin-top: 8px;
+    line-height: 1;
+  }
+  footer .footer.block div .section:nth-child(2) .columns-wrapper .columns > div {
+    flex-direction: row;
+  }
+  footer .footer.block .section:nth-child(2) .columns-wrapper .columns.block div div {
+    width: 50%;
+  }
+  footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p:first-child{
+    margin-top: unset;
+    padding-bottom: 8px;
+  }
 }
 @media screen and (max-width:767px) {
   footer.footer-wrapper{
@@ -221,6 +296,7 @@ footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-ch
     cursor: pointer;
     white-space: unset;
     overflow: unset;
+    border: unset;
   }
   footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p strong{
     font-size: 0.875rem;
@@ -302,5 +378,10 @@ footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-ch
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
- 
+  footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p:first-child{
+    margin-top: unset;
+  }
+  footer > .footer.block > div > .section:nth-child(4) .default-content-wrapper:nth-child(1) p:nth-child(1){
+    margin-bottom: unset;
+  }
 }
