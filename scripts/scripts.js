@@ -32,7 +32,7 @@ export function moveAttributes(from, to, attributes) {
   attributes.forEach((attr) => {
     const value = from.getAttribute(attr);
     if (value) {
-      to.setAttribute(attr, value);
+      to?.setAttribute(attr, value);
       from.removeAttribute(attr);
     }
   });
@@ -169,7 +169,7 @@ export function formatPlaceholder(context, placeholderName, placeholderValue) {
   return placeholderValue;
 }
 
-export async function replacePlaceholders(main) {
+export async function replacePlaceholders(el) {
   async function fetchAndReplace(context, placeholder) {
     context = context.closest('[class*="loan-type-"]');
 
@@ -187,18 +187,17 @@ export async function replacePlaceholders(main) {
     return placeholders[placeholder] || '';
   }
 
-  const now = new Date();
   const filter = ({ nodeValue }) => (nodeValue.trim()
     ? NodeFilter.FILTER_ACCEPT
     : NodeFilter.FILTER_REJECT);
-  const treeWalker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, filter);
+  const treeWalker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, filter);
   const replacements = [];
   let currentNode;
   // eslint-disable-next-line no-cond-assign
   while ((currentNode = treeWalker.nextNode()) !== null) {
     const { nodeValue: text } = currentNode;
     const parent = currentNode.parentElement;
-    const matches = [...text.matchAll(/{{([^}]+)}}/g)];
+    const matches = [...text.matchAll(/{([a-z0-9-]+)}/g)];
     const nodes = [];
     for (let i = 0; i < matches.length; i += 1) {
       const match = matches[i];
@@ -229,7 +228,6 @@ export async function replacePlaceholders(main) {
   }
   // eslint-disable-next-line no-shadow
   replacements.forEach(({ currentNode, nodes }) => currentNode.replaceWith(...nodes));
-  console.log(`Replaced ${replacements.length} placeholders in ${new Date() - now}ms`);
 }
 
 /**
@@ -296,7 +294,6 @@ async function loadLazy(doc) {
   autolinkModals(doc);
 
   const main = doc.querySelector('main');
-  await replacePlaceholders(main);
   await loadBlocks(main);
 
   const { hash } = window.location;

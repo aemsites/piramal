@@ -344,7 +344,7 @@
                   "header": {
                     "sling:resourceType": "core/franklin/components/block/v1/block",
                     "model": "fee-row",
-                    "name": "Haeader",
+                    "name": "Row",
                     "column1text": "Features & Fees",
                     "column2text": "Details"
                   }
