@@ -9,7 +9,7 @@ import {
   loadBlocks,
 } from './aem.js';
 import { decorateRichtext } from './editor-support-rte.js';
-import { decorateMain } from './scripts.js';
+import { decorateMain, moveInstrumentation } from './scripts.js';
 
 function getState(block) {
   if (block.matches('.accordion')) {
@@ -126,22 +126,6 @@ function handleSelection(event) {
   }
 }
 
-function attachEventListners(main) {
-  [
-    'aue:content-patch',
-    'aue:content-update',
-    'aue:content-add',
-    'aue:content-move',
-    'aue:content-remove',
-  ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
-    event.stopPropagation();
-    const applied = await applyChanges(event);
-    if (!applied) window.location.reload();
-  }));
-
-  main?.addEventListener('aue:ui-select', handleSelection);
-}
-
 function findComponentDef(componentDefinitions, filter) {
   for (const group of componentDefinitions.groups) {
     for (const component of group.components) {
@@ -181,5 +165,41 @@ async function rewriteBlockLabels(main, blocks = ['Table']) {
   }
 }
 
-attachEventListners(document.querySelector('main'));
-rewriteBlockLabels(document.querySelector('main'));
+function attachEventListners(main) {
+  [
+    'aue:content-patch',
+    'aue:content-update',
+    'aue:content-add',
+    'aue:content-move',
+    'aue:content-remove',
+  ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
+    event.stopPropagation();
+    const applied = await applyChanges(event);
+    if (!applied) window.location.reload();
+    else {
+      rewriteBlockLabels(main);
+    }
+  }));
+
+  main?.addEventListener('aue:ui-select', handleSelection);
+}
+
+function removeInstrumentation(editable) {
+  moveInstrumentation(editable, null);
+}
+
+function observePlaceholders(main) {
+  new MutationObserver((mutations) => mutations.forEach(({ addedNodes }) => {
+    const placeholderSpan = [...addedNodes].find((node) => node.tagName === 'SPAN' && node.dataset.placeholder);
+    if (placeholderSpan) {
+      // remove instrumentation from the closes richtext or text
+      const editable = placeholderSpan.closest('[data-aue-type="richtext"],[data-aue-type="text"]');
+      removeInstrumentation(editable);
+    }
+  })).observe(main, { subtree: true, childList: true });
+}
+
+const m = document.querySelector('main');
+attachEventListners(m);
+rewriteBlockLabels(m);
+observePlaceholders(m);
