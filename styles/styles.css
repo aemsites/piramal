@@ -319,15 +319,6 @@ main .section {
   main .section {
     padding: 36px 16px;
   }
-
-  main .section .metro-cities ul {
-    display: grid;
-    grid-template-columns: repeat(
-      auto-fill,
-      minmax(max(calc(17.5% - 8px), 100px), 1fr)
-    );
-    column-gap: 30px;
-  }
 }
 
 @media (width >= 1200px) {

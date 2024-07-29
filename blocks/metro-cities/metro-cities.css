@@ -15,3 +15,14 @@
 .block.metro-cities a:hover {
   color: var(--midorange);
 }
+
+@media (width >= 600px) {
+  main .section .metro-cities ul {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(calc(17.5% - 8px), 100px), 1fr)
+    );
+    column-gap: 30px;
+  }
+}
