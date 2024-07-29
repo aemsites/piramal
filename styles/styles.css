@@ -319,6 +319,14 @@ main .section {
   main .section {
     padding: 36px 16px;
   }
+  main .section .metro-cities ul {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(calc(17.5% - 8px), 100px), 1fr)
+    );
+    column-gap: 30px;
+  }
 }
 
 @media (width >= 1200px) {
@@ -340,16 +348,9 @@ main .section.background-light-yellow {
 main .section.background-light-pink {
   background-color: var(--background-light-pink);
 }
-
 main .section .metro-cities ul {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(max(calc(17.5% - 8px), 100px), 1fr)
-  );
-  column-gap: 30px;
+  padding-left: 20px;
 }
-
 main .section .metro-cities li::marker {
   color: var(--midorange);
 }
