@@ -16,7 +16,7 @@ const addControls = (div, head) => {
 
     articles.forEach((article, index) => {
       const distance = Math.abs(
-        article.offsetLeft - div.offsetLeft - div.scrollLeft
+        article.offsetLeft - div.offsetLeft - div.scrollLeft,
       );
 
       if (distance < closestDistance) {

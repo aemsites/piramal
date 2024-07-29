@@ -207,7 +207,8 @@ export async function replacePlaceholders(el) {
     return placeholders[placeholder] || '';
   }
 
-  const filter = ({ nodeValue }) => (nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT);
+  const filter = ({ nodeValue }) => (nodeValue.trim()
+    ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT);
   const treeWalker = document.createTreeWalker(
     el,
     NodeFilter.SHOW_TEXT,
