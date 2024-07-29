@@ -319,6 +319,7 @@ main .section {
   main .section {
     padding: 36px 16px;
   }
+
   main .section .metro-cities ul {
     display: grid;
     grid-template-columns: repeat(
@@ -348,9 +349,11 @@ main .section.background-light-yellow {
 main .section.background-light-pink {
   background-color: var(--background-light-pink);
 }
+
 main .section .metro-cities ul {
   padding-left: 20px;
 }
+
 main .section .metro-cities li::marker {
   color: var(--midorange);
 }
