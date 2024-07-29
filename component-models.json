@@ -392,6 +392,13 @@
         ]
       },
       {
+        "component": "reference",
+        "valueType": "string",
+        "name": "background_image",
+        "label": "Background Image",
+        "multi": false
+      },
+      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
