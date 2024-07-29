@@ -102,3 +102,36 @@
 .block.block.recommended-articles .art-head > div:first-child > *:nth-child(2) {
   color: var(--text-color-light-gray);
 }
+
+.section.recommended-articles-container
+  .default-content-wrapper
+  > .button-container {
+  text-align: center;
+}
+
+.section.recommended-articles-container
+  .default-content-wrapper
+  > .button-container
+  a {
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  color: var(--main-cta-background);
+  font-size: 1.25rem;
+}
+
+.section.recommended-articles-container
+  .default-content-wrapper
+  > .button-container
+  a::after {
+  content: ' >';
+}
+
+@media (width >= 900px) {
+  .section.recommended-articles-container
+    .default-content-wrapper
+    > .button-container
+    a {
+    font-size: 1.5rem;
+  }
+}
