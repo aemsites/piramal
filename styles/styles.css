@@ -351,7 +351,7 @@ main .section .metro-cities ul {
 }
 
 main .section .metro-cities li::marker {
-  color: var(--main-cta-background);
+  color: var(--midorange);
 }
 
 main .section .metro-cities a {
@@ -361,5 +361,5 @@ main .section .metro-cities a {
 }
 
 main .section .metro-cities a:hover {
-  color: var(--main-cta-background);
+  color: var(--midorange);
 }
