@@ -797,13 +797,6 @@
     "id": "key-features",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "tc-link",
-        "label": "Terms & Conditions PDF Link",
-        "multi": false
-      },
-      {
         "component": "multiselect",
         "name": "classes",
         "value": "",
@@ -850,6 +843,33 @@
             ]
           }
         ]
+      },
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "key_feature_image",
+        "label": " Icon",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "key_feature_imageAlt",
+        "label": "Key Feature Icon Alt Text"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "key_feature_title",
+        "label": "Key Feature Title",
+        "required": true
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "key_feature_description",
+        "label": "Key Feature Description",
+        "required": true
       }
     ]
   },
