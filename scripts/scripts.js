@@ -156,10 +156,10 @@ export function formatPlaceholder(context, placeholderName, placeholderValue) {
           placeholderValue = `${crores.toFixed(0)} ${suffix}`;
         } else {
           const suffix = currencyFormat === 'phonetic' ? 'Lakhs' : 'L';
-          if (lhakhs >= 1) {
-            placeholderValue = `${lhakhs.toFixed(0)} ${suffix}`;
+          if (lakhs >= 1) {
+            placeholderValue = `${lakhs.toFixed(0)} ${suffix}`;
           } else {
-            placeholderValue = `${lhakhs.toLocaleString(locale, twoDigitOptions)} ${suffix}`;
+            placeholderValue = `${lakhs.toLocaleString(locale, twoDigitOptions)} ${suffix}`;
           }
         }
       }
