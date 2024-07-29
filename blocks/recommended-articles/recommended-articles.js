@@ -16,7 +16,7 @@ const addControls = (div, head) => {
 
     articles.forEach((article, index) => {
       const distance = Math.abs(
-        article.offsetLeft - div.offsetLeft - div.scrollLeft,
+        article.offsetLeft - div.offsetLeft - div.scrollLeft
       );
 
       if (distance < closestDistance) {
@@ -114,6 +114,7 @@ export default function decorate(block) {
     readMe.classList.add('art-read-me');
     readMe.textContent = 'Read more';
     readMe.href = url;
+    readMe.target = '_blank';
     description.innerHTML += readMe.outerHTML;
 
     content.outerHTML += '<br>';
