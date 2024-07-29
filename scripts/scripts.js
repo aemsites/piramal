@@ -49,7 +49,9 @@ export function moveInstrumentation(from, to) {
     to,
     [...from.attributes]
       .map(({ nodeName }) => nodeName)
-      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+      .filter(
+        (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
+      ),
   );
 }
 
@@ -71,7 +73,9 @@ function autolinkModals(element) {
 
     if (origin && origin.href && origin.href.includes('/modals/')) {
       e.preventDefault();
-      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      const { openModal } = await import(
+        `${window.hlx.codeBasePath}/blocks/modal/modal.js`
+      );
       openModal(origin.href);
     }
   });
@@ -110,7 +114,10 @@ async function fetchLoanData(prefix = 'default') {
           const loanData = json.data
             .filter(({ id }) => Boolean(id))
             .reduce((acc, { id, ...rest }) => {
-              const newEntries = Object.keys(rest).map((key) => [toClassName(key), rest[key]]);
+              const newEntries = Object.keys(rest).map((key) => [
+                toClassName(key),
+                rest[key],
+              ]);
               return { ...acc, [id]: Object.fromEntries(newEntries) };
             }, {});
           window.loanData[prefix] = loanData;
@@ -128,12 +135,18 @@ async function fetchLoanData(prefix = 'default') {
 
 export function formatPlaceholder(context, placeholderName, placeholderValue) {
   const locale = document.querySelector('html')?.lang || 'en-IN';
-  const twoDigitOptions = { minimumFractionDigits: 2, maximumFractionDigits: 2 };
+  const twoDigitOptions = {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  };
   if (placeholderName.indexOf('rate') >= 0) {
     // apply percentage formatting to number
     const numericValue = parseFloat(placeholderValue);
     if (!Number.isNaN(numericValue)) {
-      placeholderValue = `${numericValue.toLocaleString(locale, twoDigitOptions)}%`;
+      placeholderValue = `${numericValue.toLocaleString(
+        locale,
+        twoDigitOptions,
+      )}%`;
     }
   }
   if (placeholderName.indexOf('amount') >= 0) {
@@ -141,7 +154,9 @@ export function formatPlaceholder(context, placeholderName, placeholderValue) {
     context = context.closest('[class*="currency-format-"]');
     const numericValue = parseInt(placeholderValue, 10);
     if (context && !Number.isNaN(numericValue)) {
-      const currencyFormat = [...context.classList].find((cls) => cls.startsWith('currency-format-')).substring(16);
+      const currencyFormat = [...context.classList]
+        .find((cls) => cls.startsWith('currency-format-'))
+        .substring(16);
       if (currencyFormat === 'long') {
         // add thousand separators
         while (/(\d+)(\d{3})/.test(placeholderValue)) {
@@ -159,7 +174,10 @@ export function formatPlaceholder(context, placeholderName, placeholderValue) {
           if (lakhs >= 1) {
             placeholderValue = `${lakhs.toFixed(0)} ${suffix}`;
           } else {
-            placeholderValue = `${lakhs.toLocaleString(locale, twoDigitOptions)} ${suffix}`;
+            placeholderValue = `${lakhs.toLocaleString(
+              locale,
+              twoDigitOptions,
+            )} ${suffix}`;
           }
         }
       }
@@ -175,7 +193,9 @@ export async function replacePlaceholders(el) {
 
     if (context) {
       // give a loan-type-* context we try to find the placeholder in the loan data
-      const loanType = [...context.classList].find((cls) => cls.startsWith('loan-type-')).substring(10);
+      const loanType = [...context.classList]
+        .find((cls) => cls.startsWith('loan-type-'))
+        .substring(10);
       const allLoanData = await fetchLoanData();
       const loadData = allLoanData?.[loanType];
       if (loadData && loadData[placeholder]) {
@@ -187,10 +207,12 @@ export async function replacePlaceholders(el) {
     return placeholders[placeholder] || '';
   }
 
-  const filter = ({ nodeValue }) => (nodeValue.trim()
-    ? NodeFilter.FILTER_ACCEPT
-    : NodeFilter.FILTER_REJECT);
-  const treeWalker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, filter);
+  const filter = ({ nodeValue }) => (nodeValue.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT);
+  const treeWalker = document.createTreeWalker(
+    el,
+    NodeFilter.SHOW_TEXT,
+    filter,
+  );
   const replacements = [];
   let currentNode;
   // eslint-disable-next-line no-cond-assign
@@ -211,15 +233,23 @@ export async function replacePlaceholders(el) {
       span.dataset.placeholder = placeholder;
       // eslint-disable-next-line no-await-in-loop
       span.textContent = await fetchAndReplace(parent, placeholder);
-      span.textContent = formatPlaceholder(parent, placeholder, span.textContent);
+      span.textContent = formatPlaceholder(
+        parent,
+        placeholder,
+        span.textContent,
+      );
       nodes.push(span);
       if (index + fullMatch.length < text.length) {
         let nextNode;
         if (i + 1 < matches.length) {
           const nextMatch = matches[i + 1];
-          nextNode = document.createTextNode(text.slice(index + fullMatch.length, nextMatch.index));
+          nextNode = document.createTextNode(
+            text.slice(index + fullMatch.length, nextMatch.index),
+          );
         } else {
-          nextNode = document.createTextNode(text.slice(index + fullMatch.length));
+          nextNode = document.createTextNode(
+            text.slice(index + fullMatch.length),
+          );
         }
         nodes.push(nextNode);
       }
@@ -228,6 +258,15 @@ export async function replacePlaceholders(el) {
   }
   // eslint-disable-next-line no-shadow
   replacements.forEach(({ currentNode, nodes }) => currentNode.replaceWith(...nodes));
+}
+
+function autoOpenLinksInNewTab(element, include = ['/vidya']) {
+  const anchors = element.querySelectorAll('a');
+
+  anchors.forEach((anchor) => {
+    const { href } = anchor;
+    if (include.some((path) => href.includes(path))) anchor.target = '_blank';
+  });
 }
 
 /**
@@ -256,6 +295,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateImageIcons(main);
+  autoOpenLinksInNewTab(main);
 }
 
 /**
