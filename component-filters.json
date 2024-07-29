@@ -103,5 +103,11 @@
     "components": [
       "accordion-entry"
     ]
+  },
+  {
+    "id": "key-features",
+    "components": [
+      "text"
+    ]
   }
 ]

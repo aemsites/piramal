@@ -274,7 +274,7 @@
                 "template": {
                   "name": "Key Features",
                   "model": "key-features",
-                  "id": "home"
+                  "filter" : "key-features"
                 }
               }
             }

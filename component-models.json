@@ -797,18 +797,59 @@
     "id": "key-features",
     "fields": [
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "id",
-        "label": "Loan Type",
-        "multi": false
-      },
-      {
         "component": "reference",
         "valueType": "string",
         "name": "tc-link",
         "label": "Terms & Conditions PDF Link",
         "multi": false
+      },
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
