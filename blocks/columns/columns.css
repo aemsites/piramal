@@ -91,7 +91,8 @@
 }
 
 .block.columns {
-  margin-bottom: 20px;
+  margin-bottom: 3em;
+  margin-top: 3em;
 }
 
 @media (width >= 900px) {
