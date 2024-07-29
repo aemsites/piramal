@@ -1,0 +1,17 @@
+.block.metro-cities ul {
+  padding-left: 20px;
+}
+
+.block.metro-cities li::marker {
+  color: var(--midorange);
+}
+
+.block.metro-cities a {
+  color: var(--text-color-dark-gray);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.block.metro-cities a:hover {
+  color: var(--midorange);
+}

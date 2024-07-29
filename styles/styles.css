@@ -349,21 +349,3 @@ main .section.background-light-yellow {
 main .section.background-light-pink {
   background-color: var(--background-light-pink);
 }
-
-main .section .metro-cities ul {
-  padding-left: 20px;
-}
-
-main .section .metro-cities li::marker {
-  color: var(--midorange);
-}
-
-main .section .metro-cities a {
-  color: var(--text-color-dark-gray);
-  font-weight: 700;
-  font-size: 1rem;
-}
-
-main .section .metro-cities a:hover {
-  color: var(--midorange);
-}
