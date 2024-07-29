@@ -1,0 +1,28 @@
+.block.metro-cities ul {
+  padding-left: 20px;
+}
+
+.block.metro-cities li::marker {
+  color: var(--midorange);
+}
+
+.block.metro-cities a {
+  color: var(--text-color-dark-gray);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.block.metro-cities a:hover {
+  color: var(--midorange);
+}
+
+@media (width >= 600px) {
+  main .section .metro-cities ul {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fill,
+      minmax(max(calc(17.5% - 8px), 100px), 1fr)
+    );
+    column-gap: 30px;
+  }
+}
