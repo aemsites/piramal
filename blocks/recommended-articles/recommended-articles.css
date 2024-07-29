@@ -45,7 +45,7 @@
 .block.recommended-articles .art-date {
   display: inline-flex;
   width: 45%;
-  color: rgb(153 153 153);
+  color: var(--text-color-light-gray);
   font-size: 0.875rem;
   margin-left: 10px;
 }
@@ -60,7 +60,7 @@
   display: inline-flex;
   width: 45%;
   margin-left: auto;
-  color: rgb(153 153 153);
+  color: var(--text-color-light-gray);
   font-size: 0.875rem;
   justify-content: end;
   align-items: start;
@@ -73,7 +73,7 @@
 }
 
 .block.recommended-articles .art-read-me {
-  color: var(--midorange);
+  color: var(--main-cta-background);
   text-decoration: underline;
   padding-left: 3px;
   font-size: 0.875rem;
@@ -100,5 +100,5 @@
 }
 
 .block.block.recommended-articles .art-head > div:first-child > *:nth-child(2) {
-  color: rgb(102 102 102);
+  color: var(--text-color-light-gray);
 }
