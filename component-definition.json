@@ -379,7 +379,9 @@
                 "template": {
                   "name": "Recommended Articles",
                   "model": "recommended-articles",
-                  "filter": "recommended-articles"
+                  "filter": "recommended-articles",
+                  "descr_subtitleType": "h4",
+                  "descr_titleType": "h2"
                 }
               }
             }

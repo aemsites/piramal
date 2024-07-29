@@ -1127,18 +1127,27 @@
     "id": "recommended-articles",
     "fields": [
       {
-        "component": "richtext",
-        "valueType": "string",
+        "component": "text",
         "name": "descr_title",
-        "label": "Title",
-        "multi": false
+        "label": "Title"
       },
       {
-        "component": "richtext",
+        "component": "text",
+        "name": "descr_titleType",
+        "label": "Title type"
+      },
+      {
+        "component": "text",
         "valueType": "string",
         "name": "descr_subtitle",
-        "label": "Description",
-        "multi": false
+        "label": "Subt Title",
+        "hidden": true
+      },
+      {
+        "component": "text",
+        "name": "descr_subtitleType",
+        "label": "Subt Title Type",
+        "hidden": true
       }
     ]
   },
