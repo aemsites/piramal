@@ -30,15 +30,15 @@
 }
 
 .hero-carousel .carousel-slide.background-light-green {
-  background-color: #E3F6E9;
+  background-color: var(--swansdown);
 }
 
 .hero-carousel .carousel-slide.background-light-blue {
-  background-color: #DEF3FD;
+  background-color: var(--skyblue);
 }
 
 .hero-carousel .carousel-slide.background-blue {
-  background-color: #E4EAFA;
+  background-color: var(--piramal-blue-20);
 }
 
 .hero-carousel .carousel-slide.background-violet {
@@ -46,15 +46,15 @@
 }
 
 .hero-carousel .carousel-slide.background-light-yellow {
-  background-color: #FFF4E7;
+  background-color: var(--lilen);
 }
 
 .hero-carousel .carousel-slide.background-light-pink {
-  background-color: #FEF0EC;
+  background-color: var(--rosewhite);
 }
 
 .hero-carousel .carousel-slide.background-gradient {
-  background-color: #F26841;
+  background: linear-gradient(320.12deg, #7F4CA8 -0.41%, var(--orange) 101.64%);
 }
 
 .hero-carousel .carousel-slide {
@@ -68,58 +68,14 @@
 
 .hero-carousel .carousel-slide-content {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   max-width: --max-width;
+  height: 440px;
   margin: auto;
 }
 
-.hero-carousel .carousel-slide-content:has(.carousel-slide-description[data-align="center"]) {
-  align-items: center;
-}
-
-.hero-carousel .carousel-slide-content:has(.carousel-slide-description[data-align="right"]) {
-  align-items: flex-end;
-}
-
-.hero-carousel .carousel-slide-content .carousel-slide-image picture > img {
-  height: 335px;
-  width: 394px;
-  object-fit: cover;
-}
-
 .hero-carousel .carousel-slide-content .carousel-slide-description {
-  z-index: 1;
-  position: relative;
-}
-
-.hero-carousel .carousel-slide-content .carousel-slide-description .buttons-container {
-  display: flex;
-  gap: 1rem;
-  flex-direction: row;
-}
-
-.hero-carousel .carousel-slide-content .carousel-slide-description .features {
-  display: flex;
-  flex-direction: row;
-  gap: 3rem;
-}
-
-.hero-carousel .carousel-slide-content .carousel-slide-description .features .feature {
-  width: 100px;
-}
-
-.hero-carousel .carousel-slide-content .carousel-slide-description p {
-  font-size: 24px;
-  line-height: 32px;
-  font-weight: 400;
-  color: #666;
-}
-
-.hero-carousel .carousel-slide.font-white h1,
-.hero-carousel .carousel-slide.font-white p {
-  color: white;
+  align-self: flex-start;
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description em {
@@ -132,28 +88,56 @@
   text-decoration: line-through;
 }
 
-.hero-carousel .carousel-slide-content .link-container a {
-  background-color: unset;
-  color: #365069;
-  text-decoration: underline;
+.hero-carousel .carousel-slide-content .carousel-slide-description .features {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.hero-carousel .carousel-slide-content .carousel-slide-description .features .feature {
+  width: 100px;
+}
+
+.hero-carousel .carousel-slide-content .carousel-slide-description p {
   font-size: 24px;
-  margin: 0;
-  padding: 0 5px;
-  border: 0;
-  line-height: 1;
+  line-height: 32px;
+  font-weight: 400;
+  color: var(--piramal-neutral-60);
+}
+
+.hero-carousel .carousel-slide.font-white h1,
+.hero-carousel .carousel-slide.font-white p {
+  color: white;
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description a:has(img) {
   padding: 0;
 }
 
+.hero-carousel .carousel-slide-content .carousel-slide-description .link-container a {
+  background-color: unset;
+  border: unset;
+  color: var(--piramal-blue-100);
+  text-decoration: underline;
+  font-size: 24px;
+  line-height: 1;
+  margin: 0;
+  padding: 0 5px;
+}
+
+.hero-carousel .carousel-slide-content .carousel-slide-description .buttons-container {
+  display: flex;
+  gap: 1rem;
+}
+
 .hero-carousel .carousel-slide-content .carousel-slide-description .button-container a {
-  background-color: #F26841;
+  background-color: var(--orange);
   border-radius: 8px;
   font-weight: 700;
   line-height: 1.75rem;
   font-size: 1.125rem;
   margin: 0;
+  border: 0;
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description .button-container a:not(:has(img)) {
@@ -161,7 +145,18 @@
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description a > img {
+  display: block;
   height: 58px;
+}
+
+.hero-carousel .carousel-slide-content .carousel-slide-image {
+  align-self: flex-end;
+  width: 30%;
+}
+
+.hero-carousel .carousel-slide-content .carousel-slide-image picture > img {
+  display: block;
+  object-fit: contain;
 }
 
 .hero-carousel .carousel-slide.features-slide p {
