@@ -150,7 +150,7 @@ export function formatPlaceholder(context, placeholderName, placeholderValue) {
       }
       if (currencyFormat === 'short' || currencyFormat === 'phonetic') {
         const crores = numericValue / 10000000;
-        const lhakhs = numericValue / 100000;
+        const lakhs = numericValue / 100000;
         if (crores >= 1) {
           const suffix = currencyFormat === 'phonetic' ? 'Crore' : 'Cr';
           placeholderValue = `${crores.toFixed(0)} ${suffix}`;
