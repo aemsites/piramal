@@ -4,38 +4,31 @@
  * https://www.hlx.live/developer/block-collection/table
  */
 
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { moveInstrumentation, replacePlaceholders } from '../../scripts/scripts.js';
 
 export default async function decorate(block) {
+  await replacePlaceholders(block);
+
   const table = document.createElement('table');
+  const thead = document.createElement('thead');
   const tbody = document.createElement('tbody');
-  const [header, ...rows] = [...block.children];
 
-  if (header.textContent.trim()) {
-    const thead = document.createElement('thead');
+  [...block.children].forEach((row, i) => {
     const tr = document.createElement('tr');
-    header.querySelectorAll('p').forEach((p) => {
-      const th = document.createElement('th');
-      th.setAttribute('scope', 'col');
-      moveInstrumentation(p, th);
-      th.innerHTML = p.innerHTML;
-      tr.append(th);
-    });
-    thead.append(tr);
-    table.append(thead);
-  }
+    moveInstrumentation(row, tr);
 
-  [...rows].forEach((child) => {
-    const row = document.createElement('tr');
-    moveInstrumentation(child, row);
-    [...child.children].forEach((col) => {
-      const cell = document.createElement('td');
-      cell.innerHTML = col.innerHTML;
-      row.append(cell);
+    [...row.children].forEach((cell) => {
+      const td = document.createElement(i === 0 ? 'th' : 'td');
+      if (i === 0) td.setAttribute('scope', 'column');
+      td.innerHTML = cell.innerHTML;
+      tr.append(td);
     });
-    tbody.append(row);
+
+    if (i === 0) thead.append(tr);
+    else tbody.append(tr);
   });
 
+  table.append(thead);
   table.append(tbody);
   block.replaceChildren(table);
 }

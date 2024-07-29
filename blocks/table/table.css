@@ -41,6 +41,16 @@
   text-align: left;
 }
 
+.table table th :first-child,
+.table table td :first-child {
+  margin-top: 0;
+}
+
+.table table th :last-child,
+.table table td :last-child {
+  margin-bottom: 0;
+}
+
 /* no header variant */
 .table.no-header table tbody tr {
   border-top: 1px solid;
