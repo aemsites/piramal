@@ -45,7 +45,9 @@ export function moveInstrumentation(from, to) {
     to,
     [...from.attributes]
       .map(({ nodeName }) => nodeName)
-      .filter((attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-')),
+      .filter(
+        (attr) => attr.startsWith('data-aue-') || attr.startsWith('data-richtext-'),
+      ),
   );
 }
 
@@ -67,7 +69,9 @@ function autolinkModals(element) {
 
     if (origin && origin.href && origin.href.includes('/modals/')) {
       e.preventDefault();
-      const { openModal } = await import(`${window.hlx.codeBasePath}/blocks/modal/modal.js`);
+      const { openModal } = await import(
+        `${window.hlx.codeBasePath}/blocks/modal/modal.js`
+      );
       openModal(origin.href);
     }
   });
@@ -96,6 +100,14 @@ function decorateImageIcons(element, prefix = '') {
   });
 }
 
+function autoOpenLinksInNewTab(element, include = ['/vidya']) {
+  const anchors = element.querySelectorAll('a');
+
+  anchors.forEach((anchor) => {
+    const { href } = anchor;
+    if (include.some((path) => href.includes(path))) anchor.target = '_blank';
+  });
+}
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -122,6 +134,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   decorateImageIcons(main);
+  autoOpenLinksInNewTab(main);
 }
 
 /**

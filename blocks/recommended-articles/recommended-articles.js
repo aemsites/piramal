@@ -114,6 +114,7 @@ export default function decorate(block) {
     readMe.classList.add('art-read-me');
     readMe.textContent = 'Read more';
     readMe.href = url;
+    readMe.target = '_blank';
     description.innerHTML += readMe.outerHTML;
 
     content.outerHTML += '<br>';
@@ -136,4 +137,5 @@ export default function decorate(block) {
 
   block.append(div);
   block.prepend(head);
+  console.log(block.parentElement.closest('a'));
 }
