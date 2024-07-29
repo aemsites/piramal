@@ -16,7 +16,7 @@ const addControls = (div, head) => {
 
     articles.forEach((article, index) => {
       const distance = Math.abs(
-        article.offsetLeft - div.offsetLeft - div.scrollLeft,
+        article.offsetLeft - div.offsetLeft - div.scrollLeft
       );
 
       if (distance < closestDistance) {
@@ -36,9 +36,10 @@ const addControls = (div, head) => {
   // in head add another div with class controls
   const leftChevron = document.createElement('img');
   leftChevron.src = `${window.hlx.codeBasePath}/icons/chevron-left.svg`;
+  leftChevron.alt = 'previous article';
   const rightChevron = document.createElement('img');
   rightChevron.src = `${window.hlx.codeBasePath}/icons/chevron-left.svg`;
-
+  rightChevron.alt = 'next article';
   // rotate right chevron
   rightChevron.style.transform = 'rotate(180deg)';
 
