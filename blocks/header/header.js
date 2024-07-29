@@ -1,4 +1,5 @@
 import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
+import { targetObject } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -159,7 +160,13 @@ export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
+  // const fragment = await loadFragment(navPath);
+  let fragment;
+  if (targetObject.isMobile || targetObject.isTab) {
+    fragment = await loadFragment("/mobile-nav");
+  } else {
+    fragment = await loadFragment(navPath);
+  }
 
   // decorate nav DOM
   const nav = document.createElement('nav');
@@ -207,7 +214,11 @@ export default async function decorate(block) {
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
-  toggleMenu(nav, navSections, isDesktop.matches);
+  try {
+    toggleMenu(nav, navSections, isDesktop.matches);
+  } catch (error) {
+
+  }
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
