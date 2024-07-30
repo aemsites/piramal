@@ -31,9 +31,9 @@ indices:
       keywords:
         select: head > meta[name="keywords"]
         values:
-          attribute(el, "content")
-      breadcrumbTitle:
-        select: head > meta[property="navTitle"]
+          attribute(el, 'content')
+      navtitle:
+        select: head > meta[property="navtitle"]
         value: |
           attribute(el, 'content')
       lastModified:
