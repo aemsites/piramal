@@ -5,7 +5,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "page",
+        "name": "pageTitle",
         "label": "Page Title",
         "description": "Sets the title of the page in page meta."
       },
@@ -19,7 +19,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "breadcrumb-title",
+        "name": "navTitle",
         "label": "Breadcrumb Title",
         "description": "Sets the title for breadcrumb in page meta."
       },
