@@ -1,7 +1,37 @@
 [
   {
     "id": "page-metadata",
-    "fields": []
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pageTitle",
+        "label": "Page Title",
+        "description": "Sets the title of the page in page meta."
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "jcr:description",
+        "label": "Page Description",
+        "description": "Sets the description of the page in page meta."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "navTitle",
+        "label": "Breadcrumb Title",
+        "description": "Sets the title for breadcrumb in page meta."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "keywords",
+        "label": "Page Keywords",
+        "description": "Sets the keywords of the page in page meta.",
+        "multi": true
+      }
+    ]
   },
   {
     "id": "section",
