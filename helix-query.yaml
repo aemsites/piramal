@@ -13,7 +13,7 @@ indices:
     target: /query-index.json
     properties:
       title:
-        select: head > meta[property="og:title"]
+        select: head > meta[property="pageTitle"]
         value: |
           attribute(el, 'content')
       date:
