@@ -26,15 +26,26 @@
   color: var(--midnight);
 }
 
-.table td:last-child,
-.table th:last-child {
-  border-right: 0;
-}
-
 .table th {
   background-color: var(--rosewhite);
   color: var(--text-color-light-gray);
   font-size: 1rem;
+  font-weight: 700;
+}
+
+.table table td {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.table table th,
+.table table td {
+  text-align: left;
+}
+
+.table td:last-child,
+.table th:last-child {
+  border-right: 0;
 }
 
 @media (width >= 600px) {
@@ -47,16 +58,6 @@
   .table table {
     font-size: var(--body-font-size-m);
   }
-}
-
-.table table td {
-  font-size: 0.75rem;
-  line-height: 1rem;
-}
-
-.table table th,
-.table table td {
-  text-align: left;
 }
 
 .table table th :first-child,
