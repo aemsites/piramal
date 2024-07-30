@@ -16,15 +16,6 @@ function updateActiveSlide(slide) {
       }
     });
   });
-
-  const indicators = block.querySelectorAll('.carousel-slide-indicator');
-  indicators.forEach((indicator, idx) => {
-    if (idx !== slideIndex) {
-      indicator.querySelector('button').removeAttribute('disabled');
-    } else {
-      indicator.querySelector('button').setAttribute('disabled', 'true');
-    }
-  });
 }
 
 function showSlide(block, slideIndex = 0) {
@@ -39,6 +30,13 @@ function showSlide(block, slideIndex = 0) {
     left: activeSlide.offsetLeft,
     behavior: 'smooth',
   });
+
+  const slideIndicators = block.querySelector('.carousel-slide-indicators');
+  if (slides[realSlideIndex].classList.contains('font-white')) {
+    slideIndicators.classList.add('font-white');
+  } else {
+    slideIndicators.classList.remove('font-white');
+  }
 }
 
 function bindEvents(block) {
