@@ -1124,34 +1124,6 @@
     ]
   },
   {
-    "id": "recommended-articles",
-    "fields": [
-      {
-        "component": "text",
-        "name": "descr_title",
-        "label": "Title"
-      },
-      {
-        "component": "text",
-        "name": "descr_titleType",
-        "label": "Title type"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "descr_subtitle",
-        "label": "Subt Title",
-        "hidden": true
-      },
-      {
-        "component": "text",
-        "name": "descr_subtitleType",
-        "label": "Subt Title Type",
-        "hidden": true
-      }
-    ]
-  },
-  {
     "id": "recommended-article",
     "fields": [
       {
