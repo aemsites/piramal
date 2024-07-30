@@ -132,6 +132,8 @@ export default function decorate(block) {
 
   head.classList.add('art-head');
 
+  head.firstElementChild.append(...block.parentElement.previousSibling.children);
+
   div.append(...children);
 
   block.append(div);

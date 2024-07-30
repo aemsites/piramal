@@ -10,6 +10,11 @@
   scrollbar-width: none; /* Firefox */
 }
 
+.block.recommended-articles .art-head h4 {
+  font-weight: 400;
+  font-size:1.25rem;
+}
+
 .block.recommended-articles .article-container::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
 }
