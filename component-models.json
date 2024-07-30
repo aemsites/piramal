@@ -5,7 +5,7 @@
       {
         "component": "text",
         "valueType": "string",
-        "name": "pageTitle",
+        "name": "page",
         "label": "Page Title",
         "description": "Sets the title of the page in page meta."
       },
