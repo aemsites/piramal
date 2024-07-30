@@ -158,28 +158,27 @@ async function buildBreadcrumbs() {
  */
 export default async function decorate(block) {
   // load nav as fragment
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
+  // const navMeta = getMetadata('nav');
+  // const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
   // const fragment = await loadFragment(getMetadata("navpath"));
   let fragment;
   if (targetObject.isMobile || targetObject.isTab) {
-    fragment = await loadFragment(getMetadata("mobilepath"));
+    fragment = await loadFragment(getMetadata('mobilepath'));
     // fragment.firstElementChild.classList.add("dp-none" , "nav-drop-down");
-    fragment.firstElementChild.classList.add("dp-none");
-    fragment.firstElementChild.querySelectorAll("ul ul").forEach(function (el) {
-      el.querySelectorAll("ul").forEach(function (ele) {
+    fragment.firstElementChild.classList.add('dp-none');
+    fragment.firstElementChild.querySelectorAll('ul ul').forEach((el) => {
+      el.querySelectorAll('ul').forEach((ele) => {
         // console.log(ele.querySelector("p").innerText);
-        ele.classList.add("dp-none");
-        ele.parentElement.querySelector('p').addEventListener('click',function(eachPTag){
-          ele.classList.toggle("dp-none");
-          ele.parentElement.classList.toggle('arrow')
-          ele.parentElement.querySelector('p').classList.toggle("navlist-dropdown")
-        })
-      })
-
-    })
+        ele.classList.add('dp-none');
+        ele.parentElement.querySelector('p').addEventListener('click', () => {
+          ele.classList.toggle('dp-none');
+          ele.parentElement.classList.toggle('arrow');
+          ele.parentElement.querySelector('p').classList.toggle('navlist-dropdown');
+        });
+      });
+    });
   } else {
-    fragment = await loadFragment(getMetadata("navpath"));
+    fragment = await loadFragment(getMetadata('navpath'));
     // fragment = await loadFragment(navPath);
   }
 
@@ -225,9 +224,9 @@ export default async function decorate(block) {
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
-  let mobfragment;
+  // let mobfragment;
   hamburger.addEventListener('click', async () => {
-    navBrand.classList.toggle("dp-none");
+    navBrand.classList.toggle('dp-none');
     // if (!mobfragment) {
     //   mobfragment = await loadFragment(getMetadata("mobilepath"));
     //   const mobileNavSection = mobfragment.firstElementChild;
@@ -244,11 +243,7 @@ export default async function decorate(block) {
   nav.prepend(hamburger);
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
-  try {
-    toggleMenu(nav, navSections, isDesktop.matches);
-  } catch (error) {
-
-  }
+  toggleMenu(nav, navSections, isDesktop.matches);
   isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
   const navWrapper = document.createElement('div');
@@ -260,9 +255,3 @@ export default async function decorate(block) {
     navWrapper.append(await buildBreadcrumbs());
   }
 }
-
-// document.querySelectorAll("#nav > div.section.nav-brand > div > ul > li > ul > li").forEach(function (ele) {
-//   ele.addEventListener('click',function (e) {
-//     e.target.closest('ul').classList.toggle('dp-none')
-//   })
-// })
