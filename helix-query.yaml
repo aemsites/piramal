@@ -13,7 +13,7 @@ indices:
     target: /query-index.json
     properties:
       title:
-        select: head > meta[property="pageTitle"]
+        select: head > meta[property="og:title"]
         value: |
           attribute(el, 'content')
       date:
@@ -25,7 +25,7 @@ indices:
         value: |
           match(attribute(el, 'content'), 'https:\/\/[^/]+(\/.*)')
       description:
-        select: head > meta[name="jcr:description"]
+        select: head > meta[name="description"]
         value: |
           attribute(el, 'content')
       keywords:
@@ -33,7 +33,7 @@ indices:
         values:
           attribute(el, "content")
       breadcrumbTitle:
-        select: head > meta[property="breadcrumb-title"]
+        select: head > meta[property="navTitle"]
         value: |
           attribute(el, 'content')
       lastModified:

@@ -28,7 +28,8 @@
         "valueType": "string",
         "name": "keywords",
         "label": "Page Keywords",
-        "description": "Sets the keywords of the page in page meta."
+        "description": "Sets the keywords of the page in page meta.",
+        "multi": true
       }
     ]
   },
