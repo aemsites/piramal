@@ -65,9 +65,9 @@ async function loadFonts() {
   }
 }
 
-export let targetObject = {
-  isMobile: window.matchMedia("(max-width: 767px)").matches,
-  isTab: window.matchMedia("(max-width: 1024px)").matches,
+export const    targetObject = {
+  isMobile: window.matchMedia('(max-width: 767px)').matches,
+  isTab: window.matchMedia('(max-width: 1024px)').matches,
 };
 
 function autolinkModals(element) {
