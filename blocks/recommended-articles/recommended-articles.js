@@ -89,7 +89,10 @@ const addControls = (div, head) => {
  * @param {Element} block
  */
 export default function decorate(block) {
-  const [head, ...children] = block.querySelectorAll(':scope > div');
+  const [...children] = block.querySelectorAll(':scope > div');
+  const head = document.createElement('div');
+
+  block.prepend(head);
 
   children.forEach((child) => {
     child.classList.add('article');
