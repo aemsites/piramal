@@ -1341,6 +1341,12 @@
       {
         "component": "text",
         "valueType": "string",
+        "name": "card_linkText",
+        "label": "Product Page Link Title"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
         "name": "keyfeatures_headingType",
         "label": "Key Features",
         "condition": [{ "var": "classes" }, "has-key-features"]
