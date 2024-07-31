@@ -40,8 +40,8 @@
   --gradient-yellow-dark: #ffd49d;
   --gradient-blue-light: #dbe3f8;
   --gradient-blue-dark: #b7c7f1;
-  --background-light-yellow: #FFFCF7;
-  --background-light-pink: #FFF7F4;
+  --background-light-yellow: #fffcf7;
+  --background-light-pink: #fff7f4;
 
   /* colors form teknopoint implementation */
   --gradient-gray-light: #ebeef050;
@@ -361,6 +361,7 @@ main .section.background-light-pink {
 main .section.text-centered{
   text-align: center;
 }
+
 .dp-none {
   display: none !important;
 }
