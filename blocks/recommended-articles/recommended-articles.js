@@ -24,7 +24,7 @@ const addControls = (div, head) => {
     });
 
     selectedArticle = closestIndex;
-    prev.disabled = selectedArticle === 0;
+    prev.disabled = div.scrollLeft === 0;
     next.disabled = div.scrollLeft + div.clientWidth + 1 > div.scrollWidth;
   };
   div.addEventListener('scroll', () => {
