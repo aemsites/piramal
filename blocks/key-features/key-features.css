@@ -61,7 +61,7 @@
   font-size: 1rem;
 }
 
-.section.key-features-container a.cm-redirect {
+.key-features-wrapper + .default-content-wrapper p a {
   color: var(--midorange);
   text-decoration: underline;
 }
