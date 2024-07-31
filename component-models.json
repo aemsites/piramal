@@ -1211,7 +1211,7 @@
         "maxSize": 2,
         "options": [
           {
-            "name": "Initialy Visible Rows",
+            "name": "Initially Visible Rows",
             "children": [
               {
                 "name": "1",
@@ -1252,11 +1252,52 @@
     "id": "loan-product-card",
     "fields": [
       {
-        "component": "text",
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
         "valueType": "string",
-        "name": "loan-type",
-        "label": "Loan Type",
-        "multi": false
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          }
+        ]
       },
       {
         "component": "reference",
@@ -1273,12 +1314,6 @@
         "label": "Image Alt Text"
       },
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "card_title",
-        "label": "Title"
-      },
-      {
         "component": "richtext",
         "valueType": "string",
         "name": "card_description",
@@ -1291,23 +1326,90 @@
         "label": "Product Page Link"
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "key-feature_amount",
-        "label": "Amount Key Feature"
+        "component": "container",
+        "name": "keyfeature1",
+        "label": " Key Feature 1",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature1_image",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature1_imageAlt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature1_description",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ]
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "key-feature_tenure",
-        "label": "Tenure Key Feature"
+        "component": "container",
+        "name": "keyfeature2",
+        "label": " Key Feature 2",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature2_image",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature2_imageAlt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature2_description",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ]
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "key-feature_interest-rate",
-        "label": "Interest Rate Key Feature"
+        "component": "container",
+        "name": "keyfeature3",
+        "label": " Key Feature 3",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature3_image",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature3_imageAlt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature3_description",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ]
       }
+
     ]
   },
   {
