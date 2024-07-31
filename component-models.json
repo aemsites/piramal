@@ -1322,8 +1322,14 @@
       {
         "component": "aem-content",
         "valueType": "string",
-        "name": "link",
+        "name": "card_link",
         "label": "Product Page Link"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "keyfeatures_heading",
+        "label": "Key Features heading"
       },
       {
         "component": "container",
@@ -1334,20 +1340,20 @@
           {
             "component": "reference",
             "valueType": "string",
-            "name": "keyfeature1_image",
+            "name": "keyfeature_image1",
             "label": " Icon",
             "multi": false
           },
           {
             "component": "text",
             "valueType": "string",
-            "name": "keyfeature1_imageAlt",
+            "name": "keyfeature_imageAlt1",
             "label": "Key Feature Icon Alt Text"
           },
           {
             "component": "richtext",
             "valueType": "string",
-            "name": "keyfeature1_description",
+            "name": "keyfeature_description1",
             "label": "Key Feature Description",
             "required": true
           }
@@ -1362,20 +1368,20 @@
           {
             "component": "reference",
             "valueType": "string",
-            "name": "keyfeature2_image",
+            "name": "keyfeature_image2",
             "label": " Icon",
             "multi": false
           },
           {
             "component": "text",
             "valueType": "string",
-            "name": "keyfeature2_imageAlt",
+            "name": "keyfeature_imageAlt2",
             "label": "Key Feature Icon Alt Text"
           },
           {
             "component": "richtext",
             "valueType": "string",
-            "name": "keyfeature2_description",
+            "name": "keyfeature_description2",
             "label": "Key Feature Description",
             "required": true
           }
@@ -1390,20 +1396,20 @@
           {
             "component": "reference",
             "valueType": "string",
-            "name": "keyfeature3_image",
+            "name": "keyfeature_image3",
             "label": " Icon",
             "multi": false
           },
           {
             "component": "text",
             "valueType": "string",
-            "name": "keyfeature3_imageAlt",
+            "name": "keyfeature_imageAlt3",
             "label": "Key Feature Icon Alt Text"
           },
           {
             "component": "richtext",
             "valueType": "string",
-            "name": "keyfeature3_description",
+            "name": "keyfeature_description3",
             "label": "Key Feature Description",
             "required": true
           }
