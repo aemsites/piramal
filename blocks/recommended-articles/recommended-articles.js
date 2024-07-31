@@ -58,7 +58,7 @@ const addControls = (div, head) => {
     if (prevArticle) {
       selectedArticle = Math.max(selectedArticle - 1, 0);
       div.scrollTo({
-        left: prevArticle.offsetLeft - div.offsetLeft,
+        left: selectedArticle === 0 ? 0 : prevArticle.offsetLeft - div.offsetLeft,
         behavior: 'smooth',
       });
     }
