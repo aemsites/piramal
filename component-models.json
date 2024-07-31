@@ -426,20 +426,6 @@
         ]
       },
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "background_image",
-        "label": "Background Image",
-        "value": ""
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "background_imageAlt",
-        "label": "Background Image Alt Text",
-        "value": ""
-      },
-      {
         "component": "text",
         "valueType": "string",
         "name": "descr_eyebrow",
