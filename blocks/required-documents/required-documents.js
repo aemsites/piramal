@@ -36,6 +36,7 @@ export default function decorate(block) {
       const chevron = document.createElement('img');
       chevron.classList.add('req-chevron');
       chevron.src = `${window.hlx.codeBasePath}/icons/down-chevron.svg`;
+      chevron.alt = 'down chevron';
       summary.append(chevron);
     }
   });
