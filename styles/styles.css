@@ -243,6 +243,10 @@ main pre {
   white-space: pre;
 }
 
+.dp-none {
+  display: none !important;
+}
+
 /* links */
 a:any-link {
   color: var(--link-color);
