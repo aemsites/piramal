@@ -13,7 +13,8 @@ export default async function decorate(block) {
 
     const text = document.createElement('div');
     text.classList.add('feature-text');
-    text.append(title, desc);
+    text.append(title);
+    if (desc) text.append(desc);
     fact.firstElementChild.append(text);
 
     title.classList.add('feature-title');
