@@ -17,7 +17,6 @@ export default async function decorate(block) {
     fact.firstElementChild.append(text);
 
     title.classList.add('feature-title');
-    desc.classList.add('feature-desc');
   });
   await replacePlaceholders(block);
 }
