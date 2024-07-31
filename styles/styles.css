@@ -361,6 +361,7 @@ main .section.background-light-pink {
 main .section.text-centered{
   text-align: center;
 }
+
 .dp-none {
   display: none !important;
 }
