@@ -1,0 +1,113 @@
+/* stylelint-disable-next-line no-empty-source */
+
+.section.key-features-container {
+  background-color: var(--greyishblue);
+  color: var(--pattensblue);
+}
+
+.section.key-features-container .default-content-wrapper:first-child > *:first-child {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.section.key-features-container .default-content-wrapper:last-child > *:first-child {
+  margin-top: 2.25rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.section.key-features-container .default-content-wrapper:first-child > h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.block.key-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.block.key-features .feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--pattensblue);
+}
+
+.block.key-features .feature-img {
+  margin: 0;
+}
+
+.block.key-features .feature .feature-img img {
+  width: 2rem;
+  height: 2rem;
+}
+
+.block.key-features .feature-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.875rem;
+}
+
+.block.key-features .feature-text .feature-title,
+.block.key-features .feature-text .feature-desc {
+  margin: 0;
+}
+
+.block.key-features .feature-text span[data-placeholder] {
+  color: white;
+  font-size: 1rem;
+}
+
+.section.key-features-container a.cm-redirect {
+  color: var(--midorange);
+  text-decoration: underline;
+}
+
+@media (width >= 900px) {
+  .block.key-features .feature .feature-img img {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .block.key-features {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .block.key-features .feature {
+    flex-direction: column;
+    align-items: start;
+    gap: 0;
+    font-size: 1.5rem;
+  }
+
+  .block.key-features .feature-text {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+  }
+
+  .block.key-features .feature-text span[data-placeholder] {
+    font-size: 1.5rem;
+  }
+
+  .section.key-features-container .default-content-wrapper:first-child > *:first-child {
+    font-size: 1rem;
+  }
+
+  .section.key-features-container .default-content-wrapper:first-child > h2 {
+    font-size: 2rem;
+  }
+
+  .section.key-features-container .default-content-wrapper:last-child > *:first-child {
+    font-size: 1rem;
+  }
+
+  .section.key-features-container {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
