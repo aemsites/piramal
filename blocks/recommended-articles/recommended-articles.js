@@ -15,9 +15,7 @@ const addControls = (div, head) => {
     let closestDistance = Infinity;
 
     articles.forEach((article, index) => {
-      const distance = Math.abs(
-        article.offsetLeft - div.offsetLeft - div.scrollLeft,
-      );
+      const distance = Math.abs(article.offsetLeft - div.offsetLeft - div.scrollLeft);
 
       if (distance < closestDistance) {
         closestDistance = distance;
@@ -133,7 +131,7 @@ export default function decorate(block) {
 
   head.classList.add('art-head');
 
-  head.firstElementChild.append(...block.parentElement.previousSibling.children);
+  // head.firstElementChild.append(...block.parentElement.previousSibling.children);
 
   div.append(...children);
 
