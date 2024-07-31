@@ -1257,7 +1257,7 @@
         "value": "",
         "label": "Options",
         "valueType": "string",
-        "maxSize": 2,
+        "maxSize": 3,
         "options": [
           {
             "name": "Currency Format",
@@ -1294,6 +1294,19 @@
               {
                 "name": "Construction Loans",
                 "value": "loan-type-construction"
+              }
+            ]
+          },
+          {
+            "name": "Show Key Features",
+            "children": [
+              {
+                "name": "No",
+                "value": ""
+              },
+              {
+                "name": "Yes",
+                "value": "key-features"
               }
             ]
           }
