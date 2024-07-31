@@ -25,7 +25,7 @@ const addControls = (div, head) => {
 
     selectedArticle = closestIndex;
     prev.disabled = selectedArticle === 0;
-    next.disabled = div.scrollLeft + div.clientWidth === div.scrollWidth;
+    next.disabled = div.scrollLeft + div.clientWidth + 1 > div.scrollWidth;
   };
   div.addEventListener('scroll', () => {
     selectedArticleIndex();
@@ -134,7 +134,7 @@ export default function decorate(block) {
 
   head.classList.add('art-head');
 
-  // head.firstElementChild.append(...block.parentElement.previousSibling.children);
+  head.prepend(block.parentElement.previousSibling);
 
   div.append(...children);
 
