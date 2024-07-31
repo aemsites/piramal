@@ -1339,11 +1339,11 @@
         "label": "Product Page Link"
       },
       {
-        "component": "richtext",
+        "component": "text",
         "valueType": "string",
-        "name": "keyfeatures_heading",
-        "label": "Key Features heading",
-        "condition": { "===": [{ "var": "classes" }, "has-key-features"] }
+        "name": "keyfeatures_headingType",
+        "label": "Key Features",
+        "condition": [{ "var": "classes" }, "has-key-features"]
       },
       {
         "component": "container",
@@ -1361,7 +1361,7 @@
           {
             "component": "text",
             "valueType": "string",
-            "name": "keyfeature_imageAlt1",
+            "name": "keyfeature_image1Alt",
             "label": "Key Feature Icon Alt Text"
           },
           {
@@ -1372,7 +1372,7 @@
             "required": true
           }
         ],
-        "condition": { "===": [{ "var": "classes" }, "has-key-features"] }
+        "condition": [{ "var": "classes" }, "has-key-features"]
       },
       {
         "component": "container",
@@ -1390,7 +1390,7 @@
           {
             "component": "text",
             "valueType": "string",
-            "name": "keyfeature_imageAlt2",
+            "name": "keyfeature_image2Alt",
             "label": "Key Feature Icon Alt Text"
           },
           {
@@ -1401,7 +1401,7 @@
             "required": true
           }
         ],
-        "condition": { "===": [{ "var": "classes" }, "has-key-features"] }
+        "condition": [{ "var": "classes" }, "has-key-features"]
       },
       {
         "component": "container",
@@ -1419,7 +1419,7 @@
           {
             "component": "text",
             "valueType": "string",
-            "name": "keyfeature_imageAlt3",
+            "name": "keyfeature_image3Alt",
             "label": "Key Feature Icon Alt Text"
           },
           {
@@ -1430,7 +1430,7 @@
             "required": true
           }
         ],
-        "condition": { "===": [{ "var": "classes" }, "has-key-features"] }
+        "condition": [{ "var": "classes" }, "has-key-features"]
       }
 
     ]
