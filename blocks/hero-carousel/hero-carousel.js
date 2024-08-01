@@ -15,6 +15,15 @@ function updateActiveSlide(slide) {
   slides.forEach((aSlide, idx) => {
     aSlide.setAttribute('aria-hidden', idx !== slideIndex);
   });
+
+  const indicators = block.querySelectorAll('.carousel-slide-indicator');
+  indicators.forEach((indicator, idx) => {
+    if (idx !== slideIndex) {
+      indicator.querySelector('button').removeAttribute('active');
+    } else {
+      indicator.querySelector('button').setAttribute('active', 'true');
+    }
+  });
 }
 
 function showSlide(block, slideIndex = 0) {
@@ -23,25 +32,10 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  const slideIndicators = block.querySelector('.carousel-slide-indicators');
-  if (slides[realSlideIndex].classList.contains('font-white')) {
-    slideIndicators.classList.add('font-white');
-  } else {
-    slideIndicators.classList.remove('font-white');
-  }
-
-  slideIndicators.querySelectorAll('button').forEach((button, idx) => {
-    if (realSlideIndex === idx) {
-      button.classList.add('active');
-    } else {
-      button.classList.remove('active');
-    }
-  });
-
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
-    behavior: 'smooth',
+    behavior: 'instant',
   });
 }
 
@@ -115,8 +109,12 @@ function createSlide(row, slideIndex) {
   slide.dataset.slideIndex = slideIndex;
   slide.classList.add('carousel-slide');
 
+  const slideBackground = document.createElement('div');
+  slideBackground.classList.add('carousel-slide-background');
+
   const slideContent = document.createElement('div');
   slideContent.classList.add('carousel-slide-content');
+  slideBackground.append(slideContent);
 
   row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
     switch (colIdx) {
@@ -139,7 +137,7 @@ function createSlide(row, slideIndex) {
     }
   });
 
-  slide.append(slideContent);
+  slide.append(slideBackground);
   return slide;
 }
 
@@ -178,7 +176,14 @@ export default function decorate(block) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx - 1;
-      indicator.innerHTML = '<button type="button"></button>';
+      if (slide.classList.contains('font-white')) {
+        indicator.classList.add('font-white');
+      }
+      if (idx === 1) {
+        indicator.innerHTML = '<button type="button" active="true"></button>';
+      } else {
+        indicator.innerHTML = '<button type="button"></button>';
+      }
       slideIndicators.append(indicator);
     }
     row.remove();
