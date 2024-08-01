@@ -31,9 +31,8 @@
 .hero-carousel .carousel-slide {
   display: block;
   position: relative;
-  flex-shrink: 0;
+  flex: 0 0 100%;
   scroll-snap-align: start;
-  width: 100%;
   height: 440px;
   overflow: hidden;
 }
@@ -104,7 +103,6 @@
 
 .hero-carousel .carousel-slide-content .carousel-slide-description {
   display: block;
-  width: 100%;
   min-height: 400px;
   padding: 2.5rem 1rem 0;
   line-height: 1;
@@ -150,6 +148,8 @@
 .hero-carousel .carousel-slide-content .carousel-slide-image picture > img {
   position: absolute;
   bottom: 0;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -241,7 +241,7 @@
   display: block;
   position: absolute;
   bottom: 0;
-  right: 1rem;
+  right: 0;
   width: 240px;
   height: 200px;
   padding-right: 1rem;
@@ -289,7 +289,7 @@
   width: 1rem;
 }
 
-@media (width >=1200px) {
+@media (width >=900px) {
   .hero-carousel .carousel-slide {
     height: 529px;
   }
@@ -373,8 +373,8 @@
   }
 
   .hero-carousel .carousel-slide-content .carousel-slide-image {
-    width: 440px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
   }
 
   .hero-carousel .carousel-slide-indicator button {
@@ -391,5 +391,12 @@
 
   .hero-carousel .carousel-slide-indicator button[active="true"] {
     width: 1.5rem;
+  }
+}
+
+@media (width >=1200px) {
+  .hero-carousel .carousel-slide-content .carousel-slide-image {
+    width: 440px;
+    height: 400px;
   }
 }
