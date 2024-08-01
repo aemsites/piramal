@@ -48,6 +48,29 @@ header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul>li>p 
   text-decoration: none;
 }
 
+header nav#nav a:any-link {
+  color: currentcolor;
+  display: block;
+}
+
+header .nav-wrapper #nav .nav-sections .default-content-wrapper ul li:last-child a {
+  align-items: center;
+  background: #fef0ec;
+  border: 1px solid #f26841;
+  color: #f26841;
+  display: flex;
+  font-size: var(--body-font-size-xxs)rem;
+  line-height: 1rem;
+  min-height: 37px;
+  padding-left: 16px;
+  padding-right: 31px;
+  text-decoration: none;
+  margin: unset;
+  font-family: nunito, sans-serif;
+  font-weight: 700;
+  border-radius: 24px;
+}
+
 header .nav-wrapper #nav .section.nav-sections .default-content-wrapper>ul>li>p>a:hover {
   text-decoration: none;
 }
@@ -96,6 +119,47 @@ header .nav-wrapper #nav .section.nav-sections.active .default-content-wrapper>u
 header .nav-wrapper #nav .section.nav-sections.active,
 header .nav-wrapper #nav .section.nav-sections.active .default-content-wrapper>ul>li>p {
   color: #ccc !important;
+}
+
+header nav#nav .nav-brand img {
+  width: 128px;
+  height: auto;
+}
+
+header nav#nav .nav-brand .default-content-wrapper>ul>li:nth-child(4)>ul>li>a>img {
+  border-radius: 5px;
+  height: 36px;
+  width: 122px;
+}
+
+header .nav-wrapper #nav .section.nav-brand .default-content-wrapper picture img {
+  max-width: 108px;
+  display: inline-block;
+  margin-right: 16px;
+  padding-top: 0;
+}
+
+header .nav-wrapper #nav .nav-sections .default-content-wrapper p:last-child img {
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 7px;
+  right: 7px;
+}
+
+header .nav-wrapper #nav>div.section.nav-sections>div>ul>li:nth-child(6)>ul>li>p>span>img {
+  width: 20px;
+  height: 20px;
+}
+
+header .nav-wrapper #nav>div.section.nav-sections>div>ul>li:nth-child(2)>ul>li>p>span>img {
+  height: 20px;
+  width: 20px;
+}
+
+header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul li:nth-child(7) p span img {
+  width: 27px;
+  height: 19px;
 }
 
 header .nav-wrapper #nav section.nav-sections.active .default-content-wrapper ul>li:nth-child(7) p span img {
@@ -177,11 +241,6 @@ body.modal-open footer {
     min-height: 0;
     overflow: visible;
   }
-}
-
-header nav#nav a:any-link {
-  color: currentcolor;
-  display: block;
 }
 
 /* hamburger */
@@ -272,11 +331,6 @@ header .nav-brand {
   font-size: var(--heading-font-size-s);
   font-weight: 700;
   line-height: 1;
-}
-
-header nav#nav .nav-brand img {
-  width: 128px;
-  height: auto;
 }
 
 /* sections */
@@ -457,19 +511,6 @@ header .nav-wrapper #nav {
   padding: 0;
 }
 
-header nav#nav .nav-brand .default-content-wrapper>ul>li:nth-child(4)>ul>li>a>img {
-  border-radius: 5px;
-  height: 36px;
-  width: 122px;
-}
-
-header .nav-wrapper #nav .section.nav-brand .default-content-wrapper picture img {
-  max-width: 108px;
-  display: inline-block;
-  margin-right: 16px;
-  padding-top: 0;
-}
-
 header .nav-wrapper #nav .section.nav-sections {
   display: flex;
   flex-basis: auto;
@@ -525,29 +566,6 @@ header .nav-wrapper #nav>div.section.nav-sections>div>ul>li:nth-child(6)>ul>li>p
   width: fit-content;
 }
 
-header .nav-wrapper #nav .nav-sections .default-content-wrapper p:last-child img {
-  position: absolute;
-  height: 25px;
-  width: 25px;
-  top: 7px;
-  right: 7px;
-}
-
-header .nav-wrapper #nav>div.section.nav-sections>div>ul>li:nth-child(6)>ul>li>p>span>img {
-  width: 20px;
-  height: 20px;
-}
-
-header .nav-wrapper #nav>div.section.nav-sections>div>ul>li:nth-child(2)>ul>li>p>span>img {
-  height: 20px;
-  width: 20px;
-}
-
-header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul li:nth-child(7) p span img {
-  width: 27px;
-  height: 19px;
-}
-
 header .nav-wrapper #nav .section.nav-sections.active .default-content-wrapper ul li:nth-child(7) p span img {
   opacity: 0.3;
 }
@@ -588,24 +606,6 @@ header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul li p 
   padding: 0 4px;
   text-decoration: none;
   width: fit-content;
-}
-
-header .nav-wrapper #nav .nav-sections .default-content-wrapper ul li:last-child a {
-  align-items: center;
-  background: #fef0ec;
-  border: 1px solid #f26841;
-  color: #f26841;
-  display: flex;
-  font-size: var(--body-font-size-xxs)rem;
-  line-height: 1rem;
-  min-height: 37px;
-  padding-left: 16px;
-  padding-right: 31px;
-  text-decoration: none;
-  margin: unset;
-  font-family: nunito, sans-serif;
-  font-weight: 700;
-  border-radius: 24px;
 }
 
 header .nav-wrapper #nav .nav-sections .default-content-wrapper ul li:last-child p .icon {
