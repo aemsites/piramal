@@ -1154,6 +1154,68 @@
     ]
   },
   {
+    "id": "kyc-documents",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          },
+          {
+            "name": "KYC Document"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kyc-docs-row",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Document Name"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column2text",
+        "label": "Identity Check"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column3text",
+        "label": "Address Check"
+      }
+    ]
+  },
+  {
     "id": "recommended-article",
     "fields": [
       {
