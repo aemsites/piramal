@@ -1186,7 +1186,13 @@
             ]
           },
           {
-            "name": "KYC Document"
+            "name": "Table Type",
+            "children": [
+              {
+                "name": "KYC Documents",
+                "value": "kyc-docs"
+              }
+            ]
           }
         ]
       }
