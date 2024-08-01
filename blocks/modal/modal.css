@@ -74,7 +74,7 @@ body.modal-open {
   height: 20px;
 }
 
-@media screen and (width<=767px) {
+@media screen and (width<=1024px) {
   .modal dialog .modal-content {
     max-height: calc(100dvh - 40px);
   }
@@ -86,7 +86,7 @@ body.modal-open {
     padding: 0;
     width: 100%;
     max-width: unset;
-    margin-top: 50px;
+    margin-top: 55px;
     border-radius: var(--dialog-border-radius);
   }
 
