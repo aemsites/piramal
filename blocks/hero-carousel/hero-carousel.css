@@ -58,7 +58,7 @@
 }
 
 .hero-carousel .carousel-slide.background-light-green .carousel-slide-background {
-  background-image: url('https://cdn.piramalfinance.com/pchfweb/assets/images/pngs/WhatsappBannerMobile.png');
+  background-image: url('/images/WhatsappBannerMobile.png');
   background-size: cover;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .hero-carousel .carousel-slide.background-blue .carousel-slide-background {
-  background-image: url('https://cdn.piramalfinance.com/pchfweb/assets/images/svgs/bgiPhone15Mobile.svg');
+  background-image: url('/images/bgiPhone15Mobile.svg');
   background-size: cover;
 }
 
@@ -80,7 +80,7 @@
 }
 
 .hero-carousel .carousel-slide.background-violet .carousel-slide-background {
-  background-image: url('https://cdn.piramalfinance.com/pchfweb/assets/images/webps/banners/website/Awards%20Banner_Desktop.webp');
+  background-image: url('/images/AwardsBannerDesktop.webp');
   background-size: cover;
 }
 
@@ -295,11 +295,11 @@
   }
 
   .hero-carousel .carousel-slide.background-light-green .carousel-slide-background {
-    background-image: url('https://cdn.piramalfinance.com/pchfweb/assets/images/pngs/WhatsAppBannerDesktop.png');
+    background-image: url('/images/WhatsAppBannerDesktop.png');
   }
 
   .hero-carousel .carousel-slide.background-blue .carousel-slide-background {
-    background-image: url('https://cdn.piramalfinance.com/pchfweb/assets/images/svgs/bgiPhone15.svg');
+    background-image: url('/images/bgiPhone15.svg');
   }
 
   .hero-carousel .carousel-slide-content {
