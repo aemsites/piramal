@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-:root {
+ :root {
   /* boilerplate colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
@@ -101,6 +101,11 @@
   --body-font-size-m: 14px;
   --body-font-size-s: 12px;
 
+  /* font sizes for mobile footer */
+  --mob-font-size-l: 16px;
+  --mob-font-size-m: 14px;
+  --mob-font-size-s: 12px;
+
   /* heading sizes mobile */
   --heading-font-size-xxl: 24px; /* h1 */
   --heading-font-size-xl: 20px; /* h2 */
@@ -151,6 +156,8 @@
     /* desktop body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
+    --body-font-size-xs: 14px;
+    --body-font-size-xxs: 12px;
   }
 }
 
