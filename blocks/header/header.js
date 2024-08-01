@@ -44,6 +44,7 @@ function focusNavSection() {
  */
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
+    // section.classList.toggle('active');
     section.setAttribute('aria-expanded', expanded);
   });
 }
@@ -193,13 +194,27 @@ export default async function decorate(block) {
     brandLink.className = '';
     brandLink.closest('.button-container').className = '';
   }
-
+  const { body } = document;
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    let prevNavSection;
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
+          if (navSection.classList.contains('nav-drop')) {
+            if (navSection.classList.contains('active')) {
+              navSections.classList.remove('active');
+              navSection.classList.remove('active');
+              body.classList.remove('modal-open');
+            } else {
+              body.classList.add('modal-open');
+              prevNavSection?.classList.remove('active');
+              navSection.classList.add('active');
+              navSections.classList.add('active');
+              prevNavSection = navSection;
+            }
+          }
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');

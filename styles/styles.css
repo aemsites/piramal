@@ -151,6 +151,9 @@
     /* desktop body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
+    --body-font-size-xs: 14px;
+    --body-font-size-xxs: 12px;
+    --body-font-size-xxxs: 10px;
   }
 }
 
