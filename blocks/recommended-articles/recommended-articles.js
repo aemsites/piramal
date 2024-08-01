@@ -15,9 +15,7 @@ const addControls = (div, head) => {
     let closestDistance = Infinity;
 
     articles.forEach((article, index) => {
-      const distance = Math.abs(
-        article.offsetLeft - div.offsetLeft - div.scrollLeft,
-      );
+      const distance = Math.abs(article.offsetLeft - div.offsetLeft - div.scrollLeft);
 
       if (distance < closestDistance) {
         closestDistance = distance;
@@ -26,8 +24,8 @@ const addControls = (div, head) => {
     });
 
     selectedArticle = closestIndex;
-    prev.disabled = selectedArticle === 0;
-    next.disabled = div.scrollLeft + div.clientWidth === div.scrollWidth;
+    prev.disabled = div.scrollLeft === 0;
+    next.disabled = div.scrollLeft + div.clientWidth + 1 > div.scrollWidth;
   };
   div.addEventListener('scroll', () => {
     selectedArticleIndex();
@@ -60,7 +58,7 @@ const addControls = (div, head) => {
     if (prevArticle) {
       selectedArticle = Math.max(selectedArticle - 1, 0);
       div.scrollTo({
-        left: prevArticle.offsetLeft - div.offsetLeft,
+        left: selectedArticle === 0 ? 0 : prevArticle.offsetLeft - div.offsetLeft,
         behavior: 'smooth',
       });
     }
@@ -91,7 +89,10 @@ const addControls = (div, head) => {
  * @param {Element} block
  */
 export default function decorate(block) {
-  const [head, ...children] = block.querySelectorAll(':scope > div');
+  const [...children] = block.querySelectorAll(':scope > div');
+  const head = document.createElement('div');
+
+  block.prepend(head);
 
   children.forEach((child) => {
     child.classList.add('article');
@@ -132,8 +133,6 @@ export default function decorate(block) {
   addControls(div, head);
 
   head.classList.add('art-head');
-
-  head.firstElementChild.append(...block.parentElement.previousSibling.children);
 
   div.append(...children);
 
