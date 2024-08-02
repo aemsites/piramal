@@ -16,7 +16,7 @@ footer .footer p {
 
 footer.footer-wrapper {
   padding: 0;
-  background: #365069;
+  background: var( --piramal-blue-100);
 }
 
 footer .footer.block .section:nth-child(4) {
@@ -82,9 +82,15 @@ footer .footer.block div .section:nth-child(1) .default-content-wrapper>p:nth-ch
   align-items: center;
 }
 
+footer .footer.block div .section:nth-child(1) .default-content-wrapper>p:nth-child(2) a{
+  text-decoration: none;
+  color: var(--piramal-white-100);
+}
+
 footer .footer.block div .section .default-content-wrapper>p:nth-child(1)>picture img {
   width: 9.5rem;
   height: 4.25rem;
+  cursor: pointer;
 }
 
 footer .footer.block div .section:nth-child(2) .columns-wrapper .columns>div {
@@ -95,6 +101,7 @@ footer .footer.block div .section:nth-child(2) .columns-wrapper .columns>div {
 footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
   justify-content: center;
   column-gap: 6pc;
 }
@@ -207,7 +214,10 @@ footer>.footer.block div .section:nth-child(3)>.default-content-wrapper {
 }
 
 footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div .button-container {
-  display: none;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
 }
 
 @media screen and (width <=1024px) {
