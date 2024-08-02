@@ -214,6 +214,11 @@ export default async function decorate(block) {
               navSections.classList.add('active');
               prevNavSection = navSection;
             }
+          } else {
+            navSections.classList.remove('active');
+            navSection.classList.remove('active');
+            body.classList.remove('modal-open');
+            prevNavSection?.classList.remove('active');
           }
           const expanded = navSection.getAttribute('aria-expanded') === 'true';
           toggleAllNavSections(navSections);
