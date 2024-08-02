@@ -12,8 +12,6 @@
   background-color: white;
   border-radius: 1.5rem;
   padding-inline: 2rem;
-
-  /* border: 1px solid var(--lightgrey); */
 }
 
 .block.required-documents .req-text-content * {
@@ -28,14 +26,12 @@
 }
 
 .block.required-documents .req-section {
-  /* display: none; */
   border-bottom: 1px dashed rgb(204 204 204);
   padding-top: 1.3rem;
   padding-bottom: 1.3rem;
 }
 
 .block.required-documents .req-section:last-child {
-  /* display: none; */
   border-bottom: 0;
 }
 
