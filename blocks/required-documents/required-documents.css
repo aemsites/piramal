@@ -30,6 +30,8 @@
 .block.required-documents .req-section {
   /* display: none; */
   border-bottom: 1px dashed rgb(204 204 204);
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
 }
 
 .block.required-documents .req-section:last-child {
