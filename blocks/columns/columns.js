@@ -13,6 +13,12 @@ export default function decorate(block) {
           picWrapper.classList.add('columns-img-col');
         }
       }
+      if (block.classList.contains('clickable-images')) {
+        pic.addEventListener('click', () => {
+          const anchor = col.querySelector('a');
+          window.location.href = anchor.href;
+        });
+      }
     });
   });
 }
