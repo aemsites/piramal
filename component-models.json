@@ -1154,7 +1154,7 @@
     ]
   },
   {
-    "id": "kyc-documents",
+    "id": "kyc-documents-table",
     "fields": [
       {
         "component": "multiselect",
