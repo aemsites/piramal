@@ -1,8 +1,12 @@
 .tabs .tabs-list {
-  display: flex;
+  /* display: flex; */
   gap: 8px;
   max-width: 100%;
   overflow-x: auto;
+}
+
+.tabs .tabs-list ul {
+  display: flex;
 }
 
 .tabs .tabs-list button {

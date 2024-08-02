@@ -270,13 +270,119 @@ function autoOpenLinksInNewTab(element, include = ['/vidya']) {
   });
 }
 
+export function readBlockConfig(block) {
+  const config = {};
+  block.querySelectorAll(':scope>div').forEach((row) => {
+    if (row.children) {
+      const cols = [...row.children];
+      if (cols[1]) {
+        const col = cols[1];
+        const name = toClassName(cols[0].textContent);
+        let value = '';
+        if (col.querySelector('a')) {
+          const as = [...col.querySelectorAll('a')];
+          if (as.length === 1) {
+            value = as[0].href;
+          } else {
+            value = as.map((a) => a.href);
+          }
+        } else if (col.querySelector('img')) {
+          const imgs = [...col.querySelectorAll('img')];
+          if (imgs.length === 1) {
+            value = imgs[0].src;
+          } else {
+            value = imgs.map((img) => img.src);
+          }
+        } else if (col.querySelector('p')) {
+          const ps = [...col.querySelectorAll('p')];
+          if (ps.length === 1) {
+            value = ps[0].textContent;
+          } else {
+            value = ps.map((p) => p.textContent);
+          }
+        } else value = row.children[1].textContent;
+        config[name] = value;
+      }
+    }
+  });
+  return config;
+}
+
+export function buildBlock(blockName, content) {
+  const table = Array.isArray(content) ? content : [[content]];
+  const blockEl = document.createElement('div');
+  // build image block nested div structure
+  blockEl.classList.add(blockName);
+  table.forEach((row) => {
+    const rowEl = document.createElement('div');
+    row.forEach((col) => {
+      const colEl = document.createElement('div');
+      const vals = col.elems ? col.elems : [col];
+      vals.forEach((val) => {
+        if (val) {
+          if (typeof val === 'string') {
+            colEl.innerHTML += val;
+          } else if (val.tagName === 'UL') {
+            // Convert each li in the ul to a button
+            Array.from(val.children).forEach((li) => {
+              if (li.tagName === 'LI') {
+                const button = document.createElement('button');
+                button.className = 'tabs-tab';
+                button.innerText = li.innerText;
+                button.setAttribute('role', 'tab');
+                button.type = 'button';
+                colEl.appendChild(button);
+              }
+            });
+          } else {
+            colEl.appendChild(val);
+          }
+        }
+      });
+      rowEl.appendChild(colEl);
+    });
+    blockEl.appendChild(rowEl);
+  });
+  return (blockEl);
+}
+
+function buildTabs(main) {
+  const tabs = [...main.querySelectorAll(':scope > div')]
+    .map((section) => {
+      const sectionMeta = section.querySelector('div.section-metadata');
+      if (sectionMeta) {
+        const meta = readBlockConfig(sectionMeta);
+        if (meta.tabtitle) {
+          return [section, meta.tabtitle];
+        }
+      }
+      return null;
+    })
+    .filter((el) => !!el);
+  if (tabs.length) {
+    const section = document.createElement('div');
+    section.className = 'section';
+    const ul = document.createElement('ul');
+    ul.append(...tabs
+      .map(([, tab]) => {
+        const li = document.createElement('li');
+        li.innerText = tab;
+        return li;
+      }));
+    const tabsBlock = buildBlock('tabs', [[ul]]);
+    section.append(tabsBlock);
+    tabs[0][0].insertAdjacentElement('beforebegin', section);
+  }
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
-function buildAutoBlocks() {
+function buildAutoBlocks(main) {
   try {
     // TODO: add auto block, if needed
+    buildTabs(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
