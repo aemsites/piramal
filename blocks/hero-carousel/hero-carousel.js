@@ -1,28 +1,27 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
+function getNextSlideIndex(block) {
+  const currentIndex = parseInt(block.dataset.activeSlide, 10);
+  const totalSlides = block.querySelectorAll('.carousel-slide').length;
+  return (currentIndex + 1) % totalSlides;
+}
+
 function updateActiveSlide(slide) {
-  const block = slide.closest('.carousel');
+  const block = slide.closest('.hero-carousel');
   const slideIndex = parseInt(slide.dataset.slideIndex, 10);
   block.dataset.activeSlide = slideIndex;
 
   const slides = block.querySelectorAll('.carousel-slide');
   slides.forEach((aSlide, idx) => {
     aSlide.setAttribute('aria-hidden', idx !== slideIndex);
-    aSlide.querySelectorAll('a').forEach((link) => {
-      if (idx !== slideIndex) {
-        link.setAttribute('tabindex', '-1');
-      } else {
-        link.removeAttribute('tabindex');
-      }
-    });
   });
 
   const indicators = block.querySelectorAll('.carousel-slide-indicator');
   indicators.forEach((indicator, idx) => {
     if (idx !== slideIndex) {
-      indicator.querySelector('button').removeAttribute('disabled');
+      indicator.querySelector('button').removeAttribute('active');
     } else {
-      indicator.querySelector('button').setAttribute('disabled', 'true');
+      indicator.querySelector('button').setAttribute('active', 'true');
     }
   });
 }
@@ -33,11 +32,10 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  activeSlide.querySelectorAll('a').forEach((link) => link.removeAttribute('tabindex'));
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
-    behavior: 'smooth',
+    behavior: 'instant',
   });
 }
 
@@ -105,15 +103,18 @@ function decorateDescription(description, slide) {
   return description;
 }
 
-function createSlide(row, slideIndex, carouselId) {
+function createSlide(row, slideIndex) {
   const slide = document.createElement('li');
   moveInstrumentation(row, slide);
   slide.dataset.slideIndex = slideIndex;
-  slide.setAttribute('id', `carousel-${carouselId}-slide-${slideIndex}`);
   slide.classList.add('carousel-slide');
+
+  const slideBackground = document.createElement('div');
+  slideBackground.classList.add('carousel-slide-background');
 
   const slideContent = document.createElement('div');
   slideContent.classList.add('carousel-slide-content');
+  slideBackground.append(slideContent);
 
   row.querySelectorAll(':scope > div').forEach((column, colIdx) => {
     switch (colIdx) {
@@ -136,24 +137,13 @@ function createSlide(row, slideIndex, carouselId) {
     }
   });
 
-  const labeledBy = slide.querySelector('h1, h2, h3, h4, h5, h6');
-  if (labeledBy) {
-    slide.setAttribute('aria-labelledby', labeledBy.getAttribute('id'));
-  }
-
-  slide.append(slideContent);
+  slide.append(slideBackground);
   return slide;
 }
 
-let carouselId = 0;
 export default function decorate(block) {
-  carouselId += 1;
-  block.setAttribute('id', `carousel-${carouselId}`);
   const rows = block.querySelectorAll(':scope > div');
   const isSingleSlide = rows.length < 2;
-
-  block.setAttribute('role', 'region');
-  block.setAttribute('aria-roledescription', 'Carousel');
 
   const container = document.createElement('div');
   container.classList.add('carousel-slides-container');
@@ -174,19 +164,26 @@ export default function decorate(block) {
 
   rows.forEach((row, idx) => {
     if (idx === 0) {
-      // TODO - Set auto-scroll for Carousel
+      // TODO - Control auto-scroll basis parameter if needed
       row.remove();
       return;
     }
 
-    const slide = createSlide(row, idx - 1, carouselId);
+    const slide = createSlide(row, idx - 1);
     slidesWrapper.append(slide);
 
     if (slideIndicators) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
       indicator.dataset.targetSlide = idx - 1;
-      indicator.innerHTML = `<button type="button"><span>Show Slide ${idx - 1} of ${rows.length - 1}</span></button>`;
+      if (slide.classList.contains('font-white')) {
+        indicator.classList.add('font-white');
+      }
+      if (idx === 1) {
+        indicator.innerHTML = '<button type="button" active="true"></button>';
+      } else {
+        indicator.innerHTML = '<button type="button"></button>';
+      }
       slideIndicators.append(indicator);
     }
     row.remove();
@@ -198,4 +195,6 @@ export default function decorate(block) {
   if (!isSingleSlide) {
     bindEvents(block);
   }
+
+  setInterval(() => showSlide(block, getNextSlideIndex(block)), 5000);
 }
