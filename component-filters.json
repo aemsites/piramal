@@ -87,6 +87,12 @@
     ]
   },
   {
+    "id": "kyc-documents",
+    "components": [
+      "kyc-docs-row"
+    ]
+  },
+  {
     "id": "recommended-articles",
     "components": [
       "recommended-article"
