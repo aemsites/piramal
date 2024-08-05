@@ -1559,58 +1559,82 @@
     "id": "emi-calculator",
     "fields": [
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "amount_min",
-        "label": "Loan Amount Minimum"
+        "component": "container",
+        "name": "amount",
+        "label": "Amount",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "amount_min",
+            "label": "Loan Amount Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "amount_max",
+            "label": "Loan Amount Maximum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "amount_steps",
+            "label": "Loan Amount Slider Steps Size"
+          }
+        ]
       },
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "amount_max",
-        "label": "Loan Amount Maximum"
+        "component": "container",
+        "name": "tenure",
+        "label": "Tenure",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "tenure_min",
+            "label": "Loan Tenure Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "tenure_max",
+            "label": "Loan Tenure Maximum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "tenure_steps",
+            "label": "Loan Tenure Slider Steps Size"
+          }
+        ]
       },
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "amount_steps",
-        "label": "Loan Amount Slider Steps Size"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "tenure_min",
-        "label": "Loan Tenure Minimum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "tenure_max",
-        "label": "Loan Tenure Maximum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "tenure_steps",
-        "label": "Loan Tenure Slider Steps Size"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "interest-rate_min",
-        "label": "Interest Rate Minimum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "interest-rate_max",
-        "label": "Interest Rate Max"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "interest-rate_steps",
-        "label": "Interest Rate Slider Steps Size"
+        "component": "container",
+        "name": "rate",
+        "label": "Interest Rate",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "interest-rate_min",
+            "label": "Interest Rate Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "interest-rate_max",
+            "label": "Interest Rate Max"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "interest-rate_steps",
+            "label": "Interest Rate Slider Steps Size"
+          }
+        ]
       }
     ]
   },
