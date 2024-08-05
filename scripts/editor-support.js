@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 import {
   decorateBlock,
   decorateBlocks,
@@ -8,7 +9,7 @@ import {
   loadBlocks,
 } from './aem.js';
 import { decorateRichtext } from './editor-support-rte.js';
-import { decorateMain } from './scripts.js';
+import { decorateMain, moveInstrumentation } from './scripts.js';
 
 function getState(block) {
   if (block.matches('.accordion')) {
@@ -146,6 +147,45 @@ function handleSelection(event) {
   }
 }
 
+function findComponentDef(componentDefinitions, filter) {
+  for (const group of componentDefinitions.groups) {
+    for (const component of group.components) {
+      const template = component?.plugins?.xwalk?.page?.template;
+      if (template && filter(template)) {
+        return component;
+      }
+    }
+  }
+  return null;
+}
+
+/**
+ * For components that are implemented by the same block, the Content Tree and the labels would
+ * be the block name. This is not inuitive as the author did add a specific configuration of that
+ * block to the page. This function finds the used component definition for a given model and
+ * block name and updates the data-aue-label accordingly.
+ *
+ * @param {*} main
+ * @param {*} blocks
+ */
+async function rewriteBlockLabels(main, blocks = ['Table']) {
+  // fetch component definitions
+  const componentDefinitionsRes = await fetch(`${window.hlx.codeBasePath}/component-definition.json`);
+  if (componentDefinitionsRes.ok) {
+    const componentDefinitions = await componentDefinitionsRes.json();
+    blocks.forEach((blockName) => main.querySelectorAll(`[data-aue-label="${blockName}"]`).forEach((block) => {
+      const { aueModel } = block.dataset;
+      // eslint-disable-next-line arrow-body-style
+      const component = findComponentDef(componentDefinitions, ({ name, model }) => {
+        return name === blockName && model === aueModel;
+      });
+      if (component) {
+        block.dataset.aueLabel = component.title;
+      }
+    }));
+  }
+}
+
 function attachEventListners(main) {
   [
     'aue:content-patch',
@@ -156,17 +196,33 @@ function attachEventListners(main) {
   ].forEach((eventType) => main?.addEventListener(eventType, async (event) => {
     event.stopPropagation();
     const applied = await applyChanges(event);
-    if (applied) {
+    if (!applied) window.location.reload();
+    else {
+      rewriteBlockLabels(main);
       updateUEInstrumentation();
-    } else {
-      window.location.reload();
     }
   }));
 
   main?.addEventListener('aue:ui-select', handleSelection);
 }
 
-attachEventListners(document.querySelector('main'));
+function removeInstrumentation(editable) {
+  moveInstrumentation(editable, null);
+}
 
-// update UE component filters on page load
+function observePlaceholders(main) {
+  new MutationObserver((mutations) => mutations.forEach(({ addedNodes }) => {
+    const placeholderSpan = [...addedNodes].find((node) => node.tagName === 'SPAN' && node.dataset.placeholder);
+    if (placeholderSpan) {
+      // remove instrumentation from the closes richtext or text
+      const editable = placeholderSpan.closest('[data-aue-type="richtext"],[data-aue-type="text"]');
+      removeInstrumentation(editable);
+    }
+  })).observe(main, { subtree: true, childList: true });
+}
+
+const m = document.querySelector('main');
+attachEventListners(m);
+rewriteBlockLabels(m);
+observePlaceholders(m);
 updateUEInstrumentation();

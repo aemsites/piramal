@@ -1,6 +1,9 @@
 {
   "mappings": [
-    "/content/piramalfinance-eds2/:/"
+    "/content/piramalfinance-eds2/:/",
+    "/content/piramalfinance-eds2/loan-key-features:/loan-key-features.json",
+    "/content/piramalfinance-eds2/metadata:/metadata.json",
+    "/content/piramalfinance-eds2.resource/query-index.json:/query-index.json"
   ],
   "includes": [
     "/content/piramalfinance-eds2"

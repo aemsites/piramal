@@ -1,7 +1,37 @@
 [
   {
     "id": "page-metadata",
-    "fields": []
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "pageTitle",
+        "label": "Page Title",
+        "description": "Sets the title of the page in page meta."
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "jcr:description",
+        "label": "Page Description",
+        "description": "Sets the description of the page in page meta."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "navTitle",
+        "label": "Breadcrumb Title",
+        "description": "Sets the title for breadcrumb in page meta."
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "keywords",
+        "label": "Page Keywords",
+        "description": "Sets the keywords of the page in page meta.",
+        "multi": true
+      }
+    ]
   },
   {
     "id": "section",
@@ -24,6 +54,14 @@
               {
                 "name": "Light Gray",
                 "value": "background-light-gray"
+              },
+              {
+                "name": "Light Yellow",
+                "value": "background-light-yellow"
+              },
+              {
+                "name": "Light Pink",
+                "value": "background-light-pink"
               }
             ]
           },
@@ -789,18 +827,136 @@
     "id": "key-features",
     "fields": [
       {
-        "component": "text",
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
         "valueType": "string",
-        "name": "id",
-        "label": "Loan Type",
-        "multi": false
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          }
+        ]
       },
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "tc-link",
-        "label": "Terms & Conditions PDF Link",
-        "multi": false
+        "component": "container",
+        "name": "keyfeature1",
+        "label": " Key Feature 1",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature1_image",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature1_imageAlt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature1_description",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "keyfeature2",
+        "label": " Key Feature 2",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature2_image",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature2_imageAlt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature2_description",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ]
+      },
+      {
+        "component": "container",
+        "name": "keyfeature3",
+        "label": " Key Feature 3",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature3_image",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature3_imageAlt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature3_description",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ]
       }
     ]
   },
@@ -931,25 +1087,52 @@
     "id": "fee-charges",
     "fields": [
       {
-        "component": "text",
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
         "valueType": "string",
-        "name": "loan-type",
-        "label": "Loan Type",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "column1title",
-        "label": "Title First Column",
-        "multi": false
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "column2title",
-        "label": "Title Second Column",
-        "multi": false
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -971,21 +1154,70 @@
     ]
   },
   {
-    "id": "recommended-articles",
+    "id": "kyc-documents-table",
     "fields": [
       {
-        "component": "text",
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
         "valueType": "string",
-        "name": "descr_title",
-        "label": "Title",
-        "multi": false
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          },
+          {
+            "name": "Table Type",
+            "children": [
+              {
+                "name": "KYC Documents",
+                "value": "kyc-docs"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kyc-docs-row",
+    "fields": [
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column1text",
+        "label": "Document Name"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
-        "name": "descr_subtitle",
-        "label": "Description",
-        "multi": false
+        "name": "column2text",
+        "label": "Identity Check"
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "column3text",
+        "label": "Address Check"
       }
     ]
   },
@@ -997,7 +1229,7 @@
         "valueType": "string",
         "name": "article_image",
         "label": "Article Image",
-        "required" : true,
+        "required": true,
         "multi": false
       },
       {
@@ -1017,7 +1249,7 @@
         "valueType": "string",
         "name": "article_link",
         "label": "Article Link",
-        "required" : true,
+        "required": true,
         "multi": false
       },
       {
@@ -1047,7 +1279,7 @@
         "maxSize": 2,
         "options": [
           {
-            "name": "Initialy Visible Rows",
+            "name": "Initially Visible Rows",
             "children": [
               {
                 "name": "1",
@@ -1088,18 +1320,72 @@
     "id": "loan-product-card",
     "fields": [
       {
-        "component": "text",
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
         "valueType": "string",
-        "name": "loan-type",
-        "label": "Loan Type",
-        "multi": false
+        "maxSize": 3,
+        "options": [
+          {
+            "name": "Currency Format",
+            "children": [
+              {
+                "name": "Long",
+                "value": "currency-format-long"
+              },
+              {
+                "name": "Short (Phonetic)",
+                "value": "currency-format-phonetic"
+              },
+              {
+                "name": "Short",
+                "value": "currency-format-short"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              },
+              {
+                "name": "Construction Loans",
+                "value": "loan-type-construction"
+              }
+            ]
+          },
+          {
+            "name": "Show Key Features",
+            "children": [
+              {
+                "name": "No",
+                "value": ""
+              },
+              {
+                "name": "Yes",
+                "value": "has-key-features"
+              }
+            ]
+          }
+        ]
       },
       {
         "component": "reference",
         "valueType": "string",
         "name": "card_image",
         "label": "Image",
-        "required" : true,
+        "required": true,
         "multi": false
       },
       {
@@ -1107,12 +1393,6 @@
         "valueType": "string",
         "name": "card_imageAlt",
         "label": "Image Alt Text"
-      },
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "card_title",
-        "label": "Title"
       },
       {
         "component": "richtext",
@@ -1123,27 +1403,110 @@
       {
         "component": "aem-content",
         "valueType": "string",
-        "name": "link",
+        "name": "card_link",
         "label": "Product Page Link"
       },
       {
-        "component": "richtext",
+        "component": "text",
         "valueType": "string",
-        "name": "key-feature_amount",
-        "label": "Amount Key Feature"
+        "name": "card_linkText",
+        "label": "Product Page Link Title"
       },
       {
-        "component": "richtext",
+        "component": "text",
         "valueType": "string",
-        "name": "key-feature_tenure",
-        "label": "Tenure Key Feature"
+        "name": "keyfeatures_headingType",
+        "label": "Key Features",
+        "condition": [{ "var": "classes" }, "has-key-features"]
       },
       {
-        "component": "richtext",
-        "valueType": "string",
-        "name": "key-feature_interest-rate",
-        "label": "Interest Rate Key Feature"
+        "component": "container",
+        "name": "keyfeature1",
+        "label": " Key Feature 1",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature_image1",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature_image1Alt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature_description1",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ],
+        "condition": [{ "var": "classes" }, "has-key-features"]
+      },
+      {
+        "component": "container",
+        "name": "keyfeature2",
+        "label": " Key Feature 2",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature_image2",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature_image2Alt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature_description2",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ],
+        "condition": [{ "var": "classes" }, "has-key-features"]
+      },
+      {
+        "component": "container",
+        "name": "keyfeature3",
+        "label": " Key Feature 3",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "reference",
+            "valueType": "string",
+            "name": "keyfeature_image3",
+            "label": " Icon",
+            "multi": false
+          },
+          {
+            "component": "text",
+            "valueType": "string",
+            "name": "keyfeature_image3Alt",
+            "label": "Key Feature Icon Alt Text"
+          },
+          {
+            "component": "richtext",
+            "valueType": "string",
+            "name": "keyfeature_description3",
+            "label": "Key Feature Description",
+            "required": true
+          }
+        ],
+        "condition": [{ "var": "classes" }, "has-key-features"]
       }
+
     ]
   },
   {

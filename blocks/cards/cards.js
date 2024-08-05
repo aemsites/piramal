@@ -1,3 +1,5 @@
+import { moveInstrumentation } from '../../scripts/scripts.js';
+
 /**
  *
  * @param {Element} block
@@ -16,9 +18,12 @@ export default function decorate(block) {
       card.addEventListener('click', () => {
         window.location.href = url.children[0].href;
       });
+      // icon cards or default behavior
     } else {
       [img, title, url] = card.querySelectorAll(':scope > div > *');
       img.classList.add('card-img');
+      // remove instrumentation for card url
+      moveInstrumentation(url.firstChild);
     }
     card.classList.add('card');
 
