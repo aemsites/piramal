@@ -91,6 +91,7 @@
 
 .table.kyc-docs th {
   font-size: 0.75rem;
+  color: var(--main-cta-background);
 }
 
 .table.kyc-docs td,
@@ -124,10 +125,6 @@
   font-style: normal;
   font-weight: 400;
   color: var(--text-color-light-gray);
-}
-
-.table.kyc-docs th {
-  color: var(--main-cta-background);
 }
 
 .table.kyc-docs th.col-text-center {
