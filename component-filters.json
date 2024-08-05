@@ -21,6 +21,7 @@
       "testimonies",
       "key-features",
       "fee-charges",
+      "kyc-documents-table",
       "recommended-articles",
       "loan-products",
       "accordion",
@@ -84,6 +85,12 @@
     "id": "fee-charges",
     "components": [
       "fee-row"
+    ]
+  },
+  {
+    "id": "kyc-documents-table",
+    "components": [
+      "kyc-docs-row"
     ]
   },
   {

@@ -21,5 +21,6 @@ module.exports = {
     'import/extensions': ['error', {
       js: 'always',
     }],
+    'xwalk/no-orphan-collapsible-fields': 'warn',
   },
 };
