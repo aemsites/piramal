@@ -1642,76 +1642,108 @@
     "id": "eligibility-calculator",
     "fields": [
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "income_min",
-        "label": "Gross Monthly Income Minimum"
+        "component": "container",
+        "name": "income",
+        "label": "Income",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "income_min",
+            "label": "Gross Monthly Income Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "income_max",
+            "label": "Gross Montly Income Maximum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "income_steps",
+            "label": "Gross Montly Income Slider Step Size"
+          }
+        ]
       },
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "income_max",
-        "label": "Gross Montly Income Maximum"
+        "component": "container",
+        "name": "otherloanemi",
+        "label": "Other Loan EMIs",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "other-loan-emi_min",
+            "label": "Other Loan EMIs Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "other-loan-emi_max",
+            "label": "Other Loan EMIs Maximum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "other-loan-emi_steps",
+            "label": "Other Loan EMIs Slider Step Size"
+          }
+        ]
       },
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "income_steps",
-        "label": "Gross Montly Income Slider Step Size"
+        "component": "container",
+        "name": "rate",
+        "label": "Interest Rate",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "interest-rate_min",
+            "label": "Interest Rate Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "interest-rate_max",
+            "label": "Interest Rate Max"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "interest-rate_steps",
+            "label": "Interest Rate Slider Steps Size"
+          }
+        ]
       },
       {
-        "component": "number",
-        "valueType": "number",
-        "name": "other-loan-emi_min",
-        "label": "Other Loan EMIs Minimum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "other-loan-emi_max",
-        "label": "Other Loan EMIs Maximum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "other-loan-emi_steps",
-        "label": "Other Loan EMIs Slider Step Size"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "interest-rate_min",
-        "label": "Interest Rate Minimum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "interest-rate_max",
-        "label": "Interest Rate Max"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "interest-rate_steps",
-        "label": "Interest Rate Slider Steps Size"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "tenure_min",
-        "label": "Loan Tenure Minimum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "tenure_max",
-        "label": "Loan Tenure Maximum"
-      },
-      {
-        "component": "number",
-        "valueType": "number",
-        "name": "tenure_steps",
-        "label": "Loan Tenure Slider Steps Size"
+        "component": "container",
+        "name": "tenure",
+        "label": "Tenure",
+        "collapsible": true,
+        "fields": [
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "tenure_min",
+            "label": "Loan Tenure Minimum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "tenure_max",
+            "label": "Loan Tenure Maximum"
+          },
+          {
+            "component": "number",
+            "valueType": "number",
+            "name": "tenure_steps",
+            "label": "Loan Tenure Slider Steps Size"
+          }
+        ]
       }
     ]
   }
