@@ -110,5 +110,11 @@
     "components": [
       "accordion-entry"
     ]
+  },
+  {
+    "id": "loan-steps",
+    "components": [
+      "loan-step"
+    ]
   }
 ]

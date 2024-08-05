@@ -1554,5 +1554,55 @@
         "label": "List of Cities"
       }
     ]
+  },
+  {
+    "id": "loan-steps",
+    "fields": [
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "classes",
+        "value": "",
+        "label": "Style",
+        "options": [
+          {
+            "name": "info",
+            "value": "info"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "loan-step",
+    "fields": [
+      {
+        "component": "reference",
+        "valueType": "string",
+        "name": "media_image",
+        "label": "Image",
+        "multi": false
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "media_imageAlt",
+        "label": "Image Alt Text"
+      },
+      {
+        "component": "richtext",
+        "name": "media_title",
+        "value": "",
+        "label": "Title",
+        "valueType": "string"
+      },
+      {
+        "component": "richtext",
+        "name": "descr_text",
+        "value": "",
+        "label": "steps_description",
+        "valueType": "string"
+      }
+    ]
   }
 ]
