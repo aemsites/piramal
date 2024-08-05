@@ -25,7 +25,8 @@
       "recommended-articles",
       "loan-products",
       "accordion",
-      "metro-cities"
+      "metro-cities",
+      "loan-steps"
     ]
   },
   {
@@ -109,6 +110,12 @@
     "id": "accordion",
     "components": [
       "accordion-entry"
+    ]
+  },
+  {
+    "id": "loan-steps",
+    "components": [
+      "loan-step"
     ]
   }
 ]
