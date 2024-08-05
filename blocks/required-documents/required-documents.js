@@ -2,8 +2,10 @@
  *
  * @param {Element} block
  */
+import { loadFragment } from '../fragment/fragment.js';
+
 export default function decorate(block) {
-  block.querySelectorAll(':scope > div').forEach((section) => {
+  block.querySelectorAll(':scope > div').forEach(async (section) => {
     const [type, summary, details] = section.querySelectorAll(':scope > *');
     type?.classList?.add('req-type');
     summary?.classList?.add('req-summary');
@@ -38,6 +40,27 @@ export default function decorate(block) {
       chevron.src = `${window.hlx.codeBasePath}/icons/down-chevron.svg`;
       chevron.alt = 'down chevron';
       summary.append(chevron);
+    }
+    const reqDetails = section.querySelector('.req-details');
+    const link = section.querySelector('.req-details a');
+    if (link) {
+      const fragmentUrl = link.href;
+      try {
+        const url = new URL(fragmentUrl);
+        const path = url.pathname;
+        const fragment = await loadFragment(path);
+
+        if (fragment) {
+          const parentP = link.parentElement;
+          while (fragment.firstElementChild) {
+            reqDetails.appendChild(fragment.firstElementChild);
+          }
+          parentP.remove();
+        }
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.error('Failed to load fragment', error);
+      }
     }
   });
 }
