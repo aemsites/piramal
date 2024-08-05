@@ -143,6 +143,7 @@
 
 .block.required-documents .section.table-container .default-content-wrapper {
   display: flex;
+  justify-content: space-between;
 }
 
 .block.required-documents .section.table-container .default-content-wrapper > p {
@@ -164,15 +165,6 @@
 
   .table.kyc-docs th {
     font-size: 1rem;
-  }
-
-  .block.required-documents .section.table-container .default-content-wrapper {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .block.required-documents .section.table-container .default-content-wrapper > p {
-    display: inline;
   }
 
   .table.kyc-docs th em {
