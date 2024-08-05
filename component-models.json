@@ -220,6 +220,10 @@
     ]
   },
   {
+    "id": "hero-carousel",
+    "fields": []
+  },
+  {
     "id": "content-slide",
     "fields": [
       {
