@@ -220,14 +220,7 @@
     ]
   },
   {
-    "id": "hero-carousel",
-    "fields": [
-      {
-        "component": "boolean",
-        "name": "autoscroll",
-        "label": "Auto scroll"
-      }
-    ]
+    "id": "hero-carousel"
   },
   {
     "id": "content-slide",
@@ -1417,7 +1410,12 @@
         "valueType": "string",
         "name": "keyfeatures_headingType",
         "label": "Key Features",
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        "condition": [
+          {
+            "var": "classes"
+          },
+          "has-key-features"
+        ]
       },
       {
         "component": "container",
@@ -1446,7 +1444,12 @@
             "required": true
           }
         ],
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        "condition": [
+          {
+            "var": "classes"
+          },
+          "has-key-features"
+        ]
       },
       {
         "component": "container",
@@ -1475,7 +1478,12 @@
             "required": true
           }
         ],
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        "condition": [
+          {
+            "var": "classes"
+          },
+          "has-key-features"
+        ]
       },
       {
         "component": "container",
@@ -1504,9 +1512,13 @@
             "required": true
           }
         ],
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        "condition": [
+          {
+            "var": "classes"
+          },
+          "has-key-features"
+        ]
       }
-
     ]
   },
   {
