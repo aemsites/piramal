@@ -264,7 +264,7 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
   footer .footer.block div .section:nth-child(3) .default-content-wrapper ul {
     grid-area: img;
     padding-bottom: 32px;
-    border-bottom: 1px solid #5e7387;
+    border-bottom: 1px solid var(--piramal-blue-80);
     width: 100%;
   }
 
@@ -364,7 +364,7 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
     gap: 16px;
     margin-top: 8px;
     padding-bottom: 24px;
-    border-bottom: 1px solid #5e7387;
+    border-bottom: 1px solid var(--piramal-blue-80);
     width: 100%;
   }
 
