@@ -1,11 +1,25 @@
 import { moveInstrumentation } from '../../scripts/scripts.js';
 
 /**
- *
  * @param {Element} block
  */
-// eslint-disable-next-line no-unused-vars
-const setupKeyFeatureListeners = (block) => {};
+const decorateKeyFeatureCtr = (block) => {
+  const children = [...block.children];
+  const newChildren = [];
+  children.forEach((child, index) => {
+    if (index % 3 === 0) newChildren.push(document.createElement('div'));
+    newChildren[newChildren.length - 1].append(child);
+    newChildren[newChildren.length - 1].classList.add('key-features-row');
+  });
+  newChildren.forEach((child) => {
+    const [, title, desc] = child.querySelectorAll(':scope > *');
+    const content = document.createElement('div');
+    content.append(title, desc);
+    content.classList.add('key-features-content');
+    child.append(content);
+  });
+  block.replaceChildren(...newChildren);
+};
 
 /**
  *
@@ -56,19 +70,21 @@ export default function decorate(block) {
       keyFeaturesCtr.classList.add('key-features-container');
     }
 
-    // if (hasKeyFeatures) {
-    //   //insert another div before keyFeatures
-    //   const keyFeaturesDropdown = document.createElement('details');
-    //   keyFeaturesDropdown.classList.add('key-features-dropdown');
-    //   keyFeaturesDropdown.innerHTML = `
-    //     <summary>
-    //       <span>Key Features</span>
-    //       <span> + </span>
-    //     </summary>
-    //     `;
-    //   card.insertBefore(keyFeaturesDropdown, keyFeatures);
-    //   keyFeaturesDropdown.append(...keyFeatures.children);
-    // }
+    if (hasKeyFeatures) {
+      decorateKeyFeatureCtr(keyFeaturesCtr);
+      keyFeaturesCtr.setAttribute('key-features-visibility', 'hidden');
+      const keyFeaturesVisibility = () => {
+        const kfContainers = block.querySelectorAll('.key-features-container');
+        const visibility = keyFeaturesCtr.getAttribute('key-features-visibility');
+        kfContainers.forEach((kf) => {
+          kf.setAttribute(
+            'key-features-visibility',
+            visibility === 'hidden' ? 'visible' : 'hidden',
+          );
+        });
+      };
+      keyFeaturesTitle.addEventListener('click', keyFeaturesVisibility);
+      keyFeaturesCtr.addEventListener('click', keyFeaturesVisibility);
+    }
   });
-  if (hasKeyFeatures) setupKeyFeatureListeners(block);
 }
