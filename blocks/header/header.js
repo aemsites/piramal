@@ -3,7 +3,7 @@ import { targetObject } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1201px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -162,13 +162,13 @@ export default async function decorate(block) {
   let fragment;
   if (targetObject.isMobile || targetObject.isTab) {
     fragment = await loadFragment(getMetadata('mobilepath'));
-    fragment.firstElementChild.classList.add('dp-none');
     fragment.firstElementChild.querySelectorAll('ul ul').forEach((el) => {
       el.querySelectorAll('ul').forEach((ele) => {
-        ele.classList.add('dp-none');
+        ele.setAttribute('aria-expanded', 'false');
         ele.parentElement.querySelector('p').addEventListener('click', () => {
-          ele.classList.toggle('dp-none');
-          ele.parentElement.classList.toggle('arrow');
+          const expanded = ele.getAttribute('aria-expanded') === 'true';
+          ele.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          ele.parentElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
           ele.parentElement.querySelector('p').classList.toggle('navlist-dropdown');
         });
       });
@@ -197,32 +197,17 @@ export default async function decorate(block) {
   const { body } = document;
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    let prevNavSection;
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          if (navSection.classList.contains('nav-drop')) {
-            if (navSection.classList.contains('active')) {
-              navSections.classList.remove('active');
-              navSection.classList.remove('active');
-              body.classList.remove('modal-open');
-            } else {
-              body.classList.add('modal-open');
-              prevNavSection?.classList.remove('active');
-              navSection.classList.add('active');
-              navSections.classList.add('active');
-              prevNavSection = navSection;
-            }
-          } else {
-            navSections.classList.remove('active');
-            navSection.classList.remove('active');
-            body.classList.remove('modal-open');
-            prevNavSection?.classList.remove('active');
-          }
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
-          toggleAllNavSections(navSections);
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        toggleAllNavSections(navSections);
+        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        navSections.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        if (expanded) {
+          body.classList.remove('modal-open');
+        } else {
+          body.classList.add('modal-open');
         }
       });
     });
@@ -239,7 +224,6 @@ export default async function decorate(block) {
       <span class="nav-hamburger-icon"></span>
     </button>`;
   hamburger.addEventListener('click', async () => {
-    navBrand.classList.toggle('dp-none');
     toggleMenu(nav, navSections);
   });
   nav.prepend(hamburger);

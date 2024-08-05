@@ -18,6 +18,7 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --hamburger-color: #0000008a;
   --text-color-dark-gray: rgb(51 51 51);
   --text-color-light-gray: rgb(89 89 89);
   --main-cta-background: #a42e0e;
@@ -42,6 +43,7 @@
   --gradient-blue-dark: #b7c7f1;
   --background-light-yellow: #fffcf7;
   --background-light-pink: #fff7f4;
+  --piramal-black-40: #212529;
 
   /* colors form teknopoint implementation */
   --gradient-gray-light: #ebeef050;
@@ -93,6 +95,7 @@
   --violet: #4C2E65;
   --purple: #7F4CA8;
   --darkgreen: #349E58;
+  --light-white-20: #fafafa;
 
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
@@ -268,7 +271,7 @@ main pre {
 }
 
 .dp-none {
-  display: none !important;
+  display: none;
 }
 
 /* links */
@@ -349,12 +352,13 @@ main .section {
 }
 
 /* max width for all wrapper divs */
-.section > div {
+.section>div {
   max-width: var(--max-width);
   margin: auto;
 }
 
 @media (width >=900px) {
+
   /* max width for all wrapper divs */
   :root {
     --max-width: 700px;
