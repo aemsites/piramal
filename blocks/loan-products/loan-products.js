@@ -19,8 +19,10 @@ export default function decorate(block) {
 
   cards.forEach((card) => {
     card.classList.add('product-card');
-    const [loanType, content, url, keyFeatures] = card.querySelectorAll(':scope > div');
-    const [img, title, description] = content.querySelectorAll(':scope > *');
+    // eslint-disable-next-line operator-linebreak
+    const [loanType, content, keyFeaturesTitle, keyFeaturesCtr] =
+      card.querySelectorAll(':scope > div');
+    const [img, title, description, url] = content.querySelectorAll(':scope > *');
     const newTitle = document.createElement('a');
 
     newTitle.textContent = title.textContent;
@@ -49,8 +51,9 @@ export default function decorate(block) {
 
     content.append(link);
 
-    if (keyFeatures) {
-      keyFeatures.classList.add('key-features-container');
+    if (keyFeaturesTitle) {
+      keyFeaturesTitle.classList.add('key-features-title');
+      keyFeaturesCtr.classList.add('key-features-container');
     }
 
     // if (hasKeyFeatures) {
