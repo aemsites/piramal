@@ -1556,24 +1556,6 @@
     ]
   },
   {
-    "id": "loan-steps",
-    "fields": [
-      {
-        "component": "select",
-        "valueType": "string",
-        "name": "classes",
-        "value": "",
-        "label": "Style",
-        "options": [
-          {
-            "name": "info",
-            "value": "info"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "loan-step",
     "fields": [
       {
@@ -1590,7 +1572,7 @@
         "label": "Image Alt Text"
       },
       {
-        "component": "richtext",
+        "component": "text",
         "name": "media_title",
         "value": "",
         "label": "Title",
