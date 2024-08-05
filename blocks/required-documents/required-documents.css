@@ -80,6 +80,10 @@
   background-color: aliceblue;
 }
 
+.block.required-documents .section {
+  padding: 0;
+}
+
 @media (width >= 900px) {
   .block.required-documents .req-title {
     font-size: 1.25rem;
