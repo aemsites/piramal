@@ -769,16 +769,18 @@ header .nav-wrapper #nav>div.section.nav-sections>div>ul>li:nth-child(5)>ul>li:h
 
   header nav#nav>div.section.nav-brand>div>ul>li>ul>li>ul[aria-expanded="false"] {
     max-height: 0;
-    display: none;
-    transition: max-height 1s linear;
+    margin: unset;
+    overflow: hidden;
+    transition: max-height .6s ease;
   }
 
   header nav#nav>div.section.nav-brand>div>ul>li>ul>li>ul[aria-expanded="true"] {
     padding: unset;
     margin: unset;
-    max-height: auto;
+    overflow: auto;
     padding-left: 24px;
-    transition:  max-height 1s linear;
+    max-height: 240px;
+    transition: max-height .6s ease;
   }
 
  /* header nav#nav>div.section.nav-brand.nav-drop-down>div>ul>li>ul>li>ul {
