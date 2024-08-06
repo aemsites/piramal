@@ -322,7 +322,7 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
 
 }
 
-@media screen and (width <=767px) {
+@media screen and (width <=900px) {
   footer.footer-wrapper {
     padding: 0 16px;
   }
@@ -374,12 +374,20 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
   }
 
   footer .footer.block div .section:nth-child(3) .default-content-wrapper ul li a img {
+    width: 128px;
+    height: 38px;
+    margin-left: unset;
+  }
+
+  footer .footer.block div .section:nth-child(3) .default-content-wrapper ul li:last-child a img {
+    width: 113px;
+    height: 38px;
     margin-left: unset;
   }
 
   footer>.footer.block div .section:nth-child(4) .columns-wrapper .columns div div p picture img {
-    height: fit-content;
-    width: 24px;
+    height: 24px;
+    width: 21px;
   }
 
   footer>.footer.block div .section:nth-child(4) .columns-wrapper .columns div div:last-child p picture img {
@@ -397,6 +405,10 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
     flex-direction: row;
     column-gap: 32px;
     height: 24px;
+  }
+
+  footer .footer.block div .section:nth-child(2) .columns-wrapper .columns>div:last-child div:nth-child(2) p:last-child a{
+    font-weight: 400;
   }
 
   footer .footer.block .section:nth-child(2) .columns-wrapper .columns.block div div {
@@ -458,6 +470,7 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
     white-space: unset;
     overflow: unset;
     border: unset;
+    font-weight: 700;
   }
 
   footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p strong {

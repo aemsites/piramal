@@ -25,7 +25,7 @@ body.modal-open {
   }
 
   .modal dialog .modal-content {
-    max-height: calc(100vh - 64px);
+    max-height: calc(100vh - 53px);
   }
 }
 
@@ -35,17 +35,19 @@ body.modal-open {
 
 .modal .close-button {
   position: absolute;
-  top: 0;
-  right: 25px;
-  width: 20px;
-  height: 100%;
-  max-height: 54px;
+  top: 12px;
+  right: 18px;
   border-radius: 0 var(--dialog-border-radius) 0 0;
   background-color: unset;
   text-overflow: clip;
   margin: 0;
   border: none;
-  padding-right: 30px;
+  padding: 4px 8px;
+}
+
+.modal .close-button .icon{
+  width: 20px;
+  height: 20px;
 }
 
 .modal dialog .section {
@@ -105,7 +107,8 @@ body.modal-open {
   }
 
   .modal .close-button {
-    top: 10px;
+    top: 4%;
+    right: 5%;
     padding: unset;
   }
 
