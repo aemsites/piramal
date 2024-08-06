@@ -1586,5 +1586,95 @@
         "valueType": "string"
       }
     ]
-  }
+  },
+  {
+    "id": "emi-calculator",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Employment Type",
+            "children": [
+              {
+                "name": "I'm Salaried",
+                "value": "employment-type-salaried"
+              },
+              {
+                "name": "I'm doing Business",
+                "value": "employment-type-business"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eligibility-calculator",
+    "fields": [
+      {
+        "component": "multiselect",
+        "name": "classes",
+        "value": "",
+        "label": "Options",
+        "valueType": "string",
+        "maxSize": 2,
+        "options": [
+          {
+            "name": "Employment Type",
+            "children": [
+              {
+                "name": "I'm Salaried",
+                "value": "employment-type-salaried"
+              },
+              {
+                "name": "I'm doing Business",
+                "value": "employment-type-business"
+              }
+            ]
+          },
+          {
+            "name": "Loan Context",
+            "children": [
+              {
+                "name": "Home Loans",
+                "value": "loan-type-home"
+              },
+              {
+                "name": "Business Loans",
+                "value": "loan-type-business"
+              },
+              {
+                "name": "Personal Loans",
+                "value": "loan-type-personal"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  } 
 ]

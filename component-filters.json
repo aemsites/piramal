@@ -117,5 +117,12 @@
     "components": [
       "loan-step"
     ]
+  },
+  {
+    "id": "calculator-section",
+    "components": [
+      "emi-calculator",
+      "eligibility-calculator"
+    ]
   }
 ]
