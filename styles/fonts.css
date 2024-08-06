@@ -16,14 +16,6 @@
 
 @font-face {
   font-family: nunito;
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  src: url("../fonts/Nunito-Medium.woff2") format("woff2");
-}
-
-@font-face {
-  font-family: nunito;
   font-weight: 600;
   font-style: normal;
   font-display: swap;
