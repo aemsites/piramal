@@ -27,7 +27,6 @@ const decorateKeyFeatureCtr = (block) => {
  */
 export default async function decorate(block) {
   const cards = block.querySelectorAll(':scope > div');
-  const hasKeyFeatures = block.classList.contains('key-features');
 
   block.ariaHidden = 'true';
 
@@ -50,7 +49,14 @@ export default async function decorate(block) {
 
     description.classList.add('product-description');
     loanType.classList.add('loan-type');
-    card.classList.add(...loanType.textContent.toLowerCase().split(' '));
+    card.classList.add(
+      ...loanType.textContent
+        .toLowerCase()
+        .split(' ')
+        .map((s) => s.replace(',', '')),
+    );
+    const hasKeyFeatures = card.classList.contains('has-key-features');
+
     content.classList.add('content');
     url.classList.add('url');
 
@@ -67,7 +73,7 @@ export default async function decorate(block) {
 
     content.append(link);
 
-    if (keyFeaturesTitle) {
+    if (keyFeaturesTitle && hasKeyFeatures) {
       keyFeaturesTitle.classList.add('key-features-title');
       keyFeaturesCtr.classList.add('key-features-container');
     }
