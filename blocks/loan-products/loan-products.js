@@ -29,7 +29,7 @@ export default function decorate(block) {
   const cards = block.querySelectorAll(':scope > div');
   const hasKeyFeatures = block.classList.contains('key-features');
 
-  block.setAttribute('key-features-visibility', 'hidden');
+  block.ariaHidden = 'true';
 
   cards.forEach((card) => {
     card.classList.add('product-card');
@@ -72,15 +72,12 @@ export default function decorate(block) {
 
     if (hasKeyFeatures) {
       decorateKeyFeatureCtr(keyFeaturesCtr);
-      keyFeaturesCtr.setAttribute('key-features-visibility', 'hidden');
+      keyFeaturesCtr.ariaHidden = 'true';
       const keyFeaturesVisibility = () => {
         const kfContainers = block.querySelectorAll('.key-features-container');
-        const visibility = keyFeaturesCtr.getAttribute('key-features-visibility');
+        const visibility = keyFeaturesCtr.ariaHidden === 'true';
         kfContainers.forEach((kf) => {
-          kf.setAttribute(
-            'key-features-visibility',
-            visibility === 'hidden' ? 'visible' : 'hidden',
-          );
+          kf.ariaHidden = !visibility ? 'true' : 'false';
         });
       };
       keyFeaturesTitle.addEventListener('click', keyFeaturesVisibility);

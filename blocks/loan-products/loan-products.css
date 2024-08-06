@@ -3,7 +3,6 @@
   flex-direction: column;
   background-color: var(--floralwhite);
   cursor: pointer;
-  padding: 1rem 1.5rem;
   border-radius: 12px;
 }
 
@@ -11,6 +10,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  padding: 1rem 1.5rem;
 }
 
 .block.loan-products .product-card .content > * {
@@ -87,13 +87,32 @@
   display: none;
 }
 
-.block.loan-products .product-card .key-features-container[key-features-visibility='hidden'] {
+.block.loan-products .product-card .key-features-container[aria-hidden='true'] {
   display: none;
 }
 
-.block.loan-products .product-card .key-features-container[key-features-visibility='visible'] {
+.block.loan-products .product-card .key-features-container[aria-hidden='false'] {
   display: flex;
   flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+.block.loan-products
+  .product-card:has(.key-features-container[aria-hidden='true'])
+  .key-features-title::after {
+  content: '+';
+  display: block;
+  font-weight: 400;
+  transform: scale(1.3);
+}
+
+.block.loan-products
+  .product-card:has(.key-features-container[aria-hidden='false'])
+  .key-features-title::after {
+  content: '-';
+  display: block;
+  font-weight: 400;
+  transform: scaleX(2);
 }
 
 .block.loan-products .product-card .key-features-container .key-features-row {
@@ -124,6 +143,31 @@
   > * {
   padding: 0;
   margin: 0;
+}
+
+.block.loan-products .key-features-container {
+  padding-inline: 1.5rem;
+  background-color: var(--lilen);
+}
+
+.block.loan-products .key-features-title {
+  padding-inline: 1.5rem;
+  background-color: var(--lilen);
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.block.loan-products .key-features-title + .key-features-container[aria-hidden='false'] {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
+.block.loan-products:has(.key-features-container[aria-hidden='true']) .key-features-title {
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
 }
 
 .block.loan-products
