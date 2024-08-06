@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
+:root {
   /* boilerplate colors */
   --link-color: #035fe6;
   --link-hover-color: #136ff6;
@@ -90,15 +90,14 @@
   --submidorange: #fce6e5;
   --skyblue: #def3fd;
   --light-gray: #f8faff;
-  --violet: #4C2E65;
-  --purple: #7F4CA8;
-  --darkgreen: #349E58;
+  --violet: #4c2e65;
+  --purple: #7f4ca8;
+  --darkgreen: #349e58;
 
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
-    monospace;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes mobile */
   --body-font-size-m: 14px;
@@ -182,7 +181,6 @@
   }
 }
 
-
 body {
   font-size: var(--body-font-size-m);
   margin: 0;
@@ -191,6 +189,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.appear {
