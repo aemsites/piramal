@@ -5,10 +5,10 @@ body.modal-open {
 .modal dialog {
   --dialog-border-radius: 16px 0 0 16px;
 
+  padding: unset;
   overscroll-behavior: none;
   border: 1px solid var(--dark-color);
   border-radius: var(--dialog-border-radius);
-  width: 100vw;
 }
 
 .modal dialog .modal-content {
@@ -17,41 +17,18 @@ body.modal-open {
   max-height: calc(100dvh - 60px);
 }
 
-@media (width >=600px) {
-  .modal dialog {
-    padding: 0;
-    width: 80vw;
-    max-width: 960px;
-  }
-
-  .modal dialog .modal-content {
-    max-height: calc(100vh - 64px);
-  }
-}
-
 .modal dialog::backdrop {
   background-color: rgb(0 0 0 / 50%);
 }
 
-.modal .close-button {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  width: 20px;
-  height: 100%;
-  max-height: 54px;
-  border-radius: 0 var(--dialog-border-radius) 0 0;
-  background-color: unset;
-  text-overflow: clip;
-  margin: 0;
-  border: none;
-  padding-right: 30px;
-}
-
 .modal dialog .section {
   margin: 0 auto;
-  max-width: 759px;
-  padding: 40px 16px 12px;
+  max-width: 940px;
+  padding: 12px 16px 12px 12px;
+}
+
+.modal .modal-content .section .default-content-wrapper {
+  padding: 0 90px;
 }
 
 .modal .modal-content .section .default-content-wrapper h2 {
@@ -69,12 +46,138 @@ body.modal-open {
   margin: 0;
 }
 
-.modal .close-button .icon-close img {
+.modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) {
+  left: 10.9%;
+  text-align: end;
+  position: relative;
+}
+
+.modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) span {
   width: 20px;
   height: 20px;
 }
 
-@media screen and (width<=1024px) {
+.modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) span img {
+  padding: .5rem;
+}
+
+@media screen and (width<=1200px) {
+  .modal dialog {
+    --dialog-border-radius: 16px;
+
+    width: unset;
+    padding: unset;
+    margin: 32px auto;
+    max-width: 960px;
+    max-height: calc(100dvh - 64px);
+    border-radius: var(--dialog-border-radius);
+  }
+
+  .modal dialog .modal-content {
+    overflow-y: auto;
+    overscroll-behavior: none;
+    max-height: calc(100dvh - 64px);
+  }
+
+  .modal dialog .section {
+    padding: unset;
+    max-width: unset;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper {
+    margin: 0 auto;
+    max-width: 768px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) {
+    text-align: end;
+    margin-right: -75px;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) span img {
+    padding: .5rem;
+  }
+
+  .modal .modal-content .section .default-content-wrapper h2 {
+    font-size: var(--heading-font-size-32);
+  }
+
+  .modal .modal-content::before {
+    display: none;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper p:nth-child(2) {
+    font-size: var(--text-font-size);
+
+  }
+
+  .modal .modal-content .section .default-content-wrapper ul {
+    margin-top: 1rem;
+    font-size: var(--text-font-size);
+  }
+}
+
+@media screen and (width<=900px) {
+  .modal dialog {
+    --dialog-border-radius: 16px;
+
+    width: unset;
+    padding: unset;
+    margin: 32px auto;
+    max-width: 836px;
+    max-height: calc(100dvh - 64px);
+    border-radius: var(--dialog-border-radius);
+  }
+
+  .modal dialog .modal-content {
+    overflow-y: auto;
+    overscroll-behavior: none;
+    max-height: calc(100dvh - 64px);
+  }
+
+  .modal dialog .section {
+    padding: .75rem;
+    max-width: unset;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper {
+    margin: 0 auto;
+    max-width: 768px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) {
+    text-align: end;
+    margin-right: -30px;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) span img {
+    padding: .5rem;
+  }
+
+  .modal .modal-content .section .default-content-wrapper h2 {
+    font-size: var(--heading-font-size-32);
+  }
+
+  .modal .modal-content::before {
+    display: none;
+  }
+
+  .modal dialog .modal-content .section .default-content-wrapper p:nth-child(2) {
+    font-size: var(--text-font-size);
+
+  }
+
+  .modal .modal-content .section .default-content-wrapper ul {
+    margin-top: 1rem;
+    font-size: var(--text-font-size);
+  }
+}
+
+@media (width <=600px) {
   .modal dialog .modal-content {
     max-height: calc(100dvh - 40px);
   }
@@ -91,21 +194,35 @@ body.modal-open {
     border-radius: var(--dialog-border-radius);
   }
 
+  .modal dialog .modal-content .section .default-content-wrapper {
+    margin: 0 auto;
+    max-width: 600px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .modal .modal-content .section .default-content-wrapper p {
+    line-height: 1.25rem;
+  }
+
   .modal .modal-content .section .default-content-wrapper ul {
     margin: 0;
+    line-height: 1.5rem;
   }
 
   .modal dialog .section {
     max-width: unset;
-    padding: 40px 12px 17px;
+    padding: .75rem;
   }
 
   .modal .modal-content .section .default-content-wrapper h2 {
-    font-size: var(--heading-font-size-xl);
+    line-height: 1.5rem;
+    font-size: var(--text-font-size);
   }
 
   .modal .close-button {
-    top: 10px;
+    top: 4%;
+    right: 5%;
     padding: unset;
   }
 
@@ -126,4 +243,10 @@ body.modal-open {
   .modal dialog::backdrop {
     background-color: var(--black);
   }
+
+  .modal dialog .modal-content .section .default-content-wrapper>p:nth-child(1) {
+    text-align: end;
+    padding: unset
+  }
+
 }
