@@ -491,10 +491,6 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
     margin-bottom: 24px;
   }
 
-  footer .footer {
-    padding: 24px 0;
-  }
-
   footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div p:nth-child(1) {
     width: unset;
     margin-top: unset;

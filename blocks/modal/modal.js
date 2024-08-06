@@ -1,6 +1,6 @@
 import { loadFragment } from '../fragment/fragment.js';
 import {
-  buildBlock, decorateBlock, decorateIcons, loadBlock, loadCSS,
+  buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
 
 // This is not a traditional block, so there is no decorate function. Instead, links to
