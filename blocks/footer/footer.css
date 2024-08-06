@@ -168,18 +168,8 @@ footer
   line-height: 1.5rem;
 }
 
-footer
-  .footer.block
-  .section.columns-container
-  .columns-wrapper
-  .columns.block.columns.clickable-images
-  .button-container
-  a {
-  margin-top: 0;
-}
-
-footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p,
-footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p a {
+footer .footer.block .section.columns-container .columns-wrapper .columns.block.block div div p,
+footer .footer.block .section.columns-container .columns-wrapper .columns.block.block div div p a {
   margin: unset;
   font-size: var(--body-font-size-s);
   font-weight: 400;
@@ -193,6 +183,22 @@ footer .footer.block .section.columns-container .columns-wrapper .columns.block 
   text-align: start;
   border: unset;
   line-height: 1.5rem;
+}
+
+footer
+  .footer.block
+  .section.columns-container
+  .columns-wrapper
+  .columns.block.columns.clickable-images
+  .button-container
+  a {
+  margin-top: 0;
+}
+
+footer .footer.block div .section:nth-child(3) .default-content-wrapper ul li a img {
+  margin-left: 1rem;
+  height: 2.375rem;
+  width: 8rem;
 }
 
 footer > .footer.block > div > .section:nth-child(4) .columns.clickable-images p img {
@@ -221,12 +227,6 @@ footer .footer.block div .section:nth-child(3) .default-content-wrapper ul {
 footer .footer.block div .section:nth-child(3) .default-content-wrapper ul li {
   list-style: none;
   height: 38px;
-}
-
-footer .footer.block div .section:nth-child(3) .default-content-wrapper ul li a img {
-  margin-left: 1rem;
-  height: 2.375rem;
-  width: 8rem;
 }
 
 footer > .footer.block div .section:nth-child(3) > .default-content-wrapper {
@@ -260,18 +260,12 @@ footer
     display: flex;
     gap: 0.7rem;
   }
-  footer > .footer.block div .section:nth-child(3) > .default-content-wrapper {
-    display: flex;
-    gap: 0.5rem;
-  }
-  footer > .footer.block div .section:nth-child(3) > .default-content-wrapper > p:nth-child(3) {
-    text-wrap: nowrap;
-  }
 
   footer .columns.block > div > div p a {
     text-wrap: wrap;
     border-radius: 0;
   }
+
   footer .section:nth-child(2) .columns.block > div {
     gap: 0;
   }
@@ -350,6 +344,7 @@ footer
     overflow: unset;
     text-overflow: unset;
     border-radius: unset;
+
     /* margin-top: 8px; */
     line-height: 1;
     font-size: 16px;
@@ -406,6 +401,11 @@ footer
 @media screen and (width <=767px) {
   footer.footer-wrapper {
     padding: 0 16px;
+  }
+
+  footer .footer.block div .section:nth-child(1) .default-content-wrapper > p {
+    flex: 1;
+    margin-right: 0;
   }
 
   footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-child(4) {
@@ -495,17 +495,13 @@ footer
     margin-top: 24px;
   }
 
-  footer .footer.block div .section:nth-child(1) .default-content-wrapper > p {
-    flex: 1;
-    margin-right: 0;
-  }
-
   footer .footer.block div .section:nth-child(1) .default-content-wrapper > p:nth-child(2) {
     font-size: var(--body-font-size-s);
     text-align: right;
     margin-bottom: unset;
     margin-right: 0;
   }
+
   footer > .footer.block div .section:nth-child(3) > .default-content-wrapper > p:nth-child(3) {
     margin-left: unset;
     padding-top: 16px;
