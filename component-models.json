@@ -1362,6 +1362,22 @@
               {
                 "name": "Construction Loans",
                 "value": "loan-type-construction"
+              },
+              {
+                "name": "Renovation Loans",
+                "value": "loan-type-renovation"
+              },
+              {
+                "name": "Extension Loans",
+                "value": "loan-type-extension"
+              },
+              {
+                "name": "Loan Against Property",
+                "value": "loan-type-against-property"
+              },
+              {
+                "name": "Working Capital Secured Business Loan",
+                "value": "loan-type-working-capital"
               }
             ]
           },
@@ -1424,6 +1440,7 @@
         "name": "keyfeature1",
         "label": " Key Feature 1",
         "collapsible": true,
+        "condition": [{ "var": "classes" }, "has-key-features"],
         "fields": [
           {
             "component": "reference",
@@ -1445,14 +1462,14 @@
             "label": "Key Feature Description",
             "required": true
           }
-        ],
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        ]
       },
       {
         "component": "container",
         "name": "keyfeature2",
         "label": " Key Feature 2",
         "collapsible": true,
+        "condition": [{ "var": "classes" }, "has-key-features"],
         "fields": [
           {
             "component": "reference",
@@ -1474,14 +1491,14 @@
             "label": "Key Feature Description",
             "required": true
           }
-        ],
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        ]
       },
       {
         "component": "container",
         "name": "keyfeature3",
         "label": " Key Feature 3",
         "collapsible": true,
+        "condition": [{ "var": "classes" }, "has-key-features"],
         "fields": [
           {
             "component": "reference",
@@ -1503,8 +1520,7 @@
             "label": "Key Feature Description",
             "required": true
           }
-        ],
-        "condition": [{ "var": "classes" }, "has-key-features"]
+        ]
       }
 
     ]
