@@ -1588,7 +1588,7 @@
     ]
   },
   {
-    "id": "emi-caclulator",
+    "id": "emi-calculator",
     "fields": [
       {
         "component": "multiselect",
@@ -1633,7 +1633,7 @@
     ]
   },
   {
-    "id": "eligibility-caclulator",
+    "id": "eligibility-calculator",
     "fields": [
       {
         "component": "multiselect",
