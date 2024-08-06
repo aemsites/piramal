@@ -1,4 +1,4 @@
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import { moveInstrumentation, replacePlaceholders } from '../../scripts/scripts.js';
 
 /**
  * @param {Element} block
@@ -25,7 +25,7 @@ const decorateKeyFeatureCtr = (block) => {
  *
  * @param {Element} block
  */
-export default function decorate(block) {
+export default async function decorate(block) {
   const cards = block.querySelectorAll(':scope > div');
   const hasKeyFeatures = block.classList.contains('key-features');
 
@@ -33,6 +33,7 @@ export default function decorate(block) {
 
   cards.forEach((card) => {
     card.classList.add('product-card');
+
     // eslint-disable-next-line operator-linebreak
     const [loanType, content, keyFeaturesTitle, keyFeaturesCtr] =
       card.querySelectorAll(':scope > div');
@@ -49,6 +50,7 @@ export default function decorate(block) {
 
     description.classList.add('product-description');
     loanType.classList.add('loan-type');
+    card.classList.add(...loanType.textContent.toLowerCase().split(' '));
     content.classList.add('content');
     url.classList.add('url');
 
@@ -83,5 +85,8 @@ export default function decorate(block) {
       keyFeaturesTitle.addEventListener('click', keyFeaturesVisibility);
       keyFeaturesCtr.addEventListener('click', keyFeaturesVisibility);
     }
+  });
+  cards.forEach(async (card) => {
+    await replacePlaceholders(card);
   });
 }
