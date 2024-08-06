@@ -106,6 +106,8 @@
   /* body sizes mobile */
   --body-font-size-m: 14px;
   --body-font-size-s: 12px;
+  --body-font-mob-m: 14px;
+  --body-font-mob-s: 16px;
 
   /* heading sizes mobile */
   --heading-font-size-xxl: 24px;
@@ -281,7 +283,7 @@ a:any-link {
 }
 
 a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: var(--link-hover-color);
 }
 
@@ -358,7 +360,6 @@ main .section {
 }
 
 @media (width >=900px) {
-
   /* max width for all wrapper divs */
   :root {
     --max-width: 700px;

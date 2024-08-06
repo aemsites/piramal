@@ -1,5 +1,5 @@
 import { fetchPlaceholders, getMetadata } from '../../scripts/aem.js';
-import { targetObject } from '../../scripts/scripts.js';
+// import { targetObject } from '../../scripts/scripts.js';
 import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
@@ -159,7 +159,7 @@ async function buildBreadcrumbs() {
  */
 export default async function decorate(block) {
   // load nav as fragment
-  let fragment;
+  /* let fragment;
   if (targetObject.isMobile || targetObject.isTab) {
     fragment = await loadFragment(getMetadata('mobilepath'));
     fragment.firstElementChild.querySelectorAll('ul ul').forEach((el) => {
@@ -175,7 +175,8 @@ export default async function decorate(block) {
     });
   } else {
     fragment = await loadFragment(getMetadata('navpath'));
-  }
+  } */
+  const fragment = await loadFragment(getMetadata('navpath'));
 
   // decorate nav DOM
   const nav = document.createElement('nav');
@@ -202,12 +203,18 @@ export default async function decorate(block) {
       navSection.addEventListener('click', () => {
         const expanded = navSection.getAttribute('aria-expanded') === 'true';
         toggleAllNavSections(navSections);
-        navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        navSections.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-        if (expanded) {
-          body.classList.remove('modal-open');
+        if (navSection.classList.contains('nav-drop')) {
+          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          navSections.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          if (expanded) {
+            body.classList.remove('modal-open');
+          } else {
+            body.classList.add('modal-open');
+          }
         } else {
-          body.classList.add('modal-open');
+          body.classList.remove('modal-open');
+          navSection.setAttribute('aria-expanded', 'false');
+          navSections.setAttribute('aria-expanded', 'false');
         }
       });
     });
@@ -223,7 +230,26 @@ export default async function decorate(block) {
   hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
       <span class="nav-hamburger-icon"></span>
     </button>`;
+  let mobFragment = null;
   hamburger.addEventListener('click', async () => {
+    if (!mobFragment) {
+      mobFragment = await loadFragment(getMetadata('mobilepath'));
+      const mobNav = mobFragment.querySelector('.default-content-wrapper');
+      mobNav.classList.add('desk-dp-none');
+      navBrand.prepend(mobNav);
+      // navSections.prepend(mobFragment.lastElementChild.lastElementChild);
+      mobNav.querySelectorAll('ul ul').forEach((el) => {
+        el.querySelectorAll('ul').forEach((ele) => {
+          ele.setAttribute('aria-expanded', 'false');
+          ele.parentElement.querySelector('p').addEventListener('click', () => {
+            const expanded = ele.getAttribute('aria-expanded') === 'true';
+            ele.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            ele.parentElement.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            ele.parentElement.querySelector('p').classList.toggle('navlist-dropdown');
+          });
+        });
+      });
+    }
     toggleMenu(nav, navSections);
   });
   nav.prepend(hamburger);
