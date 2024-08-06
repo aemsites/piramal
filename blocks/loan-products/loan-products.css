@@ -208,8 +208,11 @@
   }
   .block.loan-products .key-features-title + .key-features-container[aria-hidden='false'] {
     min-height: 13rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    display: grid;
+    /*
+      1 item per row, rows of equal heights without knowing how many columns
+    */
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
   }
 }
