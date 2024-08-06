@@ -120,7 +120,7 @@
 .block.loan-products .product-card .key-features-container .key-features-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 1rem;
 }
 
 .block.loan-products .product-card .key-features-container .key-features-row > p {
@@ -135,6 +135,7 @@
 .block.loan-products .product-card .key-features-container .key-features-row img {
   height: 32px;
   width: 32px;
+  max-width: unset;
 }
 
 .block.loan-products
@@ -184,6 +185,7 @@
   .key-features-content
   > *:nth-child(2) {
   font-size: 1rem;
+  line-height: 1.5rem;
 }
 
 @media (width >= 900px) {
@@ -203,5 +205,11 @@
     .key-features-content
     > *:nth-child(2) {
     font-size: 1.125rem;
+  }
+  .block.loan-products .key-features-title + .key-features-container[aria-hidden='false'] {
+    min-height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
   }
 }
