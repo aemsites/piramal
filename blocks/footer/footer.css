@@ -220,9 +220,11 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
   position: absolute;
 }
 
-@media screen and (width <=1024px) {
-  footer.footer-wrapper {
-    padding: 0 16px;
+@media screen and (width <=1200px) {
+  footer.footer-wrapper .footer{
+    margin: 0 auto;
+    padding: 3rem 16px;
+    max-width: 1200px;
   }
 
   footer .footer.block div .section:nth-child(3) .default-content-wrapper p {
@@ -323,8 +325,10 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
 }
 
 @media screen and (width <=900px) {
-  footer.footer-wrapper {
-    padding: 0 16px;
+  footer.footer-wrapper .footer{
+    margin: 0 auto;
+    padding: 1.5rem 16px;
+    max-width: 900px;
   }
 
   footer .footer.block div .section:nth-child(3) .default-content-wrapper p:nth-child(4) {
@@ -460,8 +464,7 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
     font-size: var(--mob-font-size-l);
   }
 
-  footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p,
-  footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p a {
+  footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p{
     color: var(--white);
     font-family: var(--body-font-family);
     font-size: var(--body-font-size-s);
@@ -470,7 +473,7 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
     white-space: unset;
     overflow: unset;
     border: unset;
-    font-weight: 700;
+    font-weight: 400;
   }
 
   footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p strong {
@@ -513,5 +516,13 @@ footer>.footer.block>div>.section:nth-child(4) .columns-wrapper .columns div div
   footer .footer.block .section.columns-container .columns-wrapper .columns.block div div p:nth-child(1) {
     padding-bottom: unset;
     font-size: var(--mob-font-size-m);
+  }
+}
+
+@media screen and (width <=600px) {
+  footer.footer-wrapper .footer{
+    margin: 0 auto;
+    padding: 1.5rem 16px;
+    max-width: 600px;
   }
 }
