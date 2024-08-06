@@ -21,10 +21,12 @@
       "testimonies",
       "key-features",
       "fee-charges",
+      "kyc-documents-table",
       "recommended-articles",
       "loan-products",
       "accordion",
-      "metro-cities"
+      "metro-cities",
+      "loan-steps"
     ]
   },
   {
@@ -87,6 +89,12 @@
     ]
   },
   {
+    "id": "kyc-documents-table",
+    "components": [
+      "kyc-docs-row"
+    ]
+  },
+  {
     "id": "recommended-articles",
     "components": [
       "recommended-article"
@@ -102,6 +110,19 @@
     "id": "accordion",
     "components": [
       "accordion-entry"
+    ]
+  },
+  {
+    "id": "loan-steps",
+    "components": [
+      "loan-step"
+    ]
+  },
+  {
+    "id": "calculator-section",
+    "components": [
+      "emi-calculator",
+      "eligibility-calculator"
     ]
   }
 ]

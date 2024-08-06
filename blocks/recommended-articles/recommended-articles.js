@@ -4,11 +4,12 @@
  * @param {Element} head
  */
 
-const addControls = (div, head) => {
-  let selectedArticle = 0;
+const addControls = (div, head, block) => {
+  block.selectedArticle = 0;
   const prev = document.createElement('button');
   const next = document.createElement('button');
   prev.disabled = true;
+
   const selectedArticleIndex = () => {
     const articles = div.querySelectorAll('.article');
     let closestIndex = 0;
@@ -23,12 +24,21 @@ const addControls = (div, head) => {
       }
     });
 
-    selectedArticle = closestIndex;
+    block.selectedArticle = closestIndex;
     prev.disabled = div.scrollLeft === 0;
     next.disabled = div.scrollLeft + div.clientWidth + 1 > div.scrollWidth;
   };
+  const markupMobileIndicators = () => {
+    const mobileIndicators = block.querySelector('.mobile-indicators');
+    const indicators = mobileIndicators.querySelectorAll('.mobile-indicator');
+    indicators.forEach((indicator) => {
+      indicator.classList.remove('active');
+    });
+    indicators[block.selectedArticle].classList.add('active');
+  };
   div.addEventListener('scroll', () => {
     selectedArticleIndex();
+    markupMobileIndicators();
   });
 
   // in head add another div with class controls
@@ -54,11 +64,11 @@ const addControls = (div, head) => {
   prev.addEventListener('click', () => {
     // scroll to the selectedArticle - 1
     const articles = div.querySelectorAll('.article');
-    const prevArticle = articles[selectedArticle - 1] || articles[0];
+    const prevArticle = articles[block.selectedArticle - 1] || articles[0];
     if (prevArticle) {
-      selectedArticle = Math.max(selectedArticle - 1, 0);
+      block.selectedArticle = Math.max(block.selectedArticle - 1, 0);
       div.scrollTo({
-        left: selectedArticle === 0 ? 0 : prevArticle.offsetLeft - div.offsetLeft,
+        left: block.selectedArticle === 0 ? 0 : prevArticle.offsetLeft - div.offsetLeft,
         behavior: 'smooth',
       });
     }
@@ -68,13 +78,13 @@ const addControls = (div, head) => {
   next.addEventListener('click', () => {
     // scroll to the selectedArticle + 1
     const articles = div.querySelectorAll('.article');
-    const nextArticle = articles[selectedArticle + 1];
+    const nextArticle = articles[block.selectedArticle + 1];
     if (nextArticle) {
       div.scrollTo({
         left: nextArticle.offsetLeft - div.offsetLeft,
         behavior: 'smooth',
       });
-      selectedArticle += 1;
+      block.selectedArticle += 1;
     }
     selectedArticleIndex();
   });
@@ -82,6 +92,20 @@ const addControls = (div, head) => {
   controls.classList.add('controls');
 
   head.append(controls);
+};
+
+const addMobileConrols = (div) => {
+  const mobileIndicators = document.createElement('div');
+  mobileIndicators.classList.add('mobile-indicators');
+  const articles = div.querySelectorAll('.article');
+  articles.forEach((art, index) => {
+    if (index === articles.length) return;
+    const indicator = document.createElement('button');
+    indicator.classList.add('mobile-indicator');
+    mobileIndicators.append(indicator);
+    if (index === 0) indicator.classList.add('active');
+  });
+  div.append(mobileIndicators);
 };
 
 /**
@@ -130,12 +154,12 @@ export default function decorate(block) {
   const div = document.createElement('div');
 
   div.classList.add('article-container');
-  addControls(div, head);
-
+  addControls(div, head, block);
   head.classList.add('art-head');
 
   div.append(...children);
 
   block.append(div);
   block.prepend(head);
+  addMobileConrols(block);
 }

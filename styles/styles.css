@@ -109,6 +109,11 @@
   --body-font-mob-m: 14px;
   --body-font-mob-s: 16px;
 
+  /* font sizes for mobile footer */
+  --mob-font-size-l: 16px;
+  --mob-font-size-m: 14px;
+  --mob-font-size-s: 12px;
+
   /* heading sizes mobile */
   --heading-font-size-xxl: 24px;
 
@@ -360,6 +365,7 @@ main .section {
 }
 
 @media (width >=900px) {
+
   /* max width for all wrapper divs */
   :root {
     --max-width: 700px;
