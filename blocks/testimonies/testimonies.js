@@ -1,4 +1,4 @@
-const setupPositions = (children, selectedIndex) => {
+export const setupPositions = (children, selectedIndex) => {
   let counter = 0;
   children.forEach((child, index) => {
     child.className = child.className.replace(/pos-\d+/, '');
@@ -9,13 +9,32 @@ const setupPositions = (children, selectedIndex) => {
   });
 };
 
+const cycleTestimonies = (children, block) => {
+  let { selectedIndex } = block.dataset;
+  children[selectedIndex].classList.remove('selected');
+  children[selectedIndex].classList.add('unselected');
+
+  selectedIndex = (selectedIndex + 1) % children.length;
+
+  setupPositions(children, selectedIndex);
+
+  children[selectedIndex].classList.remove('unselected');
+  children[selectedIndex].classList.add('selected');
+
+  block.dataset.selectedIndex = selectedIndex;
+};
+
+export const startScroll = (children, block) => {
+  block.dataset.testimoniesInterval = setInterval(() => cycleTestimonies(children, block), 12000);
+};
+
 /**
  *
  * @param {Element} block
  */
 export default function decorate(block) {
   const children = [...block.children];
-  let selectedIndex = 0;
+  block.dataset.selectedIndex = 0;
   children.forEach((child, index) => {
     const [img, content] = child.querySelectorAll(':scope > div');
     child.classList.add('testimony', index === 0 ? 'selected' : 'unselected');
@@ -51,16 +70,6 @@ export default function decorate(block) {
 
     img.append(...animationCircles, ...confetti);
   });
-  setupPositions(children, selectedIndex);
-  setInterval(() => {
-    children[selectedIndex].classList.remove('selected');
-    children[selectedIndex].classList.add('unselected');
-
-    selectedIndex = (selectedIndex + 1) % children.length;
-
-    setupPositions(children, selectedIndex);
-
-    children[selectedIndex].classList.remove('unselected');
-    children[selectedIndex].classList.add('selected');
-  }, 12000);
+  setupPositions(children, block);
+  startScroll(children, block);
 }

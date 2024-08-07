@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { showSlide, startAutoScroll } from '../blocks/hero-carousel/hero-carousel.js';
+import { startScroll } from '../blocks/testimonies/testimonies.js';
 import {
   decorateBlock,
   decorateBlocks,
@@ -238,6 +239,17 @@ function attachEventListners(main) {
     // when entering preview mode start scrolling
     document.addEventListener('aue:ui-preview', () => {
       startAutoScroll(heroCarousel);
+    });
+  });
+  document.querySelectorAll('.testimonies').forEach((testimonies) => {
+    // when entering edit mode stop scrolling
+    document.addEventListener('aue:ui-edit', () => {
+      clearInterval(testimonies.dataset.testimoniesInterval);
+    });
+
+    // when entering preview mode start scrolling
+    document.addEventListener('aue:ui-preview', () => {
+      startScroll([...testimonies.children], testimonies);
     });
   });
 }
