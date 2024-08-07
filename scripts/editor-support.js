@@ -254,11 +254,12 @@ function attachEventListners(main) {
     // when entering edit mode stop scrolling
     document.addEventListener('aue:ui-edit', () => {
       clearInterval(testimonies.dataset.testimoniesInterval);
+      testimonies.dataset.testimoniesInterval = undefined;
     });
 
     // when entering preview mode start scrolling
     document.addEventListener('aue:ui-preview', () => {
-      startScroll(testimonies);
+      if (testimonies.dataset.testimoniesInterval) startScroll(testimonies);
     });
   });
 }
