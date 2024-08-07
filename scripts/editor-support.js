@@ -27,6 +27,27 @@ function setState(block, state) {
   }
 }
 
+// set the filter for an UE editable
+function setUEFilter(element, filter) {
+  element.dataset.aueFilter = filter;
+}
+
+/**
+ * See:
+ * https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/universal-editor/attributes-types#data-properties
+ */
+function updateUEInstrumentation() {
+  const main = document.querySelector('main');
+
+  // ----- if calculator pages, identified by theme
+  if (document.querySelector('body[class^=calculator]')) {
+    // update section filter
+    main.querySelectorAll('.section').forEach((elem) => {
+      setUEFilter(elem, 'calculator-section');
+    });
+  }
+}
+
 async function applyChanges(event) {
   // redecorate default content and blocks on patches (in the properties rail)
   const { detail } = event;
@@ -178,6 +199,7 @@ function attachEventListners(main) {
     if (!applied) window.location.reload();
     else {
       rewriteBlockLabels(main);
+      updateUEInstrumentation();
     }
   }));
 
@@ -203,3 +225,4 @@ const m = document.querySelector('main');
 attachEventListners(m);
 rewriteBlockLabels(m);
 observePlaceholders(m);
+updateUEInstrumentation();

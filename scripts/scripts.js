@@ -67,6 +67,11 @@ async function loadFonts() {
   }
 }
 
+export const targetObject = {
+  isMobile: window.matchMedia('(max-width: 900px)').matches,
+  isTab: window.matchMedia('(max-width: 1200px)').matches,
+};
+
 function autolinkModals(element) {
   element.addEventListener('click', async (e) => {
     const origin = e.target.closest('a');
