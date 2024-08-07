@@ -342,7 +342,8 @@ main img {
 }
 
 /* sections */
-main .section {
+main .section,
+footer .section {
   /* section padding/margin for mobile */
   padding: 20px 16px;
 }
@@ -360,7 +361,8 @@ main .section {
   }
 
   /* section margin for >= tablet */
-  main .section {
+  main .section,
+  footer .section {
     padding: 60px 16px;
   }
 }
