@@ -7,6 +7,7 @@ footer {
 footer .footer {
   /* max-width: 1200px; */
   margin: auto;
+
   /* padding: 48px 0; */
 }
 
@@ -345,6 +346,19 @@ footer
     line-height: 1;
     font-size: 16px;
   }
+
+  footer
+    > .footer.block
+    > div
+    > .section:nth-child(4)
+    .columns-wrapper
+    .columns
+    div
+    div
+    p:nth-child(1) {
+    width: unset;
+  }
+
   footer .footer.block .section.columns-container .columns-wrapper .columns.block.block div div p,
   footer
     .footer.block
@@ -358,18 +372,7 @@ footer
     margin-top: 0.25rem;
     background: transparent;
     padding: unset;
-    padding-right: 0px;
-  }
-  footer
-    > .footer.block
-    > div
-    > .section:nth-child(4)
-    .columns-wrapper
-    .columns
-    div
-    div
-    p:nth-child(1) {
-    width: unset;
+    padding-right: 0;
   }
 
   footer
