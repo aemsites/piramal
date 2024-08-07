@@ -179,9 +179,9 @@ export default function decorate(block) {
         indicator.classList.add('font-white');
       }
       if (idx === 0) {
-        indicator.innerHTML = '<button type="button" active="true"></button>';
+        indicator.innerHTML = `<button type="button" aria-label="Show Slide ${idx + 1} of ${rows.length}" active="true"></button>`;
       } else {
-        indicator.innerHTML = '<button type="button"></button>';
+        indicator.innerHTML = `<button type="button" aria-label="Show Slide ${idx + 1} of ${rows.length}"></button>`;
       }
       slideIndicators.append(indicator);
     }
