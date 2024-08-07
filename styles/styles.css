@@ -18,6 +18,7 @@
   --light-color: #eee;
   --dark-color: #ccc;
   --text-color: black;
+  --hamburger-color: #0000008a;
   --text-color-dark-gray: rgb(51 51 51);
   --text-color-light-gray: rgb(89 89 89);
   --main-cta-background: #a42e0e;
@@ -42,6 +43,7 @@
   --gradient-blue-dark: #b7c7f1;
   --background-light-yellow: #fffcf7;
   --background-light-pink: #fff7f4;
+  --piramal-black-40: #212529;
 
   /* colors form teknopoint implementation */
   --gradient-gray-light: #ebeef050;
@@ -93,16 +95,23 @@
   --violet: #4C2E65;
   --purple: #7F4CA8;
   --darkgreen: #349E58;
-
+  --light-white-20: #fafafa;
+  
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
-    monospace;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes mobile */
   --body-font-size-m: 14px;
   --body-font-size-s: 12px;
+  --body-font-mob-m: 14px;
+  --body-font-mob-s: 16px;
+
+  /* font sizes for mobile footer */
+  --mob-font-size-l: 16px;
+  --mob-font-size-m: 14px;
+  --mob-font-size-s: 12px;
 
   /* heading sizes mobile */
   --heading-font-size-xxl: 24px;
@@ -172,9 +181,11 @@
     /* desktop body sizes */
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
+    --body-font-size-xs: 14px;
+    --body-font-size-xxs: 12px;
+    --body-font-size-xxxs: 10px;
   }
 }
-
 
 body {
   font-size: var(--body-font-size-m);
@@ -184,6 +195,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.appear {
@@ -264,6 +276,10 @@ main pre {
   white-space: pre;
 }
 
+.dp-none {
+  display: none;
+}
+
 /* links */
 a:any-link {
   color: var(--link-color);
@@ -271,7 +287,7 @@ a:any-link {
 }
 
 a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   color: var(--link-hover-color);
 }
 
@@ -341,8 +357,12 @@ main .section {
   padding: 20px 16px;
 }
 
+footer .section {
+  padding-inline: 20px;
+}
+
 /* max width for all wrapper divs */
-.section > div {
+.section>div {
   max-width: var(--max-width);
   margin: auto;
 }
@@ -350,12 +370,16 @@ main .section {
 @media (width >=900px) {
   /* max width for all wrapper divs */
   :root {
-    --max-width: 700px;
+    --max-width: 900px;
   }
 
   /* section margin for >= tablet */
   main .section {
     padding: 60px 16px;
+  }
+
+  footer .section {
+    padding-inline: 60px;
   }
 }
 
