@@ -342,10 +342,12 @@ main img {
 }
 
 /* sections */
-main .section,
-footer .section {
+main .section {
   /* section padding/margin for mobile */
   padding: 20px 16px;
+}
+footer .section {
+  padding-inline: 20px;
 }
 
 /* max width for all wrapper divs */
@@ -361,9 +363,11 @@ footer .section {
   }
 
   /* section margin for >= tablet */
-  main .section,
-  footer .section {
+  main .section {
     padding: 60px 16px;
+  }
+  footer .section {
+    padding-inline: 60px;
   }
 }
 
