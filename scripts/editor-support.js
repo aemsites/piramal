@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import { showSlide, startAutoScroll} from '../blocks/hero-carousel/hero-carousel.js';
+import { showSlide, startAutoScroll } from '../blocks/hero-carousel/hero-carousel.js';
 import {
   decorateBlock,
   decorateBlocks,
@@ -232,13 +232,11 @@ function attachEventListners(main) {
   document.querySelectorAll('.hero-carousel').forEach((heroCarousel) => {
     // when entering edit mode stop scrolling
     document.addEventListener('aue:ui-edit', () => {
-      console.log('Entered aue:ui-edit');
       clearInterval(heroCarousel.dataset.heroInterval);
     });
 
     // when entering preview mode start scrolling
     document.addEventListener('aue:ui-preview', () => {
-      console.log('Entered aue:ui-preview');
       startAutoScroll(heroCarousel);
     });
   });
