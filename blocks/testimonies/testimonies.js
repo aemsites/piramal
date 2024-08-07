@@ -56,6 +56,8 @@ export default function decorate(block) {
     img.classList.add('testimony-img');
     content.classList.add('testimony-content');
 
+    child.dataset.index = index;
+
     const [desc, name, title] = content.querySelectorAll(':scope p');
     desc?.classList?.add('testimony-desc');
     name?.classList?.add('testimony-name');
