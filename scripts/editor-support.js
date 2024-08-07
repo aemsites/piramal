@@ -174,8 +174,8 @@ function handleSelection(event) {
         showSlide(block, element.dataset.slideIndex);
       }
     }
-
-    if (block && block.matches('.testimonies') && detail.selected && !element.classList.contains('block')) {
+    if (block && block.matches('.testimonies') && detail.selected) {
+      console.log(element.dataset.index,block.dataset.selectedIndex);
       if (block.dataset.selectedIndex !== element.dataset.index) {
         showTestimony(block, element.dataset.index);
       }
