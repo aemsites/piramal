@@ -259,7 +259,7 @@ function attachEventListners(main) {
 
     // when entering preview mode start scrolling
     document.addEventListener('aue:ui-preview', () => {
-      if (testimonies.dataset.testimoniesInterval) startScroll(testimonies);
+      if (!testimonies.dataset.testimoniesInterval) startScroll(testimonies);
     });
   });
 }
