@@ -32,11 +32,13 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  block.querySelector('.carousel-slides').scrollTo({
-    top: 0,
-    left: activeSlide.offsetLeft,
-    behavior: 'instant',
-  });
+  if (slides.length > 1) {
+    block.querySelector('.carousel-slides').scrollTo({
+      top: 0,
+      left: activeSlide.offsetLeft,
+      behavior: 'instant',
+    });
+  }
 }
 
 function bindEvents(block) {
