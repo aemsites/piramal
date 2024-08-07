@@ -1,5 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { showSlide, startAutoScroll } from '../blocks/hero-carousel/hero-carousel.js';
+import { showTestimony, startScroll } from '../blocks/testimonies/testimonies.js';
 import {
   decorateBlock,
   decorateBlocks,
@@ -22,7 +23,9 @@ function getState(block) {
   if (block.matches('.hero-carousel')) {
     return block.dataset.activeSlide;
   }
-
+  if (block.matches('.testimonies')) {
+    return block.dataset.selectedIndex;
+  }
   return null;
 }
 
@@ -40,6 +43,11 @@ function setState(block, state) {
     // make sure its visible or observer will not work correctly
     block.style.display = null;
     showSlide(block, state);
+  }
+  if (block.matches('.testimonies')) {
+    clearInterval(block.dataset.testimoniesInterval);
+    block.style.display = null;
+    showTestimony(block, state);
   }
 }
 
@@ -167,6 +175,10 @@ function handleSelection(event) {
         showSlide(block, element.dataset.slideIndex);
       }
     }
+    if (block && block.matches('.testimonies') && detail.selected) {
+      clearInterval(block.dataset.testimoniesInterval);
+      showTestimony(block, element.dataset.index);
+    }
   }
 }
 
@@ -238,6 +250,18 @@ function attachEventListners(main) {
     // when entering preview mode start scrolling
     document.addEventListener('aue:ui-preview', () => {
       startAutoScroll(heroCarousel);
+    });
+  });
+  document.querySelectorAll('.testimonies').forEach((testimonies) => {
+    // when entering edit mode stop scrolling
+    document.addEventListener('aue:ui-edit', () => {
+      clearInterval(testimonies.dataset.testimoniesInterval);
+    });
+
+    // when entering preview mode start scrolling
+    document.addEventListener('aue:ui-preview', () => {
+      clearInterval(testimonies.dataset.testimoniesInterval);
+      startScroll(testimonies);
     });
   });
 }
