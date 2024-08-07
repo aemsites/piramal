@@ -176,6 +176,7 @@ function handleSelection(event) {
       }
     }
     if (block && block.matches('.testimonies') && detail.selected) {
+      clearInterval(block.dataset.testimoniesInterval);
       showTestimony(block, element.dataset.index);
     }
   }
