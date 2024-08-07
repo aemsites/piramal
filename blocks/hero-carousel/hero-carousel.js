@@ -163,13 +163,13 @@ export default function decorate(block) {
   }
 
   rows.forEach((row, idx) => {
-    const slide = createSlide(row, idx - 1);
+    const slide = createSlide(row, idx);
     slidesWrapper.append(slide);
 
     if (slideIndicators) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
-      indicator.dataset.targetSlide = idx - 1;
+      indicator.dataset.targetSlide = idx;
       if (slide.classList.contains('font-white')) {
         indicator.classList.add('font-white');
       }
