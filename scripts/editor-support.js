@@ -254,12 +254,14 @@ function attachEventListners(main) {
     // when entering edit mode stop scrolling
     document.addEventListener('aue:ui-edit', () => {
       clearInterval(testimonies.dataset.testimoniesInterval);
-      testimonies.dataset.testimoniesInterval = undefined;
+      testimonies.dataset.testimoniesInterval = '';
     });
 
     // when entering preview mode start scrolling
     document.addEventListener('aue:ui-preview', () => {
-      if (!testimonies.dataset.testimoniesInterval) startScroll(testimonies);
+      if (testimonies.dataset.testimoniesInterval
+        && testimonies.dataset.testimoniesInterval.length === 0
+      ) startScroll(testimonies);
     });
   });
 }
