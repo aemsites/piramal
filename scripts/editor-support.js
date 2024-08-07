@@ -46,6 +46,7 @@ function setState(block, state) {
   }
   if (block.matches('.testimonies')) {
     clearInterval(block.dataset.testimoniesInterval);
+    block.dataset.testimoniesInterval = '';
     showTestimony(block, state);
   }
 }
