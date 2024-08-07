@@ -197,6 +197,13 @@ export default async function decorate(block) {
         }
       });
     });
+
+    // WORKAROUND: EDS puts top level nav elements in a <p> , and if that <p> element only has a 
+    // link it gets converted to button by EDS :S
+    navSections.querySelectorAll('.button-container').forEach((buttonContainer) => {
+      buttonContainer.classList.remove('button-container');
+      buttonContainer.querySelector('.button').classList.remove('button');
+    });
   }
 
   // hamburger for mobile
