@@ -17,8 +17,9 @@ export const setupPositions = (block) => {
 
 export const showTestimony = (block, index) => {
   const children = [...block.querySelectorAll('.testimony')];
+  const actualIndex = typeof index === 'string' ? parseInt(index,10) : index;
   children.forEach((child, i) => {
-    if (i === index) {
+    if (i === actualIndex) {
       child.classList.remove('unselected');
       child.classList.add('selected');
     } else {
