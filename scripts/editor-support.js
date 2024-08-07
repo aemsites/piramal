@@ -253,7 +253,6 @@ function attachEventListners(main) {
   document.querySelectorAll('.testimonies').forEach((testimonies) => {
     // when entering edit mode stop scrolling
     document.addEventListener('aue:ui-edit', () => {
-      console.log(testimonies.dataset.testimoniesInterval);
       clearInterval(testimonies.dataset.testimoniesInterval);
     });
 
