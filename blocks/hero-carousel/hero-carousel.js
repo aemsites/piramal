@@ -188,7 +188,6 @@ export default function decorate(block) {
 
   if (!isSingleSlide) {
     bindEvents(block);
+    setInterval(() => showSlide(block, getNextSlideIndex(block)), 5000);
   }
-
-  setInterval(() => showSlide(block, getNextSlideIndex(block)), 5000);
 }
