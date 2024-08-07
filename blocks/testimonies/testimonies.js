@@ -1,8 +1,10 @@
-export const setupPositions = (children, selectedIndex) => {
+export const setupPositions = (block) => {
+  const children = block.querySelectorAll('.testimony');
+  const { selectedIndex } = block.dataset;
   let counter = 0;
   children.forEach((child, index) => {
     child.className = child.className.replace(/pos-\d+/, '');
-    if (index !== selectedIndex) {
+    if (index !== parseInt(selectedIndex, 10)) {
       child.classList.add(`pos-${counter}`);
       counter += 1;
     }
@@ -25,21 +27,21 @@ export const showTestimony = (block, index) => {
 };
 
 const cycleTestimonies = (children, block) => {
-  let { selectedIndex } = block.dataset;
+  let selectedIndex = parseInt(block.dataset.selectedIndex,10);
   children[selectedIndex].classList.remove('selected');
   children[selectedIndex].classList.add('unselected');
 
   selectedIndex = (selectedIndex + 1) % children.length;
+  block.dataset.selectedIndex = selectedIndex.toString();
 
-  setupPositions(children, selectedIndex);
+  setupPositions(block);
 
   children[selectedIndex].classList.remove('unselected');
   children[selectedIndex].classList.add('selected');
-
-  block.dataset.selectedIndex = selectedIndex;
 };
 
-export const startScroll = (children, block) => {
+export const startScroll = (block) => {
+  const children = block.querySelectorAll('.testimony');
   block.dataset.testimoniesInterval = setInterval(() => cycleTestimonies(children, block), 12000);
 };
 
@@ -49,7 +51,7 @@ export const startScroll = (children, block) => {
  */
 export default function decorate(block) {
   const children = [...block.children];
-  block.dataset.selectedIndex = 0;
+  block.dataset.selectedIndex = '0';
   children.forEach((child, index) => {
     const [img, content] = child.querySelectorAll(':scope > div');
     child.classList.add('testimony', index === 0 ? 'selected' : 'unselected');
@@ -87,6 +89,6 @@ export default function decorate(block) {
 
     img.append(...animationCircles, ...confetti);
   });
-  setupPositions(children, block);
-  startScroll(children, block);
+  setupPositions(block);
+  startScroll(block);
 }
