@@ -150,7 +150,6 @@ export default function decorate(block) {
 
   const slidesWrapper = document.createElement('ul');
   slidesWrapper.classList.add('carousel-slides');
-  block.prepend(slidesWrapper);
 
   let slideIndicators;
   if (!isSingleSlide) {
@@ -160,6 +159,8 @@ export default function decorate(block) {
     slideIndicators.classList.add('carousel-slide-indicators');
     slideIndicatorsNav.append(slideIndicators);
     container.append(slideIndicatorsNav);
+  } else {
+    slidesWrapper.classList.add('single-slide');
   }
 
   rows.forEach((row, idx) => {
@@ -173,7 +174,7 @@ export default function decorate(block) {
       if (slide.classList.contains('font-white')) {
         indicator.classList.add('font-white');
       }
-      if (idx === 1) {
+      if (idx === 0) {
         indicator.innerHTML = '<button type="button" active="true"></button>';
       } else {
         indicator.innerHTML = '<button type="button"></button>';

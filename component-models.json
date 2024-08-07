@@ -220,10 +220,6 @@
     ]
   },
   {
-    "id": "hero-carousel",
-    "fields": []
-  },
-  {
     "id": "content-slide",
     "fields": [
       {
@@ -232,7 +228,7 @@
         "label": "Block Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 4,
+        "maxSize": 3,
         "options": [
           {
             "name": "Background Color",
@@ -264,19 +260,6 @@
               {
                 "name": "Gradient",
                 "value": "background-gradient"
-              }
-            ]
-          },
-          {
-            "name": "Background Image",
-            "children": [
-              {
-                "name": "On",
-                "value": "with-background-image"
-              },
-              {
-                "name": "Off",
-                "value": "no-background-image"
               }
             ]
           },
@@ -386,7 +369,7 @@
         "label": "Block Style",
         "valueType": "string",
         "required": true,
-        "maxSize": 3,
+        "maxSize": 2,
         "options": [
           {
             "name": "Background Color",
@@ -418,19 +401,6 @@
               {
                 "name": "Gradient",
                 "value": "background-gradient"
-              }
-            ]
-          },
-          {
-            "name": "Background Image",
-            "children": [
-              {
-                "name": "On",
-                "value": "with-background-image"
-              },
-              {
-                "name": "Off",
-                "value": "no-background-image"
               }
             ]
           },

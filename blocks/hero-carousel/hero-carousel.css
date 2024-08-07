@@ -37,6 +37,11 @@
   overflow: hidden;
 }
 
+.hero-carousel .carousel-slides.single-slide .carousel-slide .carousel-slide-background {
+  transform: none;
+  transition: none;
+}
+
 .hero-carousel .carousel-slide .carousel-slide-background {
   display: block;
   position: relative;
@@ -280,7 +285,7 @@
   padding: 0;
 }
 
-.hero-carousel .carousel-slide-indicator.font-white button[active="active"] {
+.hero-carousel .carousel-slide-indicator.font-white button[active="true"] {
   background: var(--white);
 }
 
