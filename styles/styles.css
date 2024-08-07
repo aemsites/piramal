@@ -96,12 +96,11 @@
   --purple: #7F4CA8;
   --darkgreen: #349E58;
   --light-white-20: #fafafa;
-
+  
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono',
-    monospace;
+  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes mobile */
   --body-font-size-m: 14px;
@@ -188,7 +187,6 @@
   }
 }
 
-
 body {
   font-size: var(--body-font-size-m);
   margin: 0;
@@ -197,6 +195,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.appear {
@@ -358,6 +357,10 @@ main .section {
   padding: 20px 16px;
 }
 
+footer .section {
+  padding-inline: 20px;
+}
+
 /* max width for all wrapper divs */
 .section>div {
   max-width: var(--max-width);
@@ -373,6 +376,10 @@ main .section {
   /* section margin for >= tablet */
   main .section {
     padding: 60px 16px;
+  }
+
+  footer .section {
+    padding-inline: 60px;
   }
 }
 

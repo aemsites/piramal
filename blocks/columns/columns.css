@@ -16,10 +16,6 @@
   align-items: start;
 }
 
-.columns.badges.content-center > div {
-  row-gap: 2.5rem;
-}
-
 .columns img {
   width: 100%;
 }
@@ -95,6 +91,21 @@
   margin-top: 3em;
 }
 
+.block.columns.clickable-images .button-container {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.block.columns.clickable-images .button-container a {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 @media (width >= 900px) {
   .block.columns.badges img,
   .block.columns.info-grid img {
@@ -148,4 +159,8 @@
   .block.columns.info-grid h3 strong {
     font-weight: 800;
   }
+}
+
+.block.block.columns.clickable-images > div > div {
+  position: relative;
 }
