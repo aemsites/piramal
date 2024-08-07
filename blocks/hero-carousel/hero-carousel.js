@@ -26,12 +26,11 @@ function updateActiveSlide(slide) {
   });
 }
 
-function showSlide(block, slideIndex = 0) {
+export function showSlide(block, slideIndex = 0) {
   const slides = block.querySelectorAll('.carousel-slide');
   let realSlideIndex = slideIndex < 0 ? slides.length - 1 : slideIndex;
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
-
   block.querySelector('.carousel-slides').scrollTo({
     top: 0,
     left: activeSlide.offsetLeft,
@@ -141,6 +140,11 @@ function createSlide(row, slideIndex) {
   return slide;
 }
 
+export function startAutoScroll(block) {
+  // store the interval id
+  block.dataset.heroInterval = setInterval(() => showSlide(block, getNextSlideIndex(block)), 5000);
+}
+
 export default function decorate(block) {
   const rows = block.querySelectorAll(':scope > div');
   const isSingleSlide = rows.length < 2;
@@ -196,5 +200,5 @@ export default function decorate(block) {
     bindEvents(block);
   }
 
-  setInterval(() => showSlide(block, getNextSlideIndex(block)), 5000);
+  startAutoScroll(block);
 }

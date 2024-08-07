@@ -1,4 +1,5 @@
 /* eslint-disable no-restricted-syntax */
+import { showSlide, startAutoScroll} from '../blocks/hero-carousel/hero-carousel.js';
 import {
   decorateBlock,
   decorateBlocks,
@@ -16,6 +17,12 @@ function getState(block) {
     return [...block.querySelectorAll('details[open]')]
       .map((details) => details.dataset.aueResource);
   }
+
+  // store the slide index
+  if (block.matches('.hero-carousel')) {
+    return block.dataset.activeSlide;
+  }
+
   return null;
 }
 
@@ -24,6 +31,15 @@ function setState(block, state) {
     block.querySelectorAll('details').forEach((details) => {
       details.open = state.includes(details.dataset.aueResource);
     });
+  }
+
+  // restore the active slide
+  if (block.matches('.hero-carousel')) {
+    // dont start scrolling after edit
+    clearInterval(block.dataset.heroInterval);
+    // make sure its visible or observer will not work correctly
+    block.style.display = null;
+    showSlide(block, state);
   }
 }
 
@@ -144,6 +160,13 @@ function handleSelection(event) {
       const details = element.matches('details') ? element : element.querySelector('details');
       details.open = true;
     }
+
+    // if a hero carousel slide was selected (or anything inside)
+    if (block && block.matches('.hero-carousel') && detail.selected && !element.classList.contains('block')) {
+      if (block.dataset.activeSlide !== element.dataset.slideIndex) {
+        showSlide(block, element.dataset.slideIndex);
+      }
+    }
   }
 }
 
@@ -204,6 +227,21 @@ function attachEventListners(main) {
   }));
 
   main?.addEventListener('aue:ui-select', handleSelection);
+
+  // turn on/off autoscrolling for hero carousel if in edit or preview
+  document.querySelectorAll('.hero-carousel').forEach((heroCarousel) => {
+    // when entering edit mode stop scrolling
+    document.addEventListener('aue:ui-edit', () => {
+      console.log('Entered aue:ui-edit');
+      clearInterval(heroCarousel.dataset.heroInterval);
+    });
+
+    // when entering preview mode start scrolling
+    document.addEventListener('aue:ui-preview', () => {
+      console.log('Entered aue:ui-preview');
+      startAutoScroll(heroCarousel);
+    });
+  });
 }
 
 function removeInstrumentation(editable) {
