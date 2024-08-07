@@ -9,6 +9,21 @@ export const setupPositions = (children, selectedIndex) => {
   });
 };
 
+export const showTestimony = (block, index) => {
+  const children = [...block.children];
+  children.forEach((child, i) => {
+    if (i === index) {
+      child.classList.remove('unselected');
+      child.classList.add('selected');
+    } else {
+      child.classList.remove('selected');
+      child.classList.add('unselected');
+    }
+  });
+  block.dataset.selectedIndex = index;
+  setupPositions(children, index);
+};
+
 const cycleTestimonies = (children, block) => {
   let { selectedIndex } = block.dataset;
   children[selectedIndex].classList.remove('selected');

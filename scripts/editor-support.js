@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-syntax */
 import { showSlide, startAutoScroll } from '../blocks/hero-carousel/hero-carousel.js';
-import { startScroll } from '../blocks/testimonies/testimonies.js';
+import { showTestimony, startScroll } from '../blocks/testimonies/testimonies.js';
 import {
   decorateBlock,
   decorateBlocks,
@@ -23,7 +23,9 @@ function getState(block) {
   if (block.matches('.hero-carousel')) {
     return block.dataset.activeSlide;
   }
-
+  if (block.matches('.testimonies')) {
+    return block.dataset.selectedIndex;
+  }
   return null;
 }
 
@@ -41,6 +43,10 @@ function setState(block, state) {
     // make sure its visible or observer will not work correctly
     block.style.display = null;
     showSlide(block, state);
+  }
+  if (block.matches('.testimonies')) {
+    clearInterval(block.dataset.testimoniesInterval);
+    showTestimony(block, state);
   }
 }
 
