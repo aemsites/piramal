@@ -10,7 +10,7 @@ export const setupPositions = (children, selectedIndex) => {
 };
 
 export const showTestimony = (block, index) => {
-  const children = [...block.children];
+  const children = block.querySelectorAll('.testimony');
   children.forEach((child, i) => {
     if (i === index) {
       child.classList.remove('unselected');
