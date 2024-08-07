@@ -4,6 +4,10 @@ footer {
   font-size: var(--body-font-size-s);
 }
 
+footer .section:nth-child(1) {
+  padding-top: 40px;
+}
+
 footer .footer {
   /* max-width: 1200px; */
   margin: auto;
@@ -33,7 +37,7 @@ footer > .footer.block > div > .section:nth-child(3) > *,
 footer > .footer.block > div > .section:nth-child(2) > *,
 footer > .footer.block > div > .section:nth-child(1) > * {
   border-bottom: 1px solid var(--piramal-blue-80);
-  padding-bottom: 2.5rem;
+  padding-bottom: 2rem;
 }
 
 footer > .footer.block div .section:nth-child(1) > .default-content-wrapper {

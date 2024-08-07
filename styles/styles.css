@@ -346,6 +346,7 @@ main .section {
   /* section padding/margin for mobile */
   padding: 20px 16px;
 }
+
 footer .section {
   padding-inline: 20px;
 }
@@ -366,6 +367,7 @@ footer .section {
   main .section {
     padding: 60px 16px;
   }
+
   footer .section {
     padding-inline: 60px;
   }
