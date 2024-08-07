@@ -1,5 +1,9 @@
+/**
+ * 
+ * @param {Element} block
+ */
 export const setupPositions = (block) => {
-  const children = block.querySelectorAll('.testimony');
+  const children = [...block.querySelectorAll('.testimony')];
   const { selectedIndex } = block.dataset;
   let counter = 0;
   children.forEach((child, index) => {
@@ -12,7 +16,7 @@ export const setupPositions = (block) => {
 };
 
 export const showTestimony = (block, index) => {
-  const children = block.querySelectorAll('.testimony');
+  const children = [...block.querySelectorAll('.testimony')];
   children.forEach((child, i) => {
     if (i === index) {
       child.classList.remove('unselected');
@@ -22,27 +26,32 @@ export const showTestimony = (block, index) => {
       child.classList.add('unselected');
     }
   });
-  block.dataset.selectedIndex = index;
-  setupPositions(children, index);
+  block.dataset.selectedIndex = typeof index === 'string' ? index : index.toString();
+  setupPositions(block);
 };
 
 const cycleTestimonies = (children, block) => {
-  let selectedIndex = parseInt(block.dataset.selectedIndex,10);
+  let selectedIndex = parseInt(block.dataset.selectedIndex, 10);
   children[selectedIndex].classList.remove('selected');
   children[selectedIndex].classList.add('unselected');
 
   selectedIndex = (selectedIndex + 1) % children.length;
   block.dataset.selectedIndex = selectedIndex.toString();
 
-  setupPositions(block);
-
   children[selectedIndex].classList.remove('unselected');
   children[selectedIndex].classList.add('selected');
 };
 
+/**
+ *
+ * @param {Element} block
+ */
 export const startScroll = (block) => {
-  const children = block.querySelectorAll('.testimony');
-  block.dataset.testimoniesInterval = setInterval(() => cycleTestimonies(children, block), 12000);
+  const children = [...block.querySelectorAll('.testimony')];
+  block.dataset.testimoniesInterval = setInterval(() => {
+    cycleTestimonies(children, block);
+    showTestimony(block, parseInt(block.dataset.selectedIndex, 10));
+  }, 12000);
 };
 
 /**

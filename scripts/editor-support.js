@@ -175,7 +175,7 @@ function handleSelection(event) {
       }
     }
     if (block && block.matches('.testimonies') && detail.selected) {
-      console.log(element.dataset.index,block.dataset.selectedIndex,block);
+      console.log(element.dataset.index, block.dataset.selectedIndex, block);
       showTestimony(block, element.dataset.index);
     }
   }
