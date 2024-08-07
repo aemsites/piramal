@@ -223,7 +223,7 @@
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description .button-container a {
-  background-color: var(--main-cta-background);
+  background-color: var(--orange);
   cursor: pointer;
   border-radius: 8px;
   font-weight: 700;

@@ -32,13 +32,11 @@ function showSlide(block, slideIndex = 0) {
   if (slideIndex >= slides.length) realSlideIndex = 0;
   const activeSlide = slides[realSlideIndex];
 
-  if (slides.length > 1) {
-    block.querySelector('.carousel-slides').scrollTo({
-      top: 0,
-      left: activeSlide.offsetLeft,
-      behavior: 'instant',
-    });
-  }
+  block.querySelector('.carousel-slides').scrollTo({
+    top: 0,
+    left: activeSlide.offsetLeft,
+    behavior: 'instant',
+  });
 }
 
 function bindEvents(block) {
@@ -165,12 +163,6 @@ export default function decorate(block) {
   }
 
   rows.forEach((row, idx) => {
-    if (idx === 0) {
-      // TODO - Control auto-scroll basis parameter if needed
-      row.remove();
-      return;
-    }
-
     const slide = createSlide(row, idx - 1);
     slidesWrapper.append(slide);
 
