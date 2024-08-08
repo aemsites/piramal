@@ -12,7 +12,8 @@ const isDesktop = window.matchMedia('(min-width: 1201px)');
 const wrapListUE = (navSection) => {
   const title = navSection.firstChild;
   const p = document.createElement('p');
-  if (window.isEditor) {
+  if (navSection.children.length !== 2) {
+    console.log(navSection);
     p.append(title);
     navSection.prepend(p);
     navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
@@ -21,8 +22,14 @@ const wrapListUE = (navSection) => {
       const p2 = document.createElement('p');
       console.log(icon, text);
       console.log(subSection.children);
+      if (subSection.childNodes.length === 3) {
+        console.log(text, subSection.lastElementChild);
+        p2.append(icon, text);
+        subSection.prepend(p2);
+      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName !== 'UL' && subSection.lastElementChild.tagName !== 'P') {
         p2.append(...subSection.childNodes);
         subSection.prepend(p2);
+      }
     });
   }
 };
