@@ -259,7 +259,7 @@ export default async function decorate(block) {
       mobNav.classList.add('desk-dp-none');
       navBrand.prepend(mobNav);
       // navSections.prepend(mobFragment.lastElementChild.lastElementChild);
-      mobNav.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      mobNav.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         wrapListUE(navSection);
       });
       mobNav.querySelectorAll('ul ul').forEach((el) => {
