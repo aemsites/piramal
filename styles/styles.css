@@ -21,7 +21,7 @@
   --hamburger-color: #0000008a;
   --text-color-dark-gray: rgb(51 51 51);
   --text-color-light-gray: rgb(89 89 89);
-  --main-cta-background: #a42e0e;
+  --main-cta-background: #f26841;
 
   /* piramal site colors */
   --piramal-white-100: #fff;
@@ -96,7 +96,7 @@
   --purple: #7F4CA8;
   --darkgreen: #349E58;
   --light-white-20: #fafafa;
-  
+
   /* fonts */
   --body-font-family: nunito, nunito-normal-400-fallback;
   --heading-font-family: var(--body-font-family);
@@ -362,12 +362,13 @@ footer .section {
 }
 
 /* max width for all wrapper divs */
-.section>div {
+.section > div {
   max-width: var(--max-width);
   margin: auto;
 }
 
 @media (width >=900px) {
+
   /* max width for all wrapper divs */
   :root {
     --max-width: 900px;

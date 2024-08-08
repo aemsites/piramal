@@ -125,7 +125,7 @@
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description em {
-  color: var(--orange);
+  color: var(--main-cta-background);
   font-style: unset;
 }
 
@@ -228,7 +228,7 @@
 }
 
 .hero-carousel .carousel-slide-content .carousel-slide-description .button-container a {
-  background-color: var(--orange);
+  background-color: var(--main-cta-background);
   cursor: pointer;
   border-radius: 8px;
   font-weight: 700;
