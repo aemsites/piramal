@@ -30,7 +30,8 @@ const wrapListUE = (navSection) => {
         p2.append(...subSection.childNodes);
         subSection.prepend(p2);
       } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'UL') {
-        subSection.prepend(...[...subSection.childNodes].filter((n) => n.tagName !== 'UL'));
+        p2.append(...[...subSection.childNodes].filter((n) => n.tagName !== 'UL'));
+        subSection.prepend(p2);
       }
     });
   }
