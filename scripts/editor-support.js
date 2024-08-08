@@ -13,6 +13,8 @@ import {
 import { decorateRichtext } from './editor-support-rte.js';
 import { decorateMain, moveInstrumentation } from './scripts.js';
 
+window.isEditor = true;
+
 function getState(block) {
   if (block.matches('.accordion')) {
     return [...block.querySelectorAll('details[open]')]
@@ -222,7 +224,6 @@ async function rewriteBlockLabels(main, blocks = ['Table']) {
 }
 
 function attachEventListners(main) {
-  window.isEditor = true;
   [
     'aue:content-patch',
     'aue:content-update',

@@ -12,10 +12,14 @@ const isDesktop = window.matchMedia('(min-width: 1201px)');
 const wrapListUE = (navSection) => {
   const title = navSection.firstChild;
   const p = document.createElement('p');
+  if(!window.isEditor)
+      return;
   if (navSection.children.length !== 2) {
     console.log(navSection);
-    p.append(title);
-    navSection.prepend(p);
+    if (navSection.firstElementChild.tagName === 'P') {
+      p.append(title);
+      navSection.prepend(p);
+    }
     navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
       const icon = subSection.firstChild;
       const text = subSection.firstChild.nextSibling;
