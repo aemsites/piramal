@@ -5,6 +5,26 @@ import { loadFragment } from '../fragment/fragment.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1201px)');
 
+const wrapListUE = (navSection) => {
+  const title = navSection.firstChild;
+  const p = document.createElement('p');
+  if (navSection.children.length !== 2) {
+    p.append(title);
+    navSection.prepend(p);
+    navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
+      const icon = subSection.firstChild;
+      const text = subSection.firstChild.nextSibling;
+      const p2 = document.createElement('p');
+      console.log(icon, text);
+      if (subSection.childNodes.length === 3) {
+        console.log(text, subSection.lastElementChild);
+        p2.append(icon, text);
+        subSection.prepend(p2);
+      }
+    });
+  }
+};
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -199,26 +219,9 @@ export default async function decorate(block) {
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      const title = navSection.firstChild;
-      const p = document.createElement('p');
-      if(navSection.children.length !== 2){
-        p.append(title);
-          navSection.prepend(p);
-          navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
-            const icon = subSection.firstChild;
-            const text = subSection.firstChild.nextSibling;
-            const p2 = document.createElement('p');
-            console.log(icon,text);
-            if(subSection.childNodes.length === 3){
-              console.log(text,subSection.lastElementChild);
-              p2.append(icon, text);
-              subSection.prepend(p2);
-            }
-          });
-      }
-
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
+        wrapListUE(navSection);
         const expanded = navSection.getAttribute('aria-expanded') === 'true';
         toggleAllNavSections(navSections);
         if (navSection.classList.contains('nav-drop')) {
@@ -256,6 +259,9 @@ export default async function decorate(block) {
       mobNav.classList.add('desk-dp-none');
       navBrand.prepend(mobNav);
       // navSections.prepend(mobFragment.lastElementChild.lastElementChild);
+      mobNav.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+        wrapListUE(navSection);
+      });
       mobNav.querySelectorAll('ul ul').forEach((el) => {
         el.querySelectorAll('ul').forEach((ele) => {
           ele.setAttribute('aria-expanded', 'false');
