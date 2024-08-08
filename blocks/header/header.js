@@ -201,17 +201,21 @@ export default async function decorate(block) {
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       const title = navSection.firstChild;
       const p = document.createElement('p');
-
-      p.append(title);
-        navSection.prepend(p);
-        navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
-          const icon = subSection.firstChild;
-          const text = subSection.firstChild.nextSibling;
-          const p2 = document.createElement('p');
-          p2.append(icon, text);
-          subSection.prepend(p2);
-        });
-      
+      if(navSection.children.length !== 2){
+        p.append(title);
+          navSection.prepend(p);
+          navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
+            const icon = subSection.firstChild;
+            const text = subSection.firstChild.nextSibling;
+            const p2 = document.createElement('p');
+            console.log(icon,text);
+            if(subSection.childNodes.length === 3){
+              console.log(text,subSection.lastElementChild);
+              p2.append(icon, text);
+              subSection.prepend(p2);
+            }
+          });
+      }
 
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
