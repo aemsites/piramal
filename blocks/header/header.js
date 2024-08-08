@@ -12,8 +12,9 @@ const isDesktop = window.matchMedia('(min-width: 1201px)');
 const wrapListUE = (navSection) => {
   const title = navSection.firstChild;
   const p = document.createElement('p');
+  console.log(window.isEditor);
   if(!window.isEditor)
-      return;
+    return;
   if (navSection.children.length !== 2) {
     console.log(navSection);
     if (navSection.firstElementChild.tagName === 'P') {
