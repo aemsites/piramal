@@ -5,6 +5,10 @@ import { loadFragment } from '../fragment/fragment.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1201px)');
 
+/**
+ *
+ * @param {Element} navSection
+ */
 const wrapListUE = (navSection) => {
   const title = navSection.firstChild;
   const p = document.createElement('p');
@@ -18,6 +22,9 @@ const wrapListUE = (navSection) => {
       console.log(icon, text);
       if (subSection.childNodes.length === 3) {
         console.log(text, subSection.lastElementChild);
+        p2.append(icon, text);
+        subSection.prepend(p2);
+      } else if (subSection.lastElementChild.tagName === 'span') {
         p2.append(icon, text);
         subSection.prepend(p2);
       }
