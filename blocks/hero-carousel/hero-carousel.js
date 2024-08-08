@@ -14,6 +14,13 @@ function updateActiveSlide(slide) {
   const slides = block.querySelectorAll('.carousel-slide');
   slides.forEach((aSlide, idx) => {
     aSlide.setAttribute('aria-hidden', idx !== slideIndex);
+    aSlide.querySelectorAll('a').forEach((link) => {
+      if (idx !== slideIndex) {
+        link.setAttribute('tabindex', '-1');
+      } else {
+        link.removeAttribute('tabindex');
+      }
+    });
   });
 
   const indicators = block.querySelectorAll('.carousel-slide-indicator');
