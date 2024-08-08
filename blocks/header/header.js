@@ -29,6 +29,8 @@ const wrapListUE = (navSection) => {
       } else if (subSection.lastElementChild && subSection.lastElementChild.tagName !== 'UL' && subSection.lastElementChild.tagName !== 'P') {
         p2.append(...subSection.childNodes);
         subSection.prepend(p2);
+      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'UL') {
+        subSection.prepend(...[...subSection.childNodes].filter((n) => n.tagName !== 'UL'));
       }
     });
   }
