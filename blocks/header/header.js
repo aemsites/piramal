@@ -206,11 +206,7 @@ export default async function decorate(block) {
       if (title.nextSibling != null) {
         navSection.prepend(p);
         navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
-          const icon = subSection.firstChild;
-          const text = subSection.firstChild.nextSibling;
-          const p2 = document.createElement('p');
-          p2.append(icon, text);
-          subSection.prepend(p2);
+          console.log(subSection,subSection.firstChild,subSection.firstChild.nextSibling);
         });
       }
 
