@@ -104,6 +104,7 @@ function decorateImageIcons(element, prefix = '') {
       const img = document.createElement('img');
       img.src = `${window.hlx.codeBasePath}${prefix}/images/${imageName}.webp`;
       img.alt = anchor.title;
+      img.loading = 'lazy';
       anchor.appendChild(img);
     }
   });

@@ -14,6 +14,13 @@ function updateActiveSlide(slide) {
   const slides = block.querySelectorAll('.carousel-slide');
   slides.forEach((aSlide, idx) => {
     aSlide.setAttribute('aria-hidden', idx !== slideIndex);
+    aSlide.querySelectorAll('a').forEach((link) => {
+      if (idx !== slideIndex) {
+        link.setAttribute('tabindex', '-1');
+      } else {
+        link.removeAttribute('tabindex');
+      }
+    });
   });
 
   const indicators = block.querySelectorAll('.carousel-slide-indicator');
@@ -154,7 +161,6 @@ export default function decorate(block) {
 
   const slidesWrapper = document.createElement('ul');
   slidesWrapper.classList.add('carousel-slides');
-  block.prepend(slidesWrapper);
 
   let slideIndicators;
   if (!isSingleSlide) {
@@ -164,29 +170,25 @@ export default function decorate(block) {
     slideIndicators.classList.add('carousel-slide-indicators');
     slideIndicatorsNav.append(slideIndicators);
     container.append(slideIndicatorsNav);
+  } else {
+    slidesWrapper.classList.add('single-slide');
   }
 
   rows.forEach((row, idx) => {
-    if (idx === 0) {
-      // TODO - Control auto-scroll basis parameter if needed
-      row.remove();
-      return;
-    }
-
-    const slide = createSlide(row, idx - 1);
+    const slide = createSlide(row, idx);
     slidesWrapper.append(slide);
 
     if (slideIndicators) {
       const indicator = document.createElement('li');
       indicator.classList.add('carousel-slide-indicator');
-      indicator.dataset.targetSlide = idx - 1;
+      indicator.dataset.targetSlide = idx;
       if (slide.classList.contains('font-white')) {
         indicator.classList.add('font-white');
       }
-      if (idx === 1) {
-        indicator.innerHTML = '<button type="button" active="true"></button>';
+      if (idx === 0) {
+        indicator.innerHTML = `<button type="button" aria-label="Show Slide ${idx + 1} of ${rows.length}" active="true"></button>`;
       } else {
-        indicator.innerHTML = '<button type="button"></button>';
+        indicator.innerHTML = `<button type="button" aria-label="Show Slide ${idx + 1} of ${rows.length}"></button>`;
       }
       slideIndicators.append(indicator);
     }
@@ -198,7 +200,6 @@ export default function decorate(block) {
 
   if (!isSingleSlide) {
     bindEvents(block);
+    startAutoScroll(block);
   }
-
-  startAutoScroll(block);
 }
