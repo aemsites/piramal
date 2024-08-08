@@ -222,6 +222,7 @@ async function rewriteBlockLabels(main, blocks = ['Table']) {
 }
 
 function attachEventListners(main) {
+  window.isEditor = true;
   [
     'aue:content-patch',
     'aue:content-update',

@@ -12,7 +12,7 @@ const isDesktop = window.matchMedia('(min-width: 1201px)');
 const wrapListUE = (navSection) => {
   const title = navSection.firstChild;
   const p = document.createElement('p');
-  if (navSection.children.length !== 2) {
+  if (window.isEditor) {
     p.append(title);
     navSection.prepend(p);
     navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
@@ -21,14 +21,8 @@ const wrapListUE = (navSection) => {
       const p2 = document.createElement('p');
       console.log(icon, text);
       console.log(subSection.children);
-      if (subSection.childNodes.length === 3) {
-        console.log(text, subSection.lastElementChild);
-        p2.append(icon, text);
+        p2.append(...subSection.childNodes);
         subSection.prepend(p2);
-      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'SPAN') {
-        p2.append(icon, text);
-        subSection.prepend(p2);
-      }
     });
   }
 };
