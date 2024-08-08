@@ -593,7 +593,7 @@ header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul {
   margin-top: 20px;
 }
 
-header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul li.nav-drop:not(:has(p)) {
+header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul li.nav-drop:has(p) {
   padding-right: 20px;
   position: unset;
 }
