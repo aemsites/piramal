@@ -20,7 +20,7 @@ const wrapListUE = (navSection) => {
     p.append(...[...navSection.childNodes].filter((n) => n.tagName !== 'UL'));
     navSection.prepend(p);
   }
-  navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
+  navSection.querySelectorAll(':scope > ul > li:not(:has( > a))').forEach((subSection) => {
     const icon = subSection.firstChild;
     const text = subSection.firstChild.nextSibling;
     const p2 = document.createElement('p');
