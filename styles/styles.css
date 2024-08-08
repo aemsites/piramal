@@ -368,7 +368,6 @@ footer .section {
 }
 
 @media (width >=900px) {
-
   /* max width for all wrapper divs */
   :root {
     --max-width: 900px;
