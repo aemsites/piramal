@@ -20,11 +20,12 @@ const wrapListUE = (navSection) => {
       const text = subSection.firstChild.nextSibling;
       const p2 = document.createElement('p');
       console.log(icon, text);
+      console.log(subSection.children);
       if (subSection.childNodes.length === 3) {
         console.log(text, subSection.lastElementChild);
         p2.append(icon, text);
         subSection.prepend(p2);
-      } else if (subSection.lastElementChild.tagName === 'span') {
+      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'span') {
         p2.append(icon, text);
         subSection.prepend(p2);
       }
