@@ -13,33 +13,35 @@ const wrapListUE = (navSection) => {
   const title = navSection.firstChild;
   const p = document.createElement('p');
   console.log(window.isEditor);
-  if(!window.isEditor)
-    return;
-  if (navSection.children.length !== 2) {
-    console.log(navSection);
-    if (navSection.firstElementChild.tagName !== 'P') {
-      p.append(title);
-      navSection.prepend(p);
-    }
-    navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
-      const icon = subSection.firstChild;
-      const text = subSection.firstChild.nextSibling;
-      const p2 = document.createElement('p');
-      console.log(icon, text);
-      console.log(subSection.children);
-      if (subSection.childNodes.length === 3) {
-        console.log(text, subSection.lastElementChild);
-        p2.append(icon, text);
-        subSection.prepend(p2);
-      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName !== 'UL' && subSection.lastElementChild.tagName !== 'P') {
-        p2.append(...subSection.childNodes);
-        subSection.prepend(p2);
-      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'UL') {
-        p2.append(...[...subSection.childNodes].filter((n) => n.tagName !== 'UL'));
-        subSection.prepend(p2);
-      }
-    });
+  if (!window.isEditor) return;
+  // if (navSection.children.length !== 2) {
+  console.log(navSection);
+  if (navSection.firstElementChild.tagName !== 'P') {
+    p.append(...[...navSection.childNodes].filter((n) => n.tagName !== 'UL'));
+    navSection.prepend(p);
   }
+  navSection.querySelectorAll(':scope > ul > li').forEach((subSection) => {
+    const icon = subSection.firstChild;
+    const text = subSection.firstChild.nextSibling;
+    const p2 = document.createElement('p');
+    console.log(icon, text);
+    console.log(subSection.children);
+    if (subSection.childNodes.length === 3) {
+      console.log(text, subSection.lastElementChild);
+      p2.append(icon, text);
+      subSection.prepend(p2);
+    } else if (subSection.lastElementChild && subSection.lastElementChild.tagName !== 'UL' && subSection.lastElementChild.tagName !== 'P') {
+      p2.append(...subSection.childNodes);
+      subSection.prepend(p2);
+    } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'UL') {
+      p2.append(...[...subSection.childNodes].filter((n) => n.tagName !== 'UL'));
+      subSection.prepend(p2);
+    }
+  });
+  // }else{
+  //   p.append(...subSection.childNodes);
+  //   navSection.prepend(p2);
+  // }
 };
 
 function closeOnEscape(e) {
