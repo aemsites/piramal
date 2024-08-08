@@ -25,7 +25,7 @@ const wrapListUE = (navSection) => {
         console.log(text, subSection.lastElementChild);
         p2.append(icon, text);
         subSection.prepend(p2);
-      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'span') {
+      } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'SPAN') {
         p2.append(icon, text);
         subSection.prepend(p2);
       }
