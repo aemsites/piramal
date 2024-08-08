@@ -5,6 +5,42 @@ import { loadFragment } from '../fragment/fragment.js';
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1201px)');
 
+/**
+ *
+ * @param {Element} navSection
+ */
+const wrapListUE = (navSection) => {
+  const p = document.createElement('p');
+  if (!window.isEditor) return;
+  if (navSection.firstElementChild.tagName !== 'P') {
+    p.append(...[...navSection.childNodes].filter((n) => n.tagName !== 'UL'));
+    navSection.prepend(p);
+  }
+  navSection.querySelectorAll(':scope > ul > li:not(:has( > a))').forEach((subSection) => {
+    const icon = subSection.firstChild;
+    const text = subSection.firstChild.nextSibling;
+    const p2 = document.createElement('p');
+    if (subSection.childNodes.length === 3) {
+      p2.append(icon, text);
+      subSection.prepend(p2);
+    } else if (
+      subSection.lastElementChild
+      && subSection.lastElementChild.tagName !== 'UL'
+      && subSection.lastElementChild.tagName !== 'P'
+    ) {
+      p2.append(...subSection.childNodes);
+      subSection.prepend(p2);
+    } else if (subSection.lastElementChild && subSection.lastElementChild.tagName === 'UL') {
+      p2.append(...[...subSection.childNodes].filter((n) => n.tagName !== 'UL'));
+      subSection.prepend(p2);
+    }
+  });
+  // }else{
+  //   p.append(...subSection.childNodes);
+  //   navSection.prepend(p2);
+  // }
+};
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -43,10 +79,12 @@ function focusNavSection() {
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
  */
 function toggleAllNavSections(sections, expanded = false) {
-  sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
-    // section.classList.toggle('active');
-    section.setAttribute('aria-expanded', expanded);
-  });
+  sections
+    .querySelectorAll('.nav-sections .default-content-wrapper > ul > li')
+    .forEach((section) => {
+      // section.classList.toggle('active');
+      section.setAttribute('aria-expanded', expanded);
+    });
 }
 
 /**
@@ -58,7 +96,7 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || isDesktop.matches) ? '' : 'hidden';
+  document.body.style.overflowY = expanded || isDesktop.matches ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, expanded || isDesktop.matches ? 'false' : 'true');
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -132,22 +170,27 @@ async function buildBreadcrumbs() {
   const breadcrumbs = document.createElement('nav');
   breadcrumbs.className = 'breadcrumbs';
 
-  const crumbs = await buildBreadcrumbsFromNavTree(document.querySelector('.nav-sections'), document.location.href);
+  const crumbs = await buildBreadcrumbsFromNavTree(
+    document.querySelector('.nav-sections'),
+    document.location.href,
+  );
 
   const ol = document.createElement('ol');
-  ol.append(...crumbs.map((item) => {
-    const li = document.createElement('li');
-    if (item['aria-current']) li.setAttribute('aria-current', item['aria-current']);
-    if (item.url) {
-      const a = document.createElement('a');
-      a.href = item.url;
-      a.textContent = item.title;
-      li.append(a);
-    } else {
-      li.textContent = item.title;
-    }
-    return li;
-  }));
+  ol.append(
+    ...crumbs.map((item) => {
+      const li = document.createElement('li');
+      if (item['aria-current']) li.setAttribute('aria-current', item['aria-current']);
+      if (item.url) {
+        const a = document.createElement('a');
+        a.href = item.url;
+        a.textContent = item.title;
+        li.append(a);
+      } else {
+        li.textContent = item.title;
+      }
+      return li;
+    }),
+  );
 
   breadcrumbs.append(ol);
   return breadcrumbs;
@@ -198,26 +241,30 @@ export default async function decorate(block) {
   const { body } = document;
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
-      if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        const expanded = navSection.getAttribute('aria-expanded') === 'true';
-        toggleAllNavSections(navSections);
-        if (navSection.classList.contains('nav-drop')) {
-          navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          navSections.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          if (expanded) {
-            body.classList.remove('modal-open');
+    navSections
+      .querySelectorAll(':scope .default-content-wrapper > ul > li')
+      .forEach((navSection) => {
+        wrapListUE(navSection);
+
+        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
+        navSection.addEventListener('click', () => {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+          toggleAllNavSections(navSections);
+          if (navSection.classList.contains('nav-drop')) {
+            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            navSections.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            if (expanded) {
+              body.classList.remove('modal-open');
+            } else {
+              body.classList.add('modal-open');
+            }
           } else {
-            body.classList.add('modal-open');
+            body.classList.remove('modal-open');
+            navSection.setAttribute('aria-expanded', 'false');
+            navSections.setAttribute('aria-expanded', 'false');
           }
-        } else {
-          body.classList.remove('modal-open');
-          navSection.setAttribute('aria-expanded', 'false');
-          navSections.setAttribute('aria-expanded', 'false');
-        }
+        });
       });
-    });
     navSections.querySelectorAll('.button-container').forEach((buttonContainer) => {
       buttonContainer.classList.remove('button-container');
       buttonContainer.querySelector('.button').classList.remove('button');
@@ -238,6 +285,9 @@ export default async function decorate(block) {
       mobNav.classList.add('desk-dp-none');
       navBrand.prepend(mobNav);
       // navSections.prepend(mobFragment.lastElementChild.lastElementChild);
+      mobNav.querySelectorAll(':scope > ul > li').forEach((navSection) => {
+        wrapListUE(navSection);
+      });
       mobNav.querySelectorAll('ul ul').forEach((el) => {
         el.querySelectorAll('ul').forEach((ele) => {
           ele.setAttribute('aria-expanded', 'false');
