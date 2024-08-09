@@ -1,6 +1,6 @@
 import { loadFragment } from '../fragment/fragment.js';
 import {
-  buildBlock, decorateBlock, decorateIcons, loadBlock, loadCSS,
+  buildBlock, decorateBlock, loadBlock, loadCSS,
 } from '../../scripts/aem.js';
 
 // This is not a traditional block, so there is no decorate function. Instead, links to
@@ -15,13 +15,13 @@ export async function createModal(contentNodes) {
   dialogContent.append(...contentNodes);
   dialog.append(dialogContent);
 
-  const closeButton = document.createElement('button');
-  closeButton.classList.add('close-button');
-  closeButton.setAttribute('aria-label', 'Close');
-  closeButton.type = 'button';
-  closeButton.innerHTML = '<span class="icon icon-close"></span>';
+  const closeButton = dialogContent.querySelector('.icon');
+  // closeButton.classList.add('close-button');
+  // closeButton.setAttribute('aria-label', 'Close');
+  // closeButton.type = 'button';
+  // closeButton.innerHTML = '<span class="icon icon-closeIconFill"></span>';
   closeButton.addEventListener('click', () => dialog.close());
-  dialog.append(closeButton);
+  // dialog.append(closeButton);
 
   // close dialog on clicks outside the dialog. https://stackoverflow.com/a/70593278/79461
   dialog.addEventListener('click', (event) => {
@@ -36,7 +36,7 @@ export async function createModal(contentNodes) {
   document.querySelector('main').append(block);
   decorateBlock(block);
   await loadBlock(block);
-  decorateIcons(closeButton);
+  // decorateIcons(closeButton);
 
   dialog.addEventListener('close', () => {
     document.body.classList.remove('modal-open');
