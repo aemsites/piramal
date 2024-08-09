@@ -757,8 +757,16 @@ header .nav-wrapper #nav .section.nav-sections .default-content-wrapper ul li:nt
   color: unset;
 }
 
+header nav#nav .default-content-wrapper .mobile-logo{
+  display: none;
+}
+
 
 @media screen and (width <=1200px) {
+  header nav#nav .default-content-wrapper .mobile-logo{
+    display: unset;
+  }
+  
   header nav#nav .nav-brand {
     width: 100%;
     display: inline-block;
