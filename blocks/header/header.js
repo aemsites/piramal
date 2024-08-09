@@ -277,6 +277,7 @@ export default async function decorate(block) {
     toggleMenu(nav, navSections);
   });
   nav.prepend(hamburger);
+
   nav.setAttribute('aria-expanded', 'false');
   // prevent mobile nav behavior on window resize
   toggleMenu(nav, navSections, isDesktop.matches);
@@ -290,4 +291,8 @@ export default async function decorate(block) {
   if (getMetadata('breadcrumbs').toLowerCase() === 'true') {
     navWrapper.append(await buildBreadcrumbs());
   }
+  const mobileSections = document.querySelector('.nav-sections .default-content-wrapper');
+  const mobileLogo = a.cloneNode(true);
+  mobileLogo.classList.add('mobile-logo');
+  mobileSections.prepend(mobileLogo);
 }
