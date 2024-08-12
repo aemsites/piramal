@@ -766,7 +766,11 @@ header nav#nav .default-content-wrapper .mobile-logo{
   header nav#nav .default-content-wrapper .mobile-logo{
     display: unset;
   }
-  
+
+  header nav#nav .default-content-wrapper .mobile-logo img{
+    width: 96px;
+  }
+
   header nav#nav .nav-brand {
     width: 100%;
     display: inline-block;
